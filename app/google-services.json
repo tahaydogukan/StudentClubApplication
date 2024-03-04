@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1058974273937",
+    "project_id": "studentclubapplication",
+    "storage_bucket": "studentclubapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058974273937:android:34179b58b3e0efd2e9ca30",
+        "android_client_info": {
+          "package_name": "com.tahayasindogukan.studentclubapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjC7gfAuzm4JLWMfuqrKL4rah0-pJ2Qlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
