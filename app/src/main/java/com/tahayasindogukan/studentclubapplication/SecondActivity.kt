@@ -2,14 +2,11 @@ package com.tahayasindogukan.studentclubapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.FirebaseViewModel
-import com.tahayasindogukan.studentclubapplication.databinding.ActivityMainBinding
 import com.tahayasindogukan.studentclubapplication.databinding.ActivitySecondBinding
 
 class SecondActivity : AppCompatActivity() {
@@ -24,7 +21,7 @@ class SecondActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.gecisYap.setOnClickListener {
-            startActivity(Intent(this,UcuncuActivity::class.java))
+            startActivity(Intent(this, UcuncuActivity::class.java))
         }
 
         binding.secondActivityBtnSendActivity.setOnClickListener {

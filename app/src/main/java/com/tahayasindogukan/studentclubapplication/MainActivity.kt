@@ -1,12 +1,11 @@
-package com.tahayasindogukan.studentclubapplication.ui.login.loginMain
+package com.tahayasindogukan.studentclubapplication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.tahayasindogukan.studentclubapplication.SecondActivity
 import com.tahayasindogukan.studentclubapplication.core.repository.FirebaseViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.ActivityMainBinding
 

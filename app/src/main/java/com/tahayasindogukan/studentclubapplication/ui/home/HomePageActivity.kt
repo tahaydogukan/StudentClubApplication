@@ -1,4 +1,4 @@
-package com.tahayasindogukan.studentclubapplication.ui.login.homePage
+package com.tahayasindogukan.studentclubapplication.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

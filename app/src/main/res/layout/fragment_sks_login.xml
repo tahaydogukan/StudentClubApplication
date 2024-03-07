@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#64DD17"
-    tools:context=".ui.login.loginFragments.SksLoginFragment" >
+    tools:context=".ui.login.login.loginFragments.SksLoginFragment" >
 
     <EditText
         android:id="@+id/editTextText"
