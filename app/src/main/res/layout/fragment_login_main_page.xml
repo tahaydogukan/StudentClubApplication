@@ -1,14 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.login.loginFragments.LoginMainPageFragment">
+    android:background="@color/white"
+    android:focusableInTouchMode="true"
+    tools:context=".ui.login.login.loginFragments.LoginMainPageFragment"
+    tools:layout_editor_absoluteX="-172dp"
+    tools:layout_editor_absoluteY="171dp">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginMain_fragment_tw_student"
+        android:layout_width="165dp"
+        android:layout_height="165dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="256dp"
+        android:background="@drawable/normal_background"
+        android:drawableTop="@drawable/login_main_student"
+        android:drawablePadding="15dp"
+        android:paddingTop="35dp"
+        android:tag="1"
+        android:text="Student"
+        android:textColor="#8D8D8D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginMain_fragment_tw_sks_admin"
+        android:layout_width="165dp"
+        android:layout_height="165dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/normal_background"
+        android:drawableTop="@drawable/login_main_sks_admin"
+        android:drawablePadding="15dp"
+        android:paddingTop="35dp"
+        android:tag="3"
+        android:text="HCB ADMIN"
+        android:textColor="#8D8D8D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginMain_fragment_tw_student" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/loginMain_fragment_tw_user_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="#B0B0B0"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginMain_fragment_tw_sks_admin" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="176dp"
+        android:text="SELECT USER TYPE"
+        android:textColor="#6A6A6A"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="16dp"
+        android:text="Please choose the user type"
+        android:textColor="#8D8D8D"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_main_fragment_btn_transition"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/login_main_transition_btn_background"
+        android:drawableLeft="@drawable/login_main_transition_btn_icon"
+        android:drawableTint="#33363F"
+        android:paddingLeft="30dp"
+        app:icon="@drawable/login_main_transition_btn_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginMain_fragment_tw_club_manager"
+        android:layout_width="165dp"
+        android:layout_height="165dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/normal_background"
+        android:drawableTop="@drawable/login_main_club_manager"
+        android:drawablePadding="15dp"
+        android:paddingTop="35dp"
+        android:tag="2"
+        android:text="CLUB MANAGER"
+        android:textColor="#8D8D8D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/loginMain_fragment_tw_student"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="106dp"
+        android:text="BACK"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/login_back_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/normal_background"
+        android:text="Button"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="84dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

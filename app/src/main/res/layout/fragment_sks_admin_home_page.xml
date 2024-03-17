@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.sksAdmin.SksAdminHomePageFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button3"
+        android:layout_width="317dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/sks_admin_home_page_btn_background"
+        android:backgroundTint="#FBB245"
+        android:gravity="end"
+        android:paddingTop="20dp"
+        android:paddingRight="30dp"
+        android:text="Pending"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button4"
+        android:layout_width="317dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="526dp"
+        android:background="@drawable/sks_admin_home_page_btn_background"
+        android:backgroundTint="#91F1BD"
+        android:gravity="end"
+        android:paddingTop="20dp"
+        android:paddingRight="30dp"
+        android:text="Clubs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button5"
+        android:layout_width="317dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/sks_admin_home_page_btn_background"
+        android:backgroundTint="#526EFF"
+        android:gravity="end"
+        android:paddingTop="20dp"
+        android:paddingRight="30dp"
+        android:text="Approved"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button6"
+        android:layout_width="317dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="384dp"
+        android:background="@drawable/sks_admin_home_page_btn_background"
+        android:backgroundTint="#ED7385"
+        android:gravity="end"
+        android:paddingTop="20dp"
+        android:paddingRight="30dp"
+        android:text="Club Managers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="33dp"
+        android:text="Home"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="44dp"
+        android:src="@drawable/settings_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

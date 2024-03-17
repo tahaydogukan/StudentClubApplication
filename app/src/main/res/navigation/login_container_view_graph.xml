@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_containerView_graph"
+    app:startDestination="@id/loginMainPageFragment">
+
+    <fragment
+        android:id="@+id/loginMainPageFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.LoginMainPageFragment"
+        android:label="fragment_login_main_page"
+        tools:layout="@layout/fragment_login_main_page">
+        <action
+            android:id="@+id/action_loginMainPageFragment_to_sksLoginFragment"
+            app:destination="@id/sksLoginFragment" />
+        <action
+            android:id="@+id/action_loginMainPageFragment_to_clubManagerFragment"
+            app:destination="@id/clubManagerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksLoginFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.SksLoginFragment"
+        android:label="fragment_sks_login"
+        tools:layout="@layout/fragment_sks_login">
+        <action
+            android:id="@+id/action_sksLoginFragment_to_loginMainPageFragment"
+            app:destination="@id/loginMainPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.ClubManagerFragment"
+        android:label="fragment_club_manager"
+        tools:layout="@layout/fragment_club_manager">
+        <action
+            android:id="@+id/action_clubManagerFragment_to_loginMainPageFragment"
+            app:destination="@id/loginMainPageFragment" />
+    </fragment>
+</navigation>

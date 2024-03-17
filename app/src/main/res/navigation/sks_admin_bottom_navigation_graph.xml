@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sks_admin_bottom_navigation_graph"
+    app:startDestination="@id/sksAdminHomePageFragment">
+
+    <fragment
+        android:id="@+id/sksAdminHomePageFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminHomePageFragment"
+        android:label="fragment_sks_admin_home_page"
+        tools:layout="@layout/fragment_sks_admin_home_page">
+        <action
+            android:id="@+id/action_sksAdminHomePageFragment_to_sksAdminClubsFragment"
+            app:destination="@id/sksAdminClubsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminCalendarFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminCalendarFragment"
+        android:label="fragment_sks_admin_calendar"
+        tools:layout="@layout/fragment_sks_admin_calendar">
+        <action
+            android:id="@+id/action_sksAdminCalendarFragment_to_sksAdminRequestFragment"
+            app:destination="@id/sksAdminRequestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminProfileFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminProfileFragment"
+        android:label="fragment_sks_admin_profile"
+        tools:layout="@layout/fragment_sks_admin_profile" />
+    <fragment
+        android:id="@+id/sksAdminRequestFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminRequestFragment"
+        android:label="fragment_sks_admin_request"
+        tools:layout="@layout/fragment_sks_admin_request">
+        <action
+            android:id="@+id/action_sksAdminRequestFragment_to_sksAdminProfileFragment"
+            app:destination="@id/sksAdminProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminClubsFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminClubsFragment"
+        android:label="fragment_sks_admin_clubs"
+        tools:layout="@layout/fragment_sks_admin_clubs">
+        <action
+            android:id="@+id/action_sksAdminClubsFragment_to_sksAdminCalendarFragment"
+            app:destination="@id/sksAdminCalendarFragment" />
+    </fragment>
+</navigation>

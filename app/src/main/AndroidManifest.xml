@@ -13,13 +13,13 @@
         android:theme="@style/Theme.StudentClubApplication"
         tools:targetApi="31">
         <activity
-            android:name=".ui.login.login.loginActivity.LoginMainActivity"
+            android:name=".ui.home.sksAdmin.SksAdminHomePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_login_main"
             android:theme="@style/Theme.StudentClubApplication" />
-        <activity
-            android:name=".ui.home.HomePageActivity"
-            android:exported="false" />
         <activity
             android:name=".ui.login.login.loginActivity.LoginActivity"
             android:exported="false" />
@@ -39,7 +39,7 @@
             android:name=".SecondActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.login.login.loginActivity.LoginMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

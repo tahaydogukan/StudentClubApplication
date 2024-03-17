@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/sksAdminHomePageFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/home_page_activity_bottom_nav_home_icon"
+        android:title="@null" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/home_page_activity_bottom_nav_club_icon"
+        android:title="@null" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/home_page_acitvity_bottom_nav_calendar_icon"
+        android:title="@null" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/home_page_activity_bottom_nav_request_icon"
+        android:title="@null" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/home_page_activity_bottom_nav_profile_icon"
+        android:title="@null" />
+</menu>

@@ -4,61 +4,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.login.login.loginFragments.ClubManagerFragment" >
 
     <TextView
-        android:id="@+id/textView2223"
-        android:layout_width="350dp"
-        android:layout_height="50sp"
-        android:layout_marginTop="5dp"
+        android:id="@+id/club_manager_fragment_tw_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Üsküdar Üniversitesi tarafından size verilen e-posta adresini\n ve şifresini kullanarak giriş yapabilirsinizç"
-        android:textSize="13sp"
+        android:text="Forgot password?"
+        android:textColor="#C0C0C0"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.909"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button223" />
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_fragment_btn_login" />
 
-    <Button
-        android:id="@+id/button223"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/club_manager_fragment_btn_login"
         android:layout_width="350dp"
+        android:layout_marginBottom="276dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
-        android:text="Giriş Yap"
+        android:background="@drawable/gradiant_color"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/dsadadsa"
+        android:id="@+id/club_manager_fragment_et_password"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="300dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="348dp"
+        android:background="@drawable/login_email_password_background"
+        android:drawableLeft="@drawable/login_main_password_icon"
+        android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Şifre"
+        android:hint="Password"
         android:inputType="text"
+        android:paddingLeft="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_fragment_et_email" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/club_manager_fragment_et_email"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/login_email_password_background"
+        android:drawableLeft="@drawable/login_main_email_icon"
+        android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="E-Posta"
+        android:hint="Email"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/dsadadsa"
+        android:paddingLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/login_page_back_btn"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:text="Log in"
+        android:textColor="#6CA5BC"
+        android:textSize="42sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Sign in to your account"
+        android:textColor="#6A6A6A"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginBottom="98dp"
+        android:text="Need an account?"
+        android:textColor="#8D8D8D"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/club_manager_fragment_tw_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="98dp"
+        android:text="SIGN UP"
+        android:textColor="#7AB9D4"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
