@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/student_bottom_navigation_graph"
+    app:startDestination="@id/studentHomePageFragment">
+
+    <fragment
+        android:id="@+id/studentCalendarFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentCalendarFragment"
+        android:label="fragment_student_calendar"
+        tools:layout="@layout/fragment_student_calendar" />
+    <fragment
+        android:id="@+id/studentClubFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentClubFragment"
+        android:label="fragment_student_club"
+        tools:layout="@layout/fragment_student_club">
+        <action
+            android:id="@+id/action_studentClubFragment_to_studentCalendarFragment"
+            app:destination="@id/studentCalendarFragment" />
+        <action
+            android:id="@+id/action_studentClubFragment_to_studentClubInfoFragment"
+            app:destination="@id/studentClubInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentClubInfoFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentClubInfoFragment"
+        android:label="fragment_student_club_info"
+        tools:layout="@layout/fragment_student_club_info" />
+    <fragment
+        android:id="@+id/studentSearchFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentSearchFragment"
+        android:label="fragment_student_search"
+        tools:layout="@layout/fragment_student_search">
+        <action
+            android:id="@+id/action_studentSearchFragment_to_studentClubFragment"
+            app:destination="@id/studentClubFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentHomePageFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentHomePageFragment"
+        android:label="fragment_student_home_page"
+        tools:layout="@layout/fragment_student_home_page">
+        <action
+            android:id="@+id/action_studentHomePageFragment_to_studentSearchFragment"
+            app:destination="@id/studentSearchFragment" />
+    </fragment>
+</navigation>

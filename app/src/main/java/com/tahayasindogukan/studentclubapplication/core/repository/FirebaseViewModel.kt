@@ -7,7 +7,6 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 
 class FirebaseViewModel : ViewModel() {
 
@@ -29,8 +28,8 @@ class FirebaseViewModel : ViewModel() {
         visibility: Int,
         onComplete: (Boolean, String?) -> Unit
     ) {
-        auth.sendRequest(name, surname, visibility) { success, message ->
-            if(success) {
+        auth.sendRequest(name, surname, 1) { success, message ->
+            if (success) {
                 onComplete(success, message)
             }
         }

@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/sksAdminCalendarFragment"
-        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminCalendarFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.CalendarFragment.SksAdminCalendarFragment"
         android:label="fragment_sks_admin_calendar"
         tools:layout="@layout/fragment_sks_admin_calendar">
         <action
@@ -30,7 +30,7 @@
         tools:layout="@layout/fragment_sks_admin_profile" />
     <fragment
         android:id="@+id/sksAdminRequestFragment"
-        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminRequestFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.SksAdminRequestFragment"
         android:label="fragment_sks_admin_request"
         tools:layout="@layout/fragment_sks_admin_request">
         <action
@@ -39,11 +39,19 @@
     </fragment>
     <fragment
         android:id="@+id/sksAdminClubsFragment"
-        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminClubsFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.SksAdminClubsFragment"
         android:label="fragment_sks_admin_clubs"
         tools:layout="@layout/fragment_sks_admin_clubs">
         <action
             android:id="@+id/action_sksAdminClubsFragment_to_sksAdminCalendarFragment"
             app:destination="@id/sksAdminCalendarFragment" />
+        <action
+            android:id="@+id/action_sksAdminClubsFragment_to_sksAdminClubsCreateFragment"
+            app:destination="@id/sksAdminClubsCreateFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/sksAdminClubsCreateFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.SksAdminClubsCreateFragment"
+        android:label="fragment_sks_admin_clubs_create"
+        tools:layout="@layout/fragment_sks_admin_clubs_create" />
 </navigation>

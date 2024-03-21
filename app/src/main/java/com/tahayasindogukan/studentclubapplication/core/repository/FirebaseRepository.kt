@@ -56,7 +56,7 @@ class FirebaseRepository {
         visibility: Int,
         onComplete: (Boolean, String?) -> Unit
     ) {
-        val request = Request(name, surname, visibility)
+        val request = Request(name, surname, 1)
         firestore.collection("request").document().set(request)
 
     }

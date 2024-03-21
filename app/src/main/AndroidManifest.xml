@@ -14,6 +14,13 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.home.sksAdmin.SksAdminHomePageActivity"
+            android:exported="false"
+            android:label="@string/title_activity_club_manager_home_page" />
+        <activity
+            android:name=".ui.home.student.StudentHomePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.login.loginActivity.LoginMainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -21,25 +28,13 @@
             android:label="@string/title_activity_login_main"
             android:theme="@style/Theme.StudentClubApplication" />
         <activity
-            android:name=".ui.login.login.loginActivity.LoginActivity"
-            android:exported="false" />
-        <activity
             android:name=".UcuncuActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ThirdActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ThirdActivitiy"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ThirdActivity"
             android:exported="false" />
         <activity
             android:name=".SecondActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.login.login.loginActivity.LoginMainActivity"
+            android:name=".ui.home.clubManager.ClubManagerHomePageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

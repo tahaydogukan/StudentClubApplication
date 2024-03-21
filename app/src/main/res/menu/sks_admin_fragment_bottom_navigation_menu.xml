@@ -8,21 +8,25 @@
         android:icon="@drawable/home_page_activity_bottom_nav_home_icon"
         android:title="@null" />
     <item
+        android:id="@+id/sksAdminClubsFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/home_page_activity_bottom_nav_club_icon"
         android:title="@null" />
     <item
+        android:id="@+id/sksAdminCalendarFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/home_page_acitvity_bottom_nav_calendar_icon"
         android:title="@null" />
     <item
+        android:id="@+id/sksAdminRequestFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/home_page_activity_bottom_nav_request_icon"
         android:title="@null" />
     <item
+        android:id="@+id/sksAdminProfileFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/home_page_activity_bottom_nav_profile_icon"

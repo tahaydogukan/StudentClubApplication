@@ -14,4 +14,8 @@
     <string name="login_main_page_student_description">You will only have permission to view the content but you can’t edit or make changes.</string>
     <string name="login_main_page_club_manager_description">You have the authority to edit and oversee the management of clubs.</string>
     <string name="login_main_page_sks_admin_description">You have permission to create clubs, edit club pages, and request activities.</string>
+    <string name="title_activity_club_manager_home_page">clubManagerHomePageActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

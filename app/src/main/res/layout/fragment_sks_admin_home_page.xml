@@ -6,89 +6,172 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.sksAdmin.SksAdminHomePageFragment">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button3"
-        android:layout_width="317dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="240dp"
-        android:background="@drawable/sks_admin_home_page_btn_background"
-        android:backgroundTint="#FBB245"
-        android:gravity="end"
-        android:paddingTop="20dp"
-        android:paddingRight="30dp"
-        android:text="Pending"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button4"
-        android:layout_width="317dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="526dp"
-        android:background="@drawable/sks_admin_home_page_btn_background"
-        android:backgroundTint="#91F1BD"
-        android:gravity="end"
-        android:paddingTop="20dp"
-        android:paddingRight="30dp"
-        android:text="Clubs"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button5"
-        android:layout_width="317dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="96dp"
-        android:background="@drawable/sks_admin_home_page_btn_background"
-        android:backgroundTint="#526EFF"
-        android:gravity="end"
-        android:paddingTop="20dp"
-        android:paddingRight="30dp"
-        android:text="Approved"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button6"
-        android:layout_width="317dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="384dp"
-        android:background="@drawable/sks_admin_home_page_btn_background"
-        android:backgroundTint="#ED7385"
-        android:gravity="end"
-        android:paddingTop="20dp"
-        android:paddingRight="30dp"
-        android:text="Club Managers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppins"
         android:text="Home"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="44dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:src="@drawable/settings_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="32dp"
+        android:background="#EBEBEB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/button3"
+            android:layout_width="317dp"
+            android:layout_height="117dp"
+            android:background="@drawable/sks_admin_home_page_btn_background"
+            android:backgroundTint="#FBB245"
+            android:fontFamily="@font/poppins"
+            android:gravity="end"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp"
+            android:text="Pending"
+            app:layout_constraintBottom_toTopOf="@+id/button5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/button5"
+            android:layout_width="317dp"
+            android:layout_height="117dp"
+            android:background="@drawable/sks_admin_home_page_btn_background"
+            android:backgroundTint="#526EFF"
+            android:fontFamily="@font/poppins"
+            android:gravity="end"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp"
+            android:text="Approved"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/pending_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/poppins"
+            android:text="12"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/button3"
+            app:layout_constraintStart_toStartOf="@+id/button3" />
+
+        <TextView
+            android:id="@+id/approved_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="13"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="221dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:background="#EBEBEB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <TextView
+            android:id="@+id/button6"
+            android:layout_width="317dp"
+            android:layout_height="117dp"
+            android:background="@drawable/sks_admin_home_page_btn_background"
+            android:backgroundTint="#ED7385"
+            android:fontFamily="@font/poppins"
+            android:gravity="end"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp"
+            android:text="Club Managers"
+
+            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/button4"
+            android:layout_width="317dp"
+            android:layout_height="117dp"
+            android:background="@drawable/sks_admin_home_page_btn_background"
+            android:backgroundTint="#91F1BD"
+            android:fontFamily="@font/poppins"
+            android:gravity="end"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp"
+            android:text="Clubs"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button6"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/club_manager_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="14"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/button6"
+            app:layout_constraintStart_toStartOf="@+id/button6" />
+
+        <TextView
+            android:id="@+id/clubs_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="15"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/button4"
+            app:layout_constraintStart_toStartOf="@+id/button4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

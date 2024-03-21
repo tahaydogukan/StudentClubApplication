@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/clubManagerHomePageFragment">
+    <fragment
+        android:id="@+id/clubManagerProfileFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerProfileFragment"
+        android:label="fragment_club_manager_profile"
+        tools:layout="@layout/fragment_club_manager_profile" />
+    <fragment
+        android:id="@+id/clubManagerRequestFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerRequestFragment"
+        android:label="fragment_club_manager_request"
+        tools:layout="@layout/fragment_club_manager_request" />
+    <fragment
+        android:id="@+id/clubManagerClubFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerClubFragment"
+        android:label="fragment_club_manager_club"
+        tools:layout="@layout/fragment_club_manager_club" />
+    <fragment
+        android:id="@+id/clubManagerHomePageFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerHomePageFragment"
+        android:label="fragment_club_manager_home_page"
+        tools:layout="@layout/fragment_club_manager_home_page" />
+    <fragment
+        android:id="@+id/clubManagerCalendarFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerCalendarFragment"
+        android:label="fragment_club_manager_calendar"
+        tools:layout="@layout/fragment_club_manager_calendar" />
+</navigation>
