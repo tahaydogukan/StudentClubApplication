@@ -19,6 +19,8 @@ class SksAdminHomePageActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(
             binding.sksAdminBottomBar,
             navHostFragment.navController
+
+
         )
     }
 }

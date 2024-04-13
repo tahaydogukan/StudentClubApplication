@@ -9,7 +9,7 @@ import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
 import com.tahayasindogukan.studentclubapplication.databinding.SksAdminCalendarFragmentCardViewBinding
 
 
-class SksAdminCalendarAdapter(var requestsList: List<Activity>) :
+class SksAdminCalendarAdapter(var requestsList: List<Activity>,val listener:MyClickListener) :
     RecyclerView.Adapter<SksAdminCalendarAdapter.CalendarViewHolder>() {
 
 
@@ -24,18 +24,6 @@ class SksAdminCalendarAdapter(var requestsList: List<Activity>) :
                 false
             )
         return CalendarViewHolder(binding)
-    }
-
-    fun filtrele(secilenTarih: Int) {
-
-        var formerList = requestsList
-        // Listedeki öğeleri tarihe göre filtreleyin
-        var newList = formerList.filter { it.year == secilenTarih }
-
-        // Adapter'ı güncelleyin
-        requestsList = newList
-        notifyDataSetChanged()
-        Log.e("Liste", requestsList.toString())
     }
 
     fun setFilteredList(clubList: List<Activity>) {
@@ -56,6 +44,17 @@ class SksAdminCalendarAdapter(var requestsList: List<Activity>) :
 
 
     }
-
+    interface MyClickListener {
+        public fun onClick(
+            activityTitle: String,
+            activityContent: String, activityLocation: String,
+            activityManager: String,
+            activityAttachment: String,
+            activityYear: String,
+            activityMonth: String,
+            activityDay: String,
+            activityTags: String
+        )
+    }
 
 }

@@ -12,7 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentLoginMainPageBinding
-import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminHomePageActivity
+import com.tahayasindogukan.studentclubapplication.ui.home.student.StudentHomePageActivity
 
 class LoginMainPageFragment : Fragment() {
 
@@ -43,6 +43,8 @@ class LoginMainPageFragment : Fragment() {
         val sksAdmin = binding.loginMainFragmentTwSksAdmin
         val clubManager = binding.loginMainFragmentTwClubManager
         val userDescriptipn = binding.loginMainFragmentTwUserDescription
+
+
 
         student.setOnClickListener {
             changeBackgroundResource(student)
@@ -76,7 +78,7 @@ class LoginMainPageFragment : Fragment() {
     fun checkButtonClicked() {
         when (selectedButtonTag?.toInt()) {
             1 -> {
-                startActivity(Intent(requireContext(), SksAdminHomePageActivity::class.java))
+                startActivity(Intent(requireContext(), StudentHomePageActivity::class.java))
             }
 
             2 -> {

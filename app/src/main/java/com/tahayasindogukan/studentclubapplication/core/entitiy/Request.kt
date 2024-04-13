@@ -3,8 +3,30 @@ package com.tahayasindogukan.studentclubapplication.core.entitiy
 import java.io.Serializable
 
 data class Request(
-    val name: String="",
-    val surname: String="",
-    val visibility: Long = 0
+    val title: String="",
+    val content: String="",
+    val eventGoals: String="",
+    val agenda: String="",
+    val startDate: String="",
+    val endDate: String="",
+    val manager:String="",
+
+    val newTitle: String="",
+    val newManager:String="",
+    val newContent:String="",
+    val newAttachment: String="",
+    val newStartDate: String="",
+    val newEndDate: String="",
+    val newLocation: String="",
+    val newWebPlatform: String="",
+    val newContacts: String="",
+
+    val attachment: String="",
+    val location: String="",
+    val webPlatform: String="",
+    val contacts: String="",
+    val isForm:Boolean=true,
+    val isPost:Boolean=false,
+    val status:Int=1,
 ) : Serializable {
 }

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -22,21 +23,26 @@
             android:paddingRight="2dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/club_photo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="7dp"
+                android:background="@drawable/circular_background"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@drawable/profile_pic" />
+                tools:srcCompat="@drawable/image_deneme" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/club_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Club Name"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="Biology"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

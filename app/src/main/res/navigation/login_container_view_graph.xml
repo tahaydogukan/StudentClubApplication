@@ -34,5 +34,37 @@
         <action
             android:id="@+id/action_clubManagerFragment_to_loginMainPageFragment"
             app:destination="@id/loginMainPageFragment" />
+        <action
+            android:id="@+id/action_clubManagerFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_clubManagerFragment_to_clubManagerRegisterFragment"
+            app:destination="@id/clubManagerRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.login.forgotPassword.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_loginMainPageFragment"
+            app:destination="@id/loginMainPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.login.forgotPassword.ResetPasswordFragment"
+        android:label="fragment_reset_password"
+        tools:layout="@layout/fragment_reset_password" />
+    <fragment
+        android:id="@+id/clubManagerRegisterFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.ClubManagerRegisterFragment"
+        android:label="fragment_club_manager_register"
+        tools:layout="@layout/fragment_club_manager_register" >
+        <action
+            android:id="@+id/action_clubManagerRegisterFragment_to_clubManagerFragment"
+            app:destination="@id/clubManagerFragment" />
     </fragment>
 </navigation>

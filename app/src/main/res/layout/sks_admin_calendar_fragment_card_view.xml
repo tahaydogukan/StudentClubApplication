@@ -26,13 +26,14 @@
                 android:id="@+id/clubPhoto"
                 android:layout_width="325dp"
                 android:layout_height="140dp"
+                android:background="@drawable/circular_background"
                 android:layout_marginTop="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@drawable/image_deneme" />
 
             <TextView
-                android:id="@+id/clubName"
+                android:id="@+id/activityName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="120dp"
@@ -43,7 +44,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/activityMonthAndDate"
                 android:layout_width="55dp"
                 android:layout_height="46dp"
                 android:layout_marginStart="16dp"
@@ -51,11 +52,11 @@
                 android:gravity="center"
                 android:text="March \n 23"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView25"
+                app:layout_constraintBottom_toTopOf="@+id/activityYear"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/activityYear"
                 android:layout_width="55dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="16dp"

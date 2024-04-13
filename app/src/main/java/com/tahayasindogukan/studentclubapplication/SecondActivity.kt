@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
-import com.tahayasindogukan.studentclubapplication.core.repository.FirebaseViewModel
+import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.ActivitySecondBinding
 
 class SecondActivity : AppCompatActivity() {

@@ -29,7 +29,7 @@ class SksAdminClubsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSksAdminClubsBinding.inflate(layoutInflater)
+        binding = FragmentSksAdminClubsBinding.inflate(inflater,container,false)
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -80,7 +80,7 @@ class SksAdminClubsFragment : Fragment() {
         if (query != null) {
             val filteredList = ArrayList<Club>()
             for (i in clubList) {
-                if (i.name.lowercase(Locale.ROOT).contains(query)) {
+                if (i.clubName.lowercase(Locale.ROOT).contains(query)) {
                     filteredList.add(i)
                 }
             }

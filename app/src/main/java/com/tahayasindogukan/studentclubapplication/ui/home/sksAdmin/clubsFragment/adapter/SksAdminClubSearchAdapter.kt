@@ -35,6 +35,6 @@ class SksAdminClubSearchAdapter(var clubList: List<Club>) :
     override fun onBindViewHolder(holder: SavedWordsViewHolder, position: Int) {
         val clubList = clubList[position]
         val t = holder.view
-        t.textView11.text = clubList.name
+        t.clubName.text = clubList.clubName
     }
 }

@@ -13,6 +13,15 @@
         android:theme="@style/Theme.StudentClubApplication"
         tools:targetApi="31">
         <activity
+            android:name=".ui.home.clubManager.requestPages.forms.approveds.ClubManagerCreatePostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.clubManager.ClubManagerCalendarInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.clubManager.ClubManagerClubInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.sksAdmin.SksAdminHomePageActivity"
             android:exported="false"
             android:label="@string/title_activity_club_manager_home_page" />
@@ -20,7 +29,7 @@
             android:name=".ui.home.student.StudentHomePageActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.login.login.loginActivity.LoginMainActivity"
+            android:name=".ui.home.clubManager.ClubManagerHomePageActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -34,7 +43,7 @@
             android:name=".SecondActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.home.clubManager.ClubManagerHomePageActivity"
+            android:name=".ui.login.login.loginActivity.LoginMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

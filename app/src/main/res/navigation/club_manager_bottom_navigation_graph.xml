@@ -10,11 +10,6 @@
         android:label="fragment_club_manager_profile"
         tools:layout="@layout/fragment_club_manager_profile" />
     <fragment
-        android:id="@+id/clubManagerRequestFragment"
-        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerRequestFragment"
-        android:label="fragment_club_manager_request"
-        tools:layout="@layout/fragment_club_manager_request" />
-    <fragment
         android:id="@+id/clubManagerClubFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerClubFragment"
         android:label="fragment_club_manager_club"
@@ -29,4 +24,102 @@
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerCalendarFragment"
         android:label="fragment_club_manager_calendar"
         tools:layout="@layout/fragment_club_manager_calendar" />
+    <fragment
+        android:id="@+id/clubManagerCreatePostFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.approveds.ClubManagerCreatePostFragment"
+        android:label="fragment_club_manager_create_post"
+        tools:layout="@layout/fragment_club_manager_create_post" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerRequestFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.ClubManagerRequestFragment"
+        android:label="ClubManagerRequestFragment"
+        tools:layout="@layout/fragment_club_manager_request">
+        <action
+            android:id="@+id/action_clubManagerRequestFragment_to_clubManagerFormsMainPage"
+            app:destination="@id/clubManagerFormsMainPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerCreateFormPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.ClubManagerCreateFormPage"
+        android:label="fragment_club_manager_create_form_page"
+        tools:layout="@layout/fragment_club_manager_create_form_page" />
+    <fragment
+        android:id="@+id/clubManagerFormsMainPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.ClubManagerFormsMainPage"
+        android:label="fragment_club_manager_forms_main_page"
+        tools:layout="@layout/fragment_club_manager_forms_main_page" >
+        <action
+            android:id="@+id/action_clubManagerFormsMainPage_to_clubManagerCreateFormPage"
+            app:destination="@id/clubManagerCreateFormPage" />
+        <action
+            android:id="@+id/action_clubManagerFormsMainPage_to_clubManagerFormsPendingPage"
+            app:destination="@id/clubManagerFormsPendingPage" />
+        <action
+            android:id="@+id/action_clubManagerFormsMainPage_to_clubManagerFormsApprovedPage"
+            app:destination="@id/clubManagerFormsApprovedPage" />
+        <action
+            android:id="@+id/action_clubManagerFormsMainPage_to_clubManagerFormsRejectedPage"
+            app:destination="@id/clubManagerFormsRejectedPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerFormsPendingPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.pendings.ClubManagerFormsPendingPage"
+        android:label="fragment_club_manager_forms_pending_page"
+        tools:layout="@layout/fragment_club_manager_forms_pending_page" >
+        <action
+            android:id="@+id/action_clubManagerFormsPendingPage_to_clubManagerFormsPendingDetailPage"
+            app:destination="@id/clubManagerFormsPendingDetailPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerFormsApprovedPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.approveds.ClubManagerFormsApprovedPage"
+        android:label="fragment_club_manager_forms_approved_page"
+        tools:layout="@layout/fragment_club_manager_forms_approved_page" >
+        <action
+            android:id="@+id/action_clubManagerFormsApprovedPage_to_clubManagerFormsApprovedDetailPage"
+            app:destination="@id/clubManagerFormsApprovedDetailPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerFormsRejectedPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.rejecteds.ClubManagerFormsRejectedPage"
+        android:label="fragment_club_manager_forms_rejected_page"
+        tools:layout="@layout/fragment_club_manager_forms_rejected_page" >
+        <action
+            android:id="@+id/action_clubManagerFormsRejectedPage_to_clubManagerFormsRejectedDetailPage"
+            app:destination="@id/clubManagerFormsRejectedDetailPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerFormsPendingDetailPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.pendings.ClubManagerFormsPendingDetailPage"
+        android:label="fragment_club_manager_forms_pending_detail_page"
+        tools:layout="@layout/fragment_club_manager_forms_pending_detail_page" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerFormsApprovedDetailPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.approveds.ClubManagerFormsApprovedDetailPage"
+        android:label="fragment_club_manager_forms_approved_detail_page"
+        tools:layout="@layout/fragment_club_manager_forms_approved_detail_page" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+        <action
+            android:id="@+id/action_clubManagerFormsApprovedDetailPage_to_clubManagerCreatePostFragment"
+            app:destination="@id/clubManagerCreatePostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerFormsRejectedDetailPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.rejecteds.ClubManagerFormsRejectedDetailPage"
+        android:label="fragment_club_manager_forms_rejected_detaill_page"
+        tools:layout="@layout/fragment_club_manager_forms_rejected_detaill_page" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
 </navigation>

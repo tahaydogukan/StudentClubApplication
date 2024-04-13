@@ -1,0 +1,174 @@
+package com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments
+
+import android.content.Context
+import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
+import com.tahayasindogukan.studentclubapplication.core.repository.FirebaseRepository
+
+class FirebaseViewModel : ViewModel() {
+
+    val clubs = MutableLiveData<List<Club>>()
+    val activies = MutableLiveData<List<Activity>>()
+    var club = MutableLiveData<Club>()
+
+    private val firebaseAuth = Firebase.auth
+    private val firebaseRepository = FirebaseRepository()
+    private val firebaseFirestoreInstance = FirebaseFirestore.getInstance()
+
+    private val _requests = MutableLiveData<List<DocumentSnapshot>>()
+
+    fun getClubs() {
+        val clubCollection = firebaseFirestoreInstance.collection("club")
+        clubCollection.get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val clubsList = mutableListOf<Club>()
+                for (document in task.result!!) {
+                    clubsList.add(document.toObject(Club::class.java))
+                }
+                clubs.postValue(clubsList)
+            } else {
+                Log.e("ClubViewModel", "Error getting clubs: ", task.exception)
+            }
+        }
+    }
+    fun checkManagerOfWhichClub(){
+        FirebaseAuth.getInstance().currentUser?.uid?.let { uid ->
+            FirebaseFirestore.getInstance().collection("club")
+                .whereEqualTo("clubManagerId", uid)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    if (querySnapshot.documents.isNotEmpty()) {
+                        // Kullanıcı giriş yapmıştır ve verilere erişebilir.
+                        var club1 = querySnapshot.documents[0].toObject(Club::class.java)
+                        club.postValue(club1!!)
+                        Log.e("clubNameVM", club1.toString())
+
+                        // ...
+                    } else {
+                        // Kullanıcı giriş yapamaz ve verilere erişemez.
+                    }
+                }
+        }
+    }
+    fun getActivties() {
+        val activityCollection = firebaseFirestoreInstance.collection("activities")
+        activityCollection.get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val activityList = mutableListOf<Activity>()
+                for (document in task.result!!) {
+                    activityList.add(document.toObject(Activity::class.java))
+                }
+                activies.postValue(activityList)
+            } else {
+                Log.e("ClubViewModel", "Error getting activities: ", task.exception)
+            }
+        }
+    }
+
+    fun signInViewModel(email: String, password: String, onComplete: (Boolean, String?) -> Unit) {
+        firebaseRepository.signInRepository(email, password) { success, message ->
+            onComplete(success, message)
+        }
+    }
+
+    fun sendRequestViewModel(
+        name: String,
+        surname: String,
+        visibility: Int,
+        onComplete: (Boolean, String?) -> Unit
+    ) {
+        firebaseRepository.sendRequest(name, surname, 1) { success, message ->
+            if (success) {
+                onComplete(success, message)
+            }
+        }
+    }
+    fun getAllRequests(): LiveData<List<DocumentSnapshot>> {
+        getAllRequstsFromFirebase()
+        return _requests
+    }
+    fun signUpViewModel(
+        email: String,
+        password: String,
+        phone: String,
+        name: String,
+        clubId: String,
+        onComplete: (Boolean, String?) -> Unit
+    ) {
+        firebaseRepository.signUpRepository(
+            email,
+            password,
+            phone,
+            name,
+            clubId
+        ) { success, message ->
+            if (success) {
+                onComplete(success, message)
+
+            }
+            // Kayıt başarılı, ek işlemleri yapabilirsiniz.
+            val user = firebaseRepository.getCurrentUserRepository()
+            // User nesnesini kullanabilir veya UI'yi güncelleyebilirsiniz.
+
+            /*else {
+           Kayıt başarısız, kullanıcıya hata mesajı gösterilebilir.
+        }    */
+        }
+    }
+
+    fun sendPasswordResetEmail(email: String, mContext: Context) {
+        if (email.isNotEmpty()) {
+            firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(mContext, "Email is sent successfuly", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    Toast.makeText(
+                        mContext, task.exception!!.message.toString(), Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+            }
+        }
+    }
+
+    fun getAllRequstsFromFirebase() {
+        val firestoreRef = FirebaseFirestore.getInstance()
+        val requestRef = firestoreRef.collection("request")
+
+        val query = requestRef.whereEqualTo("visibility", 0)
+            .orderBy("visibility", Query.Direction.DESCENDING).limit(10)
+
+        query.addSnapshotListener { querySnapshot, error ->
+            if (error != null) {
+                // Hata işleme
+            } else {
+                val documents = mutableListOf<DocumentSnapshot>()
+                for (document in querySnapshot?.documents!!) {
+                    documents.add(document)
+                }
+                _requests.value = documents
+            }
+        }
+    }
+
+    fun currentUserViewModel(): FirebaseUser? {
+        return firebaseRepository.getCurrentUserRepository()
+    }
+
+    fun signOutViewModel(onComplete: (Boolean) -> Unit) {
+        firebaseRepository.signOutRepository(onComplete)
+    }
+}
