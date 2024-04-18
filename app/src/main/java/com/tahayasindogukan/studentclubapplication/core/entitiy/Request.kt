@@ -1,8 +1,10 @@
 package com.tahayasindogukan.studentclubapplication.core.entitiy
 
+import android.content.Context
 import java.io.Serializable
 
 data class Request(
+    val documentId:String="",
     val title: String="",
     val content: String="",
     val eventGoals: String="",
@@ -28,5 +30,6 @@ data class Request(
     val isForm:Boolean=true,
     val isPost:Boolean=false,
     val status:Int=1,
+    val clubName:String="",
 ) : Serializable {
 }

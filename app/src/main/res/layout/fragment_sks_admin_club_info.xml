@@ -6,24 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.sksAdmin.clubsFragment.SksAdminClubInfoFragment">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_club_info_btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/normal_background"
+        android:drawableRight="@drawable/login_back_btn"
+        android:paddingRight="14dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:src="@drawable/login_back_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="24dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:src="@drawable/settings_icon"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -40,89 +33,121 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:id="@+id/sks_admin_club_info_iw_club_photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="100dp"
+        android:background="@drawable/circular_background"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/sks_admin_club_info_tw_club_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="264dp"
         android:text="Club Name"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="308dp"
         android:text="Club Manager"
         android:textSize="13sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/sks_admin_club_info_tw_club_manager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:text="Ahmet Kaya"
+        android:textColor="#525252"
+        android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="421dp"
         android:text="Mission Statement"
         android:textSize="13sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_club_info_tw_club_manager" />
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:id="@+id/sks_admin_club_info_tw_mission_statement"
+        android:layout_width="0dp"
+        android:layout_height="275dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:inputType="textMultiLine"
+        android:text=""
+        android:textColor="#525252"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-    <Button
-        android:id="@+id/button8"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_club_info_btn_reassign_club_manager"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="32dp"
-        android:gravity="left"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/gradient_background"
+        android:backgroundTint="#EBEBEB"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
         android:text="Reassing club \n manager"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_club_info_btn_delete_club"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/gradient_background"
+        android:backgroundTint="#EBEBEB"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Delete the club"
+        android:textColor="#D50000"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sks_admin_club_info_recycler_view"
+        android:layout_width="175dp"
+        android:layout_height="295dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="32dp"
-        android:text="Delete the club"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

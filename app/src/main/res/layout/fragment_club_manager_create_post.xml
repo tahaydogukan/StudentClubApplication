@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/et_web_platform"
+        android:id="@+id/create_posts_et_et_web_platform"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginEnd="40dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
     <TextView
-        android:id="@+id/tw_end_time"
+        android:id="@+id/create_posts_et_et_end_date"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginEnd="40dp"
@@ -93,7 +93,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et__title" />
 
     <TextView
         android:id="@+id/textView41"
@@ -106,7 +106,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etManager" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et_manager" />
 
     <TextView
         android:id="@+id/textView42"
@@ -119,7 +119,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContent" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et_content" />
 
     <TextView
         android:id="@+id/textView43"
@@ -132,7 +132,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/twAttachments" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et_attachment" />
 
     <TextView
         android:id="@+id/textView44"
@@ -156,7 +156,7 @@
         android:text="Location"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tw_start_time" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et_start_date" />
 
     <TextView
         android:id="@+id/textView46"
@@ -168,10 +168,10 @@
         android:text="Contacts"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_web_platform" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et_et_web_platform" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSend"
+        android:id="@+id/create_posts_btn_create_post"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -180,14 +180,14 @@
         android:background="@drawable/normal_background"
         android:backgroundTint="#7AB9D4"
         android:fontFamily="@font/poppins"
-        android:text="Send"
+        android:text="Send Post Request"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_contacts" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et_contacts" />
 
     <EditText
-        android:id="@+id/etTitle"
+        android:id="@+id/create_posts_et__title"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -202,7 +202,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
     <EditText
-        android:id="@+id/etManager"
+        android:id="@+id/create_posts_et_manager"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -217,7 +217,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
     <EditText
-        android:id="@+id/etContent"
+        android:id="@+id/create_posts_et_content"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="32dp"
@@ -233,7 +233,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
     <TextView
-        android:id="@+id/twAttachments"
+        android:id="@+id/create_posts_et_attachment"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -247,7 +247,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
     <TextView
-        android:id="@+id/tw_start_time"
+        android:id="@+id/create_posts_et_start_date"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -263,7 +263,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
     <EditText
-        android:id="@+id/et_location"
+        android:id="@+id/create_posts_et_location"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -276,11 +276,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
     <EditText
-        android:id="@+id/et_contacts"
+        android:id="@+id/create_posts_et_contacts"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/normal_background"
         android:ems="10"
         android:fontFamily="@font/poppins"
@@ -291,7 +291,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnChooseFile"
+        android:id="@+id/create_posts_btn_choose_file"
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_marginTop="4dp"
@@ -303,7 +303,7 @@
         android:textColor="@color/white"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/twAttachments" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et_attachment" />
 
     <CalendarView
         android:id="@+id/start_date_calendar_view"
@@ -314,7 +314,7 @@
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et__title" />
 
     <CalendarView
         android:id="@+id/end_date_calendar_view"
@@ -325,7 +325,7 @@
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/create_posts_et__title" />
 
     <TextView
         android:id="@+id/textView59"
@@ -335,7 +335,7 @@
         android:fontFamily="@font/poppins"
         android:text="End Date"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/tw_start_time"
+        app:layout_constraintBottom_toTopOf="@+id/create_posts_et_start_date"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
@@ -346,7 +346,7 @@
         android:fontFamily="@font/poppins"
         android:text="Web Platform"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_web_platform"
+        app:layout_constraintBottom_toTopOf="@+id/create_posts_et_et_web_platform"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

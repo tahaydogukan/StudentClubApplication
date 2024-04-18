@@ -6,9 +6,16 @@
     app:startDestination="@id/clubManagerHomePageFragment">
     <fragment
         android:id="@+id/clubManagerProfileFragment"
-        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerProfileFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.profilePages.ClubManagerProfileFragment"
         android:label="fragment_club_manager_profile"
-        tools:layout="@layout/fragment_club_manager_profile" />
+        tools:layout="@layout/fragment_club_manager_profile" >
+        <action
+            android:id="@+id/action_clubManagerProfileFragment_to_clubManagerProfileEditProfile"
+            app:destination="@id/clubManagerProfileEditProfile" />
+        <action
+            android:id="@+id/action_clubManagerProfileFragment_to_clubManagerProfileSettings"
+            app:destination="@id/clubManagerProfileSettings" />
+    </fragment>
     <fragment
         android:id="@+id/clubManagerClubFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerClubFragment"
@@ -41,6 +48,9 @@
         <action
             android:id="@+id/action_clubManagerRequestFragment_to_clubManagerFormsMainPage"
             app:destination="@id/clubManagerFormsMainPage" />
+        <action
+            android:id="@+id/action_clubManagerRequestFragment_to_clubManagerPostsMainPage"
+            app:destination="@id/clubManagerPostsMainPage" />
     </fragment>
     <fragment
         android:id="@+id/clubManagerCreateFormPage"
@@ -121,5 +131,93 @@
         <argument
             android:name="request"
             app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerPostsMainPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.posts.ClubManagerPostsMainPage"
+        android:label="fragment_club_manager_posts_main_page"
+        tools:layout="@layout/fragment_club_manager_posts_main_page" >
+        <action
+            android:id="@+id/action_clubManagerPostsMainPage_to_clubManagerPostsApprovedPage"
+            app:destination="@id/clubManagerPostsApprovedPage" />
+        <action
+            android:id="@+id/action_clubManagerPostsMainPage_to_clubManagerPostsPendingPage"
+            app:destination="@id/clubManagerPostsPendingPage" />
+        <action
+            android:id="@+id/action_clubManagerPostsMainPage_to_clubManagerPostsRejectedPage"
+            app:destination="@id/clubManagerPostsRejectedPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerPostsApprovedPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.posts.approveds.ClubManagerPostsApprovedPage"
+        android:label="fragment_club_manager_posts_approved_page"
+        tools:layout="@layout/fragment_club_manager_posts_approved_page" >
+        <action
+            android:id="@+id/action_clubManagerPostsApprovedPage_to_clubManagerPostsApprovedDetailPage"
+            app:destination="@id/clubManagerPostsApprovedDetailPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerPostsPendingPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.posts.pendings.ClubManagerPostsPendingPage"
+        android:label="fragment_club_manager_posts_pending_page"
+        tools:layout="@layout/fragment_club_manager_posts_pending_page" >
+        <action
+            android:id="@+id/action_clubManagerPostsPendingPage_to_clubManagerPostsPendingDetailPage"
+            app:destination="@id/clubManagerPostsPendingDetailPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerPostsRejectedPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.posts.rejecteds.ClubManagerPostsRejectedPage"
+        android:label="fragment_club_manager_posts_rejected_page"
+        tools:layout="@layout/fragment_club_manager_posts_rejected_page" >
+        <action
+            android:id="@+id/action_clubManagerPostsRejectedPage_to_clubManagerPostsRejectedDetailPage"
+            app:destination="@id/clubManagerPostsRejectedDetailPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerPostsApprovedDetailPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.posts.approveds.ClubManagerPostsApprovedDetailPage"
+        android:label="fragment_club_manager_posts_approved_detail_page"
+        tools:layout="@layout/fragment_club_manager_posts_approved_detail_page" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerPostsPendingDetailPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.posts.pendings.ClubManagerPostsPendingDetailPage"
+        android:label="fragment_club_manager_posts_pending_detail_page"
+        tools:layout="@layout/fragment_club_manager_posts_pending_detail_page" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerPostsRejectedDetailPage"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.posts.rejecteds.ClubManagerPostsRejectedDetailPage"
+        android:label="fragment_club_manager_posts_rejected_detail_page"
+        tools:layout="@layout/fragment_club_manager_posts_rejected_detail_page" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerProfileChangePassword"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.profilePages.ClubManagerProfileChangePassword"
+        android:label="fragment_club_manager_profile_change_password"
+        tools:layout="@layout/fragment_club_manager_profile_change_password" />
+    <fragment
+        android:id="@+id/clubManagerProfileEditProfile"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.profilePages.ClubManagerProfileEditProfile"
+        android:label="fragment_club_manager_profile_edit_profile"
+        tools:layout="@layout/fragment_club_manager_profile_edit_profile" />
+    <fragment
+        android:id="@+id/clubManagerProfileSettings"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.profilePages.ClubManagerProfileSettings"
+        android:label="fragment_club_manager_profile_settings"
+        tools:layout="@layout/fragment_club_manager_profile_settings" >
+        <action
+            android:id="@+id/action_clubManagerProfileSettings_to_clubManagerProfileChangePassword"
+            app:destination="@id/clubManagerProfileChangePassword" />
     </fragment>
 </navigation>

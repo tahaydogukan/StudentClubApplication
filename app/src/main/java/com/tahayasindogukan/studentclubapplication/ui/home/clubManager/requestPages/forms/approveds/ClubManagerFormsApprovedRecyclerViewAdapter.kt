@@ -13,7 +13,7 @@ import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManag
 class ClubManagerFormsApprovedRecyclerViewAdapter(
     var requestsList: List<Request>,
     private val context: Context,
-    val listener:MyClickListener
+    val listener:FormsApprovedClickListener
 ) :
     RecyclerView.Adapter<ClubManagerFormsApprovedRecyclerViewAdapter.ClubManagerFormsApprovedViewHolder>() {
 
@@ -43,6 +43,7 @@ class ClubManagerFormsApprovedRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ClubManagerFormsApprovedViewHolder, position: Int) {
         val t = holder.view
         val document = requestsList[position]
+
         t.requestPhoto.setImageResource(R.drawable.request_icon)
         t.requestName.text = document.title
 
@@ -53,7 +54,7 @@ class ClubManagerFormsApprovedRecyclerViewAdapter(
         }
     }
 
-    interface MyClickListener {
+    interface FormsApprovedClickListener {
         public fun onClick(
             request:Request
         )

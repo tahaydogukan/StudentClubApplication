@@ -28,11 +28,14 @@ class ClubManagerRequestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         navController = Navigation.findNavController(view)
+
         binding.btnForms.setOnClickListener {
             navController.navigate(R.id.action_clubManagerRequestFragment_to_clubManagerFormsMainPage)
 
         }
-
+        binding.btnPosts.setOnClickListener {
+            navController.navigate(R.id.action_clubManagerRequestFragment_to_clubManagerPostsMainPage)
+        }
 
     }
 

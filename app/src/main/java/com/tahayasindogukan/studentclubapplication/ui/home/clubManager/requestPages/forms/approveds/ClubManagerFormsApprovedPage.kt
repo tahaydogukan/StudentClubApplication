@@ -18,7 +18,7 @@ import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManag
 import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerClubInfoActivity
 import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.pendings.ClubManagerFormsPendingRecyclerViewAdapter
 
-class ClubManagerFormsApprovedPage : Fragment(),ClubManagerFormsApprovedRecyclerViewAdapter.MyClickListener {
+class ClubManagerFormsApprovedPage : Fragment(),ClubManagerFormsApprovedRecyclerViewAdapter.FormsApprovedClickListener {
     private lateinit var binding: FragmentClubManagerFormsApprovedPageBinding
     private lateinit var adapter: ClubManagerFormsApprovedRecyclerViewAdapter
     private val viewModel: RequestViewModel by viewModels()
@@ -35,18 +35,18 @@ class ClubManagerFormsApprovedPage : Fragment(),ClubManagerFormsApprovedRecycler
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(view)
 
         binding.clubManagerFormsApprovedPageRecyclerView.layoutManager =
             GridLayoutManager(requireContext(), 2)
 
-        viewModel.formsApprovedList.observe(viewLifecycleOwner) { formsPending ->
+        viewModel.getFormsApproved()
+
+        viewModel.formsApprovedList.observe(viewLifecycleOwner) { formsApproved ->
             val recyclerView = binding.clubManagerFormsApprovedPageRecyclerView
-            adapter = ClubManagerFormsApprovedRecyclerViewAdapter(formsPending,requireContext(),this)
+            adapter = ClubManagerFormsApprovedRecyclerViewAdapter(formsApproved,requireContext(),this)
             recyclerView.adapter = adapter
         }
 
-        viewModel.getFormsApproved()
     }
 
     override fun onClick(

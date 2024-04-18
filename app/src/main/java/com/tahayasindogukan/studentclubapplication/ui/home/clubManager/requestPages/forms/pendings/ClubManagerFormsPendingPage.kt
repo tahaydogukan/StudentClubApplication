@@ -35,7 +35,7 @@ class ClubManagerFormsPendingPage : Fragment(),ClubManagerFormsPendingRecyclerVi
         binding.clubManagerFormsPendingPageRecyclerView.layoutManager =
             GridLayoutManager(requireContext(), 2)
 
-
+        viewModel.getFormsPending()
 
         viewModel.formsPendingList.observe(viewLifecycleOwner) { formsPending ->
             val recyclerView = binding.clubManagerFormsPendingPageRecyclerView
@@ -44,7 +44,7 @@ class ClubManagerFormsPendingPage : Fragment(),ClubManagerFormsPendingRecyclerVi
 
         }
 
-        viewModel.getFormsPending()
+
 
     }
 

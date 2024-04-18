@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.tahayasindogukan.studentclubapplication.R
+import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerFormsApprovedDetailPageBinding
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerFormsPendingDetailPageBinding
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerFormsPendingPageBinding

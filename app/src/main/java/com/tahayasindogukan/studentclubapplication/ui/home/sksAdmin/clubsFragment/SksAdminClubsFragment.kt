@@ -7,23 +7,29 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminClubsBinding
+import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.approveds.ClubManagerFormsApprovedPageDirections
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.adapter.SksAdminClubSearchAdapter
+import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
 import java.util.Locale
 
-class SksAdminClubsFragment : Fragment() {
+class SksAdminClubsFragment : Fragment(),SksAdminClubSearchAdapter.SksAdminClubSearchClickListener {
     private lateinit var binding: FragmentSksAdminClubsBinding
     private lateinit var rv: RecyclerView
     private lateinit var searchView: SearchView
-    var clubList = mutableListOf<Club>()
     private lateinit var adapter: SksAdminClubSearchAdapter
+    private val firebaseViewModel: FirebaseViewModel by viewModels()
     private lateinit var navController: NavController
+    private var clubListForFilter= ArrayList<Club>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,10 +50,8 @@ class SksAdminClubsFragment : Fragment() {
 
         rv.setHasFixedSize(true)
         rv.layoutManager = GridLayoutManager(requireContext(), 2)
-        addDataToList()
 
-        adapter = SksAdminClubSearchAdapter(clubList)
-        rv.adapter = adapter
+
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -56,7 +60,7 @@ class SksAdminClubsFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
+                filterList(newText,clubListForFilter)
                 return true
             }
         })
@@ -66,17 +70,24 @@ class SksAdminClubsFragment : Fragment() {
             navController.navigate(R.id.action_sksAdminClubsFragment_to_sksAdminClubsCreateFragment)
         }
 
+        firebaseViewModel.getClubs()
+
+        firebaseViewModel.clubs.observe(viewLifecycleOwner){clubList ->
+            clubListForFilter = clubList as ArrayList<Club>
+            adapter = SksAdminClubSearchAdapter(clubList,this,requireContext())
+            rv.adapter = adapter
+
+        }
+
+
+
+
     }
 
-    private fun addDataToList() {
-        clubList.add(Club("a", "b", "mat"))
-        clubList.add(Club("c", "b", "fen"))
-        clubList.add(Club("b", "b", "sos"))
 
 
-    }
 
-    private fun filterList(query: String?) {
+    private fun filterList(query: String?,clubList:List<Club>) {
         if (query != null) {
             val filteredList = ArrayList<Club>()
             for (i in clubList) {
@@ -91,6 +102,14 @@ class SksAdminClubsFragment : Fragment() {
                 adapter.setFilteredList(filteredList)
             }
         }
+    }
+
+    override fun onClick(
+        club: Club
+    ) {
+        val action = SksAdminClubsFragmentDirections
+            .actionSksAdminClubsFragmentToSksAdminClubInfoFragment(club)
+        findNavController().navigate(action)
     }
 
 }

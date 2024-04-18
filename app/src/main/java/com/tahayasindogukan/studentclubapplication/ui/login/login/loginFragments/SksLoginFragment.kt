@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.google.firebase.auth.FirebaseAuth
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksLoginBinding
+import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerHomePageActivity
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminHomePageActivity
 
 class SksLoginFragment : Fragment() {
@@ -39,6 +41,13 @@ class SksLoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         navController = Navigation.findNavController(view)
+
+        val currentUser = FirebaseAuth.getInstance().currentUser
+
+        if (currentUser != null) {
+            startActivity(Intent(requireContext(), SksAdminHomePageActivity::class.java))
+        }
+
 
         //function of back button
 

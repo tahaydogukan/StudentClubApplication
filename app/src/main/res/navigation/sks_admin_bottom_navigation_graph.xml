@@ -48,10 +48,45 @@
         <action
             android:id="@+id/action_sksAdminClubsFragment_to_sksAdminClubsCreateFragment"
             app:destination="@id/sksAdminClubsCreateFragment" />
+        <action
+            android:id="@+id/action_sksAdminClubsFragment_to_sksAdminClubInfoFragment"
+            app:destination="@id/sksAdminClubInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/sksAdminClubsCreateFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.SksAdminClubsCreateFragment"
         android:label="fragment_sks_admin_clubs_create"
         tools:layout="@layout/fragment_sks_admin_clubs_create" />
+    <fragment
+        android:id="@+id/sksAdminClubInfoFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.SksAdminClubInfoFragment"
+        android:label="fragment_sks_admin_club_info"
+        tools:layout="@layout/fragment_sks_admin_club_info" >
+        <argument
+            android:name="club"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Club" />
+        <action
+            android:id="@+id/action_sksAdminClubInfoFragment_to_sksAdminClubInfoAssignManagerFragment"
+            app:destination="@id/sksAdminClubInfoAssignManagerFragment" />
+        <action
+            android:id="@+id/action_sksAdminClubInfoFragment_to_sksAdminClubInfoDetailFragment"
+            app:destination="@id/sksAdminClubInfoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminClubInfoAssignManagerFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.SksAdminClubInfoAssignManagerFragment"
+        android:label="fragment_sks_admin_club_info_assign_manager"
+        tools:layout="@layout/fragment_sks_admin_club_info_assign_manager" >
+        <argument android:name="club"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Club" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminClubInfoDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.SksAdminClubInfoDetailFragment"
+        android:label="fragment_sks_admin_club_info_detail"
+        tools:layout="@layout/fragment_sks_admin_club_info_detail" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
 </navigation>

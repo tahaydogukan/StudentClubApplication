@@ -1,6 +1,7 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManag
 class ClubManagerCreateFormPage : Fragment() {
     private lateinit var binding: FragmentClubManagerCreateFormPageBinding
     private val viewModel: RequestViewModel by viewModels()
-
+    private var clubName:String?=null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -21,10 +22,19 @@ class ClubManagerCreateFormPage : Fragment() {
         return binding.root
     }
 
+
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        viewModel.checkManagerOfWhichClub()
+
         binding.btnSendFormRequest.setOnClickListener {
+            clubName = viewModel.clubData?.clubName
+            Log.e("createForm",clubName.toString())
             viewModel.sendFormRequst(
                 binding.etTitle.text.toString(),
                 binding.etContent.text.toString(),
@@ -49,6 +59,7 @@ class ClubManagerCreateFormPage : Fragment() {
                 true,
                 false,
                 1,
+                clubName?.lowercase().toString(),
                 requireContext()
             )
         }
