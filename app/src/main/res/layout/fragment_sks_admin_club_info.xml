@@ -52,7 +52,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="264dp"
         android:text="Club Name"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -71,12 +71,12 @@
 
     <TextView
         android:id="@+id/sks_admin_club_info_tw_club_manager"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:textColor="#525252"
         android:text=""
+        android:textColor="#525252"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -85,12 +85,10 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="421dp"
+        android:layout_marginTop="19dp"
         android:text="Mission Statement"
         android:textSize="13sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sks_admin_club_info_tw_club_manager" />
 
@@ -102,8 +100,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:inputType="textMultiLine"
-        android:text=""
-        android:textColor="#525252"
+        android:text="Indulge in the enchanting world of poetry at our upcoming event, &quot;Poetry Hour: A Celebration of Verses,&quot; hosted by the Literature Club. Join fellow poetry enthusiasts for an evening filled with captivating recitations, insightful discussions, and heartfelt expressions of creativity. Indulge in the enchanting world of poetry at our upcoming event, &quot;Poetry Hour: A Celebration of Verses,&quot; hosted by the Literature Club. Join fellow poetry enthusiasts for an evening filled with captivating recitations, insightful discussions, and heartfelt expressions of creativity."
+        android:textColor="#6A6A6A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />

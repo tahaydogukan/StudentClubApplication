@@ -53,20 +53,15 @@ class SksAdminClubInfoFragment : Fragment(),SksAdminClubInfoRecyclerViewAdapter.
 
         binding.sksAdminClubInfoRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        requestViewModel.getClubRequests(args.club.clubName)
-
         requestViewModel.clubRequests.observe(viewLifecycleOwner){
 
             val recyclerView = binding.sksAdminClubInfoRecyclerView
+            adapter = SksAdminClubInfoRecyclerViewAdapter(it,this,requireContext())
             recyclerView.adapter = adapter
 
-            adapter = SksAdminClubInfoRecyclerViewAdapter(it,this)
         }
 
-
-
-
-
+        requestViewModel.getClubRequests(args.club.clubName)
 
         //Recycler view le ilgili kodlar
 
@@ -75,19 +70,19 @@ class SksAdminClubInfoFragment : Fragment(),SksAdminClubInfoRecyclerViewAdapter.
         val clubForAssigningManager = args.club
 
 
-            FirebaseFirestore.getInstance().collection("clubManager").document(clubManagerId)
-                .get()
-                .addOnSuccessListener { querySnapshot ->
-                    if (querySnapshot.exists()) {
-                        var clubManager = querySnapshot.toObject(ClubManager::class.java)
+        FirebaseFirestore.getInstance().collection("clubManager").document(clubManagerId)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.exists()) {
+                    var clubManager = querySnapshot.toObject(ClubManager::class.java)
 
-                        binding.sksAdminClubInfoTwClubManager.text = clubManager!!.name
+                    binding.sksAdminClubInfoTwClubManager.text = clubManager!!.name
 
-                        Log.e("clubManager", " İşlem Başaraılı")
-                    } else {
-                        Log.e("clubManager", "İşlem başarısız")
-                    }
+                    Log.e("clubManager", " İşlem Başaraılı")
+                } else {
+                    Log.e("clubManager", "İşlem başarısız")
                 }
+            }
 
         Glide.with(requireContext()).load(args.club.clubPhoto).into(binding.sksAdminClubInfoIwClubPhoto)
         binding.sksAdminClubInfoTwClubName.text = args.club.clubName

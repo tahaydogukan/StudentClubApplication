@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentClubApplication"
         tools:targetApi="31">
-        <activity
-            android:name=".ui.home.clubManager.requestPages.forms.approveds.ClubManagerCreatePostActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.home.clubManager.ClubManagerCalendarInfoActivity"
             android:exported="false" />

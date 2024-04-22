@@ -8,24 +8,12 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/sks_admin_clubs_fragment_search_bar"
-        android:layout_width="316dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="66dp"
-        app:iconifiedByDefault="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:queryBackground="@android:color/transparent"
-        app:queryHint="Search" />
-
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="26dp"
         android:layout_height="26dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:src="@drawable/settings_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,24 +22,162 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:text="Activity Requests"
-        android:textSize="15sp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppins"
+        android:text="Requests"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
+    <TextView
+        android:id="@+id/textView83"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="120dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/poppins"
+        android:text="Forms"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView86"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="392dp"
+        android:fontFamily="@font/poppins"
+        android:text="Posts"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView87"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="632dp"
+        android:fontFamily="@font/poppins"
+        android:text="Edits"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_request_btn_forms_pending"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/gradient_background"
+        android:fontFamily="@font/poppins"
+        android:text="Pending"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView83" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_request_btn_forms_approved"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/gradient_background"
+        android:fontFamily="@font/poppins"
+        android:text="Approved"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_request_btn_forms_pending"
+        app:layout_goneMarginStart="48dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_request_btn_forms_rejected"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:background="@drawable/gradient_background"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/poppins"
+        android:text="Rejected"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_request_btn_forms_approved"
+        app:layout_goneMarginStart="48dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_request_btn_posts_pending"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/gradient_background"
+
+        android:fontFamily="@font/poppins"
+        android:text="Pending"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView86" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_request_btn_posts_approved"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/gradient_background"
+
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/poppins"
+        android:text="Approved"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_request_btn_posts_pending" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_request_btn_posts_rejected"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/poppins"
+        android:background="@drawable/gradient_background"
+
+        android:text="Rejected"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_request_btn_posts_approved" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sks_admin_request_btn_edits_pending"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/gradient_background"
+        android:fontFamily="@font/poppins"
+        android:text="Pending"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView87" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

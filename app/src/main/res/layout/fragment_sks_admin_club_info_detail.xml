@@ -25,38 +25,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="85dp"
+        android:layout_marginTop="18dp"
         android:fontFamily="@font/poppins"
         android:text="Start Date"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_club_info_detail_web_contacts" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginBottom="85dp"
         android:fontFamily="@font/poppins"
         android:text="End Date"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_club_info_detail_web_contacts" />
 
     <TextView
         android:id="@+id/textView51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="14dp"
         android:fontFamily="@font/poppins"
         android:text="Location"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="495dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView67" />
 
     <TextView
         android:id="@+id/textView52"
@@ -75,19 +76,21 @@
         android:id="@+id/textView55"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="124dp"
         android:fontFamily="@font/poppins"
         android:text="Description"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/sks_admin_club_info_detail_decsription"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
 
     <TextView
         android:id="@+id/sks_admin_club_info_detail_start_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/normal_background"
         android:backgroundTint="#BDDCEA"
         android:fontFamily="@font/poppins"
@@ -97,13 +100,14 @@
         android:text="12/04/2024"
         android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        tools:layout_editor_absoluteY="705dp" />
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_club_info_detail_web_contacts" />
 
     <TextView
         android:id="@+id/sks_admin_club_info_detail_end_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/normal_background"
         android:backgroundTint="#BDDCEA"
         android:fontFamily="@font/poppins"
@@ -113,7 +117,7 @@
         android:text="12/04/2024"
         android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@+id/textView11"
-        tools:layout_editor_absoluteY="708dp" />
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_club_info_detail_web_contacts" />
 
     <TextView
         android:id="@+id/sks_admin_club_info_detail_location"
@@ -173,7 +177,7 @@
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="511dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView55" />
 
     <TextView
         android:id="@+id/textView64"
@@ -199,6 +203,7 @@
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/sks_admin_club_info_detail_photo"
         app:layout_constraintEnd_toEndOf="@+id/sks_admin_club_info_detail_photo"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/sks_admin_club_info_detail_photo" />
 
     <TextView
@@ -220,11 +225,12 @@
         android:id="@+id/textView67"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="_______________________________________________________"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="462dp" />
+        app:layout_constraintTop_toBottomOf="@+id/sks_admin_club_info_detail_photo" />
 
     <TextView
         android:id="@+id/textView82"

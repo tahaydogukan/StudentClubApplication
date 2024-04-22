@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/sksAdminHomePageFragment"
-        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminHomePageFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.homePageFragment.SksAdminHomePageFragment"
         android:label="fragment_sks_admin_home_page"
         tools:layout="@layout/fragment_sks_admin_home_page">
         <action
@@ -25,18 +25,14 @@
     </fragment>
     <fragment
         android:id="@+id/sksAdminProfileFragment"
-        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminProfileFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.profileFragment.SksAdminProfileFragment"
         android:label="fragment_sks_admin_profile"
         tools:layout="@layout/fragment_sks_admin_profile" />
     <fragment
         android:id="@+id/sksAdminRequestFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.SksAdminRequestFragment"
         android:label="fragment_sks_admin_request"
-        tools:layout="@layout/fragment_sks_admin_request">
-        <action
-            android:id="@+id/action_sksAdminRequestFragment_to_sksAdminProfileFragment"
-            app:destination="@id/sksAdminProfileFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_sks_admin_request"/>
     <fragment
         android:id="@+id/sksAdminClubsFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.SksAdminClubsFragment"
@@ -85,6 +81,128 @@
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.SksAdminClubInfoDetailFragment"
         android:label="fragment_sks_admin_club_info_detail"
         tools:layout="@layout/fragment_sks_admin_club_info_detail" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminEditsPendingFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.edits.SksAdminEditsPendingFragment"
+        android:label="fragment_sks_admin_edits_pending"
+        tools:layout="@layout/fragment_sks_admin_edits_pending" >
+        <action
+            android:id="@+id/action_sksAdminEditsPendingFragment_to_sksAdminEditsPendingDetailFragment"
+            app:destination="@id/sksAdminEditsPendingDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminEditsPendingDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.edits.SksAdminEditsPendingDetailFragment"
+        android:label="fragment_sks_admin_edits_pending_detail"
+        tools:layout="@layout/fragment_sks_admin_edits_pending_detail" />
+    <fragment
+        android:id="@+id/sksAdminFormsApprovedFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.approved.SksAdminFormsApprovedFragment"
+        android:label="fragment_sks_admin_forms_approved"
+        tools:layout="@layout/fragment_sks_admin_forms_approved" >
+        <action
+            android:id="@+id/action_sksAdminFormsApprovedFragment_to_sksAdminFormsPendingDetailFragment"
+            app:destination="@id/sksAdminFormsPendingDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminFormsApprovedDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.approved.SksAdminFormsApprovedDetailFragment"
+        android:label="fragment_sks_admin_forms_approved_detail"
+        tools:layout="@layout/fragment_sks_admin_forms_approved_detail" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminFormsPendingFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.pending.SksAdminFormsPendingFragment"
+        android:label="fragment_sks_admin_forms_pending"
+        tools:layout="@layout/fragment_sks_admin_forms_pending" >
+        <action
+            android:id="@+id/action_sksAdminFormsPendingFragment_to_sksAdminFormsApprovedDetailFragment"
+            app:destination="@id/sksAdminFormsApprovedDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminFormsPendingDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.pending.SksAdminFormsPendingDetailFragment"
+        android:label="fragment_sks_admin_forms_pending_detail"
+        tools:layout="@layout/fragment_sks_admin_forms_pending_detail" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminFormsRejectedFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.rejected.SksAdminFormsRejectedFragment"
+        android:label="fragment_sks_admin_forms_rejected"
+        tools:layout="@layout/fragment_sks_admin_forms_rejected" >
+        <action
+            android:id="@+id/action_sksAdminFormsRejectedFragment_to_sksAdminFormsRejectedDetailFragment"
+            app:destination="@id/sksAdminFormsRejectedDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminFormsRejectedDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.rejected.SksAdminFormsRejectedDetailFragment"
+        android:label="fragment_sks_admin_forms_rejected_detail"
+        tools:layout="@layout/fragment_sks_admin_forms_rejected_detail" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminPostsApprovedFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.posts.approved.SksAdminPostsApprovedFragment"
+        android:label="fragment_sks_admin_posts_approved"
+        tools:layout="@layout/fragment_sks_admin_posts_approved" >
+        <action
+            android:id="@+id/action_sksAdminPostsApprovedFragment_to_sksAdminPostsApprovedDetailFragment"
+            app:destination="@id/sksAdminPostsApprovedDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminPostsApprovedDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.posts.approved.SksAdminPostsApprovedDetailFragment"
+        android:label="fragment_sks_admin_posts_approved_detail"
+        tools:layout="@layout/fragment_sks_admin_posts_approved_detail" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminPostsPendingFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.posts.pending.SksAdminPostsPendingFragment"
+        android:label="fragment_sks_admin_posts_pending"
+        tools:layout="@layout/fragment_sks_admin_posts_pending" >
+        <action
+            android:id="@+id/action_sksAdminPostsPendingFragment_to_sksAdminPostsPendingDetailFragment"
+            app:destination="@id/sksAdminPostsPendingDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminPostsPendingDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.posts.pending.SksAdminPostsPendingDetailFragment"
+        android:label="fragment_sks_admin_posts_pending_detail"
+        tools:layout="@layout/fragment_sks_admin_posts_pending_detail" >
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminPostsRejectedFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.posts.rejected.SksAdminPostsRejectedFragment"
+        android:label="fragment_sks_admin_posts_rejected"
+        tools:layout="@layout/fragment_sks_admin_posts_rejected" >
+        <action
+            android:id="@+id/action_sksAdminPostsRejectedFragment_to_sksAdminPostsRejectedDetailFragment"
+            app:destination="@id/sksAdminPostsRejectedDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sksAdminPostsRejectedDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.posts.rejected.SksAdminPostsRejectedDetailFragment"
+        android:label="fragment_sks_admin_posts_rejected_detail"
+        tools:layout="@layout/fragment_sks_admin_posts_rejected_detail" >
         <argument
             android:name="request"
             app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />

@@ -18,14 +18,16 @@ class RequestViewModel : ViewModel() {
     val postsPendingList = MutableLiveData<List<Request>>()
     val postsApprovedList = MutableLiveData<List<Request>>()
     val postsRejectedList = MutableLiveData<List<Request>>()
-    val clubRequests = MutableLiveData<List<Request>>()
+    var clubRequests = MutableLiveData<List<Request>>()
 
-    var clubData: Club? =null
+    var clubData: Club? = null
+
     init {
         checkManagerOfWhichClub()
 
     }
-    fun checkManagerOfWhichClub(){
+
+    fun checkManagerOfWhichClub() {
         FirebaseAuth.getInstance().currentUser?.uid?.let { uid ->
             FirebaseFirestore.getInstance().collection("club")
                 .whereEqualTo("clubManagerId", uid)
@@ -34,7 +36,7 @@ class RequestViewModel : ViewModel() {
                     if (querySnapshot.documents.isNotEmpty()) {
                         // Kullanıcı giriş yapmıştır ve verilere erişebilir.
                         var club1 = querySnapshot.documents[0].toObject(Club::class.java)
-                        clubData=club1
+                        clubData = club1
                         Log.e("clubNameVMM", club1.toString())
 
                         // ...
@@ -45,6 +47,7 @@ class RequestViewModel : ViewModel() {
         }
 
     }
+
     fun editRequest(
         // Document ID to identify the request to edit (obtained from original creation)
         documentId: String,
@@ -74,9 +77,9 @@ class RequestViewModel : ViewModel() {
         location: String? = null,
         webPlatform: String? = null,
         contacts: String? = null,
-        isForm:Boolean?=true,
-        isPost:Boolean?=null,
-        status:Int?=null,
+        isForm: Boolean? = true,
+        isPost: Boolean? = null,
+        status: Int? = null,
         context: Context
     ) {
         val ref = FirebaseFirestore.getInstance().collection("request").document(documentId)
@@ -128,11 +131,11 @@ class RequestViewModel : ViewModel() {
         agenda: String,
         startDate: String,
         endDate: String,
-        manager:String,
+        manager: String,
         //yeni form değişkenleri
         newTitle: String,
-        newManager:String,
-        newContent:String,
+        newManager: String,
+        newContent: String,
         newAttachment: String,
         newStartDate: String,
         newEndDate: String,
@@ -144,10 +147,10 @@ class RequestViewModel : ViewModel() {
         location: String,
         webPlatform: String,
         contacts: String,
-        isForm:Boolean,
-        isPost:Boolean,
-        status:Int,
-        clubName:String,
+        isForm: Boolean,
+        isPost: Boolean,
+        status: Int,
+        clubName: String,
         //status 1 = pending 2=approved 3 =rejected 4=deleted
         context: Context
     ) {
@@ -232,7 +235,8 @@ class RequestViewModel : ViewModel() {
             }
 
     }
-    fun getFormsApproved(){
+
+    fun getFormsApproved() {
         FirebaseAuth.getInstance().currentUser?.uid?.let { uid ->
             FirebaseFirestore.getInstance().collection("club")
                 .whereEqualTo("clubManagerId", uid)
@@ -241,7 +245,7 @@ class RequestViewModel : ViewModel() {
                     if (querySnapshot.documents.isNotEmpty()) {
                         // Kullanıcı giriş yapmıştır ve verilere erişebilir.
                         var club1 = querySnapshot.documents[0].toObject(Club::class.java)
-                        clubData=club1
+                        clubData = club1
                         Log.e("clubNameVMM", club1.toString())
                         val ref = FirebaseFirestore.getInstance().collection("request")
 
@@ -270,7 +274,8 @@ class RequestViewModel : ViewModel() {
         }
 
     }
-    fun getPostApproved(){
+
+    fun getPostApproved() {
         FirebaseAuth.getInstance().currentUser?.uid?.let { uid ->
             FirebaseFirestore.getInstance().collection("club")
                 .whereEqualTo("clubManagerId", uid)
@@ -279,7 +284,7 @@ class RequestViewModel : ViewModel() {
                     if (querySnapshot.documents.isNotEmpty()) {
                         // Kullanıcı giriş yapmıştır ve verilere erişebilir.
                         var club1 = querySnapshot.documents[0].toObject(Club::class.java)
-                        clubData=club1
+                        clubData = club1
                         Log.e("clubNameVMM", club1.toString())
                         val ref = FirebaseFirestore.getInstance().collection("request")
 
@@ -308,7 +313,8 @@ class RequestViewModel : ViewModel() {
         }
 
     }
-    fun getFormsPending(){
+
+    fun getFormsPending() {
         FirebaseAuth.getInstance().currentUser?.uid?.let { uid ->
             FirebaseFirestore.getInstance().collection("club")
                 .whereEqualTo("clubManagerId", uid)
@@ -317,7 +323,7 @@ class RequestViewModel : ViewModel() {
                     if (querySnapshot.documents.isNotEmpty()) {
                         // Kullanıcı giriş yapmıştır ve verilere erişebilir.
                         var club1 = querySnapshot.documents[0].toObject(Club::class.java)
-                        clubData=club1
+                        clubData = club1
                         Log.e("clubNameVMM", club1.toString())
                         val ref = FirebaseFirestore.getInstance().collection("request")
 
@@ -346,7 +352,8 @@ class RequestViewModel : ViewModel() {
         }
 
     }
-    fun getPostPending(){
+
+    fun getPostPending() {
         FirebaseAuth.getInstance().currentUser?.uid?.let { uid ->
             FirebaseFirestore.getInstance().collection("club")
                 .whereEqualTo("clubManagerId", uid)
@@ -355,7 +362,7 @@ class RequestViewModel : ViewModel() {
                     if (querySnapshot.documents.isNotEmpty()) {
                         // Kullanıcı giriş yapmıştır ve verilere erişebilir.
                         var club1 = querySnapshot.documents[0].toObject(Club::class.java)
-                        clubData=club1
+                        clubData = club1
                         Log.e("clubNameVMM", club1.toString())
                         val ref = FirebaseFirestore.getInstance().collection("request")
 
@@ -384,7 +391,8 @@ class RequestViewModel : ViewModel() {
         }
 
     }
-    fun getFormsRejected(){
+
+    fun getFormsRejected() {
         FirebaseAuth.getInstance().currentUser?.uid?.let { uid ->
             FirebaseFirestore.getInstance().collection("club")
                 .whereEqualTo("clubManagerId", uid)
@@ -393,7 +401,7 @@ class RequestViewModel : ViewModel() {
                     if (querySnapshot.documents.isNotEmpty()) {
                         // Kullanıcı giriş yapmıştır ve verilere erişebilir.
                         var club1 = querySnapshot.documents[0].toObject(Club::class.java)
-                        clubData=club1
+                        clubData = club1
                         Log.e("clubNameVMM", club1.toString())
                         val ref = FirebaseFirestore.getInstance().collection("request")
 
@@ -422,7 +430,8 @@ class RequestViewModel : ViewModel() {
         }
 
     }
-    fun getPostRejected(){
+
+    fun getPostRejected() {
         FirebaseAuth.getInstance().currentUser?.uid?.let { uid ->
             FirebaseFirestore.getInstance().collection("club")
                 .whereEqualTo("clubManagerId", uid)
@@ -431,7 +440,7 @@ class RequestViewModel : ViewModel() {
                     if (querySnapshot.documents.isNotEmpty()) {
                         // Kullanıcı giriş yapmıştır ve verilere erişebilir.
                         var club1 = querySnapshot.documents[0].toObject(Club::class.java)
-                        clubData=club1
+                        clubData = club1
                         Log.e("clubNameVMM", club1.toString())
                         val ref = FirebaseFirestore.getInstance().collection("request")
 
@@ -461,25 +470,149 @@ class RequestViewModel : ViewModel() {
 
     }
 
-    fun getClubRequests(clubName: String){
-            FirebaseFirestore.getInstance().collection("request")
-                .whereEqualTo("clubName", clubName)
-                .get()
-                .addOnSuccessListener { querySnapshot ->
-                    if (querySnapshot.documents.isNotEmpty()) {
-                        // Kullanıcı giriş yapmıştır ve verilere erişebilir.
-                        var clubRequests = querySnapshot.documents[0].toObject(Club::class.java)
-                        clubRequests=clubRequests
 
-                        Log.e("getClubRequests", clubRequests.toString())
-                    } else {
-                        // Veriler alınamadı
+
+    fun getClubRequests(clubName: String) {
+        FirebaseFirestore.getInstance().collection("request")
+            .whereEqualTo("clubName", clubName.lowercase())
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+
+                    val requestList = mutableListOf<Request>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Request::class.java).let { requestList.add(it) }
                     }
+                    clubRequests.postValue(requestList)
+
+                } else {
+                    Log.e("getClubRequests", "Veri alınamadı")
                 }
+            }
 
 
     }
 
+    fun getSksPostRejected() {
+        val ref = FirebaseFirestore.getInstance().collection("request")
 
+        val query = ref
+            .whereEqualTo("isPost", true)
+            .whereEqualTo("status", 3)
+
+        query.get().addOnSuccessListener { task ->
+            val requestList = mutableListOf<Request>()
+            for (document in task.documents) {
+                // Burada her bir belgeyi işleyebilirsiniz
+                document.toObject(Request::class.java)?.let { requestList.add(it) }
+            }
+            postsRejectedList.postValue(requestList)
+            Log.e("requestList", requestList.toString())
+
+        }
+
+
+    }
+    fun getSksPostApproved() {
+        val ref = FirebaseFirestore.getInstance().collection("request")
+        //status 1 = pending 2=approved 3 =rejected 4=deleted
+        val query = ref
+            .whereEqualTo("isPost", true)
+            .whereEqualTo("status", 2)
+
+        query.get().addOnSuccessListener { task ->
+            val requestList = mutableListOf<Request>()
+            for (document in task.documents) {
+                // Burada her bir belgeyi işleyebilirsiniz
+                document.toObject(Request::class.java)?.let { requestList.add(it) }
+            }
+            postsRejectedList.postValue(requestList)
+            Log.e("requestList", requestList.toString())
+
+        }
+
+
+    }
+    fun getSksPostPending() {
+        val ref = FirebaseFirestore.getInstance().collection("request")
+        //status 1 = pending 2=approved 3 =rejected 4=deleted
+        val query = ref
+            .whereEqualTo("isPost", true)
+            .whereEqualTo("status", 1)
+
+        query.get().addOnSuccessListener { task ->
+            val requestList = mutableListOf<Request>()
+            for (document in task.documents) {
+                // Burada her bir belgeyi işleyebilirsiniz
+                document.toObject(Request::class.java)?.let { requestList.add(it) }
+            }
+            postsRejectedList.postValue(requestList)
+            Log.e("requestList", requestList.toString())
+
+        }
+
+
+    }
+    fun getSksFormsRejected() {
+        val ref = FirebaseFirestore.getInstance().collection("request")
+        //status 1 = pending 2=approved 3 =rejected 4=deleted
+        val query = ref
+            .whereEqualTo("isForm", true)
+            .whereEqualTo("status", 3)
+
+        query.get().addOnSuccessListener { task ->
+            val requestList = mutableListOf<Request>()
+            for (document in task.documents) {
+                // Burada her bir belgeyi işleyebilirsiniz
+                document.toObject(Request::class.java)?.let { requestList.add(it) }
+            }
+            postsRejectedList.postValue(requestList)
+            Log.e("requestList", requestList.toString())
+
+        }
+
+
+    }
+    fun getSksFormsApproved() {
+        val ref = FirebaseFirestore.getInstance().collection("request")
+        //status 1 = pending 2=approved 3 =rejected 4=deleted
+        val query = ref
+            .whereEqualTo("isForm", true)
+            .whereEqualTo("status", 2)
+
+        query.get().addOnSuccessListener { task ->
+            val requestList = mutableListOf<Request>()
+            for (document in task.documents) {
+                // Burada her bir belgeyi işleyebilirsiniz
+                document.toObject(Request::class.java)?.let { requestList.add(it) }
+            }
+            postsRejectedList.postValue(requestList)
+            Log.e("requestList", requestList.toString())
+
+        }
+
+
+    }
+    fun getSksFormsPending() {
+        val ref = FirebaseFirestore.getInstance().collection("request")
+        //status 1 = pending 2=approved 3 =rejected 4=deleted
+        val query = ref
+            .whereEqualTo("isForm", true)
+            .whereEqualTo("status", 1)
+
+        query.get().addOnSuccessListener { task ->
+            val requestList = mutableListOf<Request>()
+            for (document in task.documents) {
+                // Burada her bir belgeyi işleyebilirsiniz
+                document.toObject(Request::class.java)?.let { requestList.add(it) }
+            }
+            postsRejectedList.postValue(requestList)
+            Log.e("requestList", requestList.toString())
+
+        }
+
+
+    }
 
 }

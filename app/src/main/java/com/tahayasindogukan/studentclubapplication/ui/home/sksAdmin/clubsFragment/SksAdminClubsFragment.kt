@@ -104,9 +104,7 @@ class SksAdminClubsFragment : Fragment(),SksAdminClubSearchAdapter.SksAdminClubS
         }
     }
 
-    override fun onClick(
-        club: Club
-    ) {
+    override fun onClick(club: Club) {
         val action = SksAdminClubsFragmentDirections
             .actionSksAdminClubsFragmentToSksAdminClubInfoFragment(club)
         findNavController().navigate(action)

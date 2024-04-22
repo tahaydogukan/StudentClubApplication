@@ -59,7 +59,7 @@ class SksAdminClubSearchAdapter(
 
     interface SksAdminClubSearchClickListener {
         fun onClick(
-            request: Club
+            club: Club
         )
     }
 

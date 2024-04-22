@@ -1,5 +1,6 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,10 +28,23 @@ class SksAdminClubInfoDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding.apply {
             sksAdminClubInfoDetailTitle.text = args.request.title
             sksAdminClubInfoDetailManager.text = args.request.manager
-            sksAdminClubInfoDetailLocation.text = args.request.location
+
+            if (args.request.location.length <= 2){
+                binding.sksAdminClubInfoDetailLocation.visibility = View.INVISIBLE
+            }else{
+                sksAdminClubInfoDetailLocation.text = args.request.location
+            }
+
+            if (args.request.webPlatform.length <= 2){
+                binding.sksAdminClubInfoDetailWebPlatform.visibility = View.INVISIBLE
+            }else{
+                sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
+            }
+
             sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
             sksAdminClubInfoDetailWebContacts.text = args.request.contacts
             sksAdminClubInfoDetailStartDate.text = args.request.startDate

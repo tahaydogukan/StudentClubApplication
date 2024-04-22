@@ -1,4 +1,4 @@
-package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin
+package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.profileFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
