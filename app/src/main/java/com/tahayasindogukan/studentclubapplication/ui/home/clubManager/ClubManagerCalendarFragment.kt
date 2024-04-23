@@ -14,6 +14,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
+import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerCalendarBinding
 import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
 import java.util.Locale
@@ -24,7 +26,7 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
     private lateinit var rv: RecyclerView
     private lateinit var navController: NavController
     private lateinit var searchView: SearchView
-    private val viewModel: FirebaseViewModel by viewModels()
+    private val viewModel: RequestViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -49,17 +51,18 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
         rv.setHasFixedSize(true)
         rv.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.activies.observe(viewLifecycleOwner) { activities ->
+
+        viewModel.postsApprovedList.observe(viewLifecycleOwner) { request ->
+
             val recyclerView = binding.clubManagerCalendarFragmentRecyclerView
 
-            adapter = ClubManagerCalendarAdapter(activities, this)
+            adapter = ClubManagerCalendarAdapter(request, this)
             recyclerView.adapter = adapter
 
         }
-        viewModel.getActivties()
+        viewModel.getPostApproved()
 
         searchView = binding.searchBar
-
 
 
         val calendarView = binding.calendarView
@@ -100,17 +103,14 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
 
     fun filterList(query: String?) {
         if (query != null) {
-            val filteredList = ArrayList<Activity>()
+            val filteredList = ArrayList<Request>()
 
-            val activityList = viewModel.activies.value
+            val activityList = viewModel.postsApprovedList.value
 
             if (activityList != null) {
                 for (i in activityList) {
-                    var year = i.activityYear
-                    var month = i.activityMonth
-                    var day = i.activityDay
-                    var date = "$day/$month/$year"
-                    if (date.lowercase(Locale.ROOT).contains(query)) {
+                    var startDate = i.startDate
+                    if (startDate.lowercase(Locale.ROOT).contains(query)) {
                         filteredList.add(i)
                     }
                 }
@@ -125,29 +125,7 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
     }
 
 
-    override fun onClick(
-        activityTitle: String,
-        activityContent: String, activityLocation: String,
-        activityManager: String,
-        activityAttachment: String,
-        activityYear: String,
-        activityMonth: String,
-        activityDay: String,
-        activityTags: String
-    ) {
+    override fun onClick(request: Request) {
 
-        val intent = Intent(requireContext(), ClubManagerCalendarInfoActivity::class.java)
-
-        intent.putExtra("activityTitle", activityTitle)
-        intent.putExtra("activityContent", activityContent)
-        intent.putExtra("activityLocation", activityLocation)
-        intent.putExtra("activityManager", activityManager)
-        intent.putExtra("activityAttachment", activityAttachment)
-        intent.putExtra("activityYear", activityYear)
-        intent.putExtra("activityMonth", activityMonth)
-        intent.putExtra("activityDay", activityDay)
-        intent.putExtra("activityTags", activityTags)
-
-        startActivity(intent)
     }
 }

@@ -18,7 +18,17 @@ class RequestViewModel : ViewModel() {
     val postsPendingList = MutableLiveData<List<Request>>()
     val postsApprovedList = MutableLiveData<List<Request>>()
     val postsRejectedList = MutableLiveData<List<Request>>()
+    val sksformsPendingList = MutableLiveData<List<Request>>()
+    val sksformsApprovedList = MutableLiveData<List<Request>>()
+    val sksformsRejectedList = MutableLiveData<List<Request>>()
+    val skspostsPendingList = MutableLiveData<List<Request>>()
+    val skspostsApprovedList = MutableLiveData<List<Request>>()
+    val skspostsRejectedList = MutableLiveData<List<Request>>()
     var clubRequests = MutableLiveData<List<Request>>()
+    val clubEditList = MutableLiveData<List<Club>>()
+    var requestEditList = MutableLiveData<List<Request>>()
+    var myClubActivitiesList = MutableLiveData<List<Request>>()
+
 
     var clubData: Club? = null
 
@@ -507,7 +517,7 @@ class RequestViewModel : ViewModel() {
                 // Burada her bir belgeyi işleyebilirsiniz
                 document.toObject(Request::class.java)?.let { requestList.add(it) }
             }
-            postsRejectedList.postValue(requestList)
+            skspostsRejectedList.postValue(requestList)
             Log.e("requestList", requestList.toString())
 
         }
@@ -527,7 +537,7 @@ class RequestViewModel : ViewModel() {
                 // Burada her bir belgeyi işleyebilirsiniz
                 document.toObject(Request::class.java)?.let { requestList.add(it) }
             }
-            postsRejectedList.postValue(requestList)
+            skspostsApprovedList.postValue(requestList)
             Log.e("requestList", requestList.toString())
 
         }
@@ -547,7 +557,7 @@ class RequestViewModel : ViewModel() {
                 // Burada her bir belgeyi işleyebilirsiniz
                 document.toObject(Request::class.java)?.let { requestList.add(it) }
             }
-            postsRejectedList.postValue(requestList)
+            skspostsPendingList.postValue(requestList)
             Log.e("requestList", requestList.toString())
 
         }
@@ -567,7 +577,7 @@ class RequestViewModel : ViewModel() {
                 // Burada her bir belgeyi işleyebilirsiniz
                 document.toObject(Request::class.java)?.let { requestList.add(it) }
             }
-            postsRejectedList.postValue(requestList)
+            sksformsRejectedList.postValue(requestList)
             Log.e("requestList", requestList.toString())
 
         }
@@ -587,7 +597,7 @@ class RequestViewModel : ViewModel() {
                 // Burada her bir belgeyi işleyebilirsiniz
                 document.toObject(Request::class.java)?.let { requestList.add(it) }
             }
-            postsRejectedList.postValue(requestList)
+            sksformsApprovedList.postValue(requestList)
             Log.e("requestList", requestList.toString())
 
         }
@@ -607,10 +617,75 @@ class RequestViewModel : ViewModel() {
                 // Burada her bir belgeyi işleyebilirsiniz
                 document.toObject(Request::class.java)?.let { requestList.add(it) }
             }
-            postsRejectedList.postValue(requestList)
+            sksformsPendingList.postValue(requestList)
             Log.e("requestList", requestList.toString())
 
         }
+
+
+    }
+    fun getClubEdits() {
+        FirebaseFirestore.getInstance().collection("request")
+            .whereEqualTo("status", "4")
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+
+                    val requestList = mutableListOf<Request>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Request::class.java).let { requestList.add(it) }
+                    }
+                    requestEditList.postValue(requestList)
+
+                } else {
+                    Log.e("getClubRequests", "Veri alınamadı")
+                }
+            }
+
+
+    }
+    fun getClubPostEdits() {
+        FirebaseFirestore.getInstance().collection("club")
+            .whereEqualTo("status", "2")
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+
+                    val clubList = mutableListOf<Club>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Club::class.java).let { clubList.add(it) }
+                    }
+                    clubEditList.postValue(clubList)
+
+                } else {
+                    Log.e("getClubRequests", "Veri alınamadı")
+                }
+            }
+
+
+    }
+
+    fun getMyClubActivities() {
+        FirebaseFirestore.getInstance().collection("request")
+            .whereEqualTo("status", "2")
+            .whereEqualTo("isPost",true)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+
+                    val requestList = mutableListOf<Request>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Request::class.java).let { requestList.add(it) }
+                    }
+                    myClubActivitiesList.postValue(requestList)
+
+                } else {
+                    Log.e("getMyClubActivities", "Veri alınamadı")
+                }
+            }
 
 
     }

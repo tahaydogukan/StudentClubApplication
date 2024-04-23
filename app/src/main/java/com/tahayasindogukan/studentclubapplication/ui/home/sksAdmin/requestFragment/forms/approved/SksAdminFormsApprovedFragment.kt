@@ -22,7 +22,6 @@ class SksAdminFormsApprovedFragment : Fragment(),SksAdminRequestAdapter.SksAdmin
     private lateinit var binding : FragmentSksAdminFormsApprovedBinding
     private lateinit var adapter: SksAdminRequestAdapter
     private val viewModel: RequestViewModel by viewModels()
-    private lateinit var navController: NavController
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,7 +40,7 @@ class SksAdminFormsApprovedFragment : Fragment(),SksAdminRequestAdapter.SksAdmin
 
         viewModel.getSksFormsApproved()
 
-        viewModel.formsApprovedList.observe(viewLifecycleOwner) { formsApproved ->
+        viewModel.sksformsApprovedList.observe(viewLifecycleOwner) { formsApproved ->
             val recyclerView = binding.sksAdminFormsApprovedPageRecyclerView
             adapter = SksAdminRequestAdapter(formsApproved,requireContext(),this)
             recyclerView.adapter = adapter
@@ -52,7 +51,7 @@ class SksAdminFormsApprovedFragment : Fragment(),SksAdminRequestAdapter.SksAdmin
         request:Request
     ) {
         val action = SksAdminFormsApprovedFragmentDirections
-            .actionSksAdminFormsApprovedFragmentToSksAdminFormsPendingDetailFragment(request)
+            .actionSksAdminFormsApprovedFragmentToSksAdminFormsApprovedDetailFragment(request)
         findNavController().navigate(action)
     }
 

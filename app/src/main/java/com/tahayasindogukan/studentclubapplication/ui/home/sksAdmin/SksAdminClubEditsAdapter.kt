@@ -5,25 +5,26 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.R
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.databinding.RequestCardViewBinding
 
-class SksAdminRequestAdapter(
-    var requestsList: List<Request>,
+class SksAdminClubEditsAdapter(
+    var clubList: List<Club>,
     private val context: Context,
-    val listener:SksAdminRequestAdapterClickListener
+    val listener:SksAdminEditsClubAdapterClickListener
 ) :
-    RecyclerView.Adapter<SksAdminRequestAdapter.SksAdminRequestAdapterViewHolder>() {
+    RecyclerView.Adapter<SksAdminClubEditsAdapter.SksAdminClubEditsAdapterViewHolder>() {
 
 
-    inner class SksAdminRequestAdapterViewHolder(
+    inner class SksAdminClubEditsAdapterViewHolder(
         var view: RequestCardViewBinding
     ) :
         RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
-    ): SksAdminRequestAdapterViewHolder {
+    ): SksAdminClubEditsAdapterViewHolder {
         val binding =
             RequestCardViewBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -31,20 +32,20 @@ class SksAdminRequestAdapter(
                 false
             )
 
-        return SksAdminRequestAdapterViewHolder(binding)
+        return SksAdminClubEditsAdapterViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        return requestsList.size
+        return clubList.size
     }
 
     //holder sayesinde card tasarımına ulaşıyoruz
-    override fun onBindViewHolder(holder: SksAdminRequestAdapterViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SksAdminClubEditsAdapterViewHolder, position: Int) {
         val t = holder.view
-        val document = requestsList[position]
+        val document = clubList[position]
 
         t.requestPhoto.setImageResource(R.drawable.request_icon)
-        t.requestName.text = document.title
+        t.requestName.text = document.clubName
 
         t.cardView.setOnClickListener {
             listener.onClick(
@@ -53,9 +54,9 @@ class SksAdminRequestAdapter(
         }
     }
 
-    interface SksAdminRequestAdapterClickListener {
+    interface SksAdminEditsClubAdapterClickListener {
         fun onClick(
-            request: Request
+            club: Club
         )
     }
 }

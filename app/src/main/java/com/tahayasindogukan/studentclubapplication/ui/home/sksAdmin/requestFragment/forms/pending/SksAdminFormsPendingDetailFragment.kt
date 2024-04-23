@@ -1,30 +1,25 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.pending
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
-import com.tahayasindogukan.studentclubapplication.R
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
-import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsApprovedDetailBinding
-import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsPendingBinding
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsPendingDetailBinding
-import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.approved.SksAdminFormsApprovedDetailFragmentArgs
 
 class SksAdminFormsPendingDetailFragment : Fragment() {
-    private lateinit var binding : FragmentSksAdminFormsPendingDetailBinding
-    private val args : SksAdminFormsPendingDetailFragmentArgs by navArgs()
+    private lateinit var binding: FragmentSksAdminFormsPendingDetailBinding
+    private val args: SksAdminFormsPendingDetailFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSksAdminFormsPendingDetailBinding.inflate(layoutInflater,container,false)
+        binding =
+            FragmentSksAdminFormsPendingDetailBinding.inflate(layoutInflater, container, false)
 
         // Inflate the layout for this fragment
         return binding.root
@@ -34,7 +29,8 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        Glide.with(requireContext()).load(args.request.attachment).into(binding.sksAdminFormsPendingPhoto)
+        Glide.with(requireContext()).load(args.request.attachment)
+            .into(binding.sksAdminFormsPendingPhoto)
 
         binding.apply {
 
@@ -46,9 +42,10 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
             sksAdminFormsPendingEndDate.setText(args.request.endDate)
         }
 
-        binding.sksAdminFormsPendingBtnApprove.setOnClickListener{
+        binding.sksAdminFormsPendingBtnApprove.setOnClickListener {
 
-            val ref = FirebaseFirestore.getInstance().collection("request").document(args.request.documentId)
+            val ref = FirebaseFirestore.getInstance().collection("request")
+                .document(args.request.documentId)
             //status 1 = pending 2=approved 3 =rejected 4=deleted
 
 
@@ -64,9 +61,10 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
                     Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()
                 }
         }
-        binding.sksAdminFormsPendingBtnReject.setOnClickListener{
+        binding.sksAdminFormsPendingBtnReject.setOnClickListener {
 
-            val ref = FirebaseFirestore.getInstance().collection("request").document(args.request.documentId)
+            val ref = FirebaseFirestore.getInstance().collection("request")
+                .document(args.request.documentId)
             //status 1 = pending 2=approved 3 =rejected 4=deleted
 
             val requestUpdates = hashMapOf<String, Any>()

@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_clubManagerProfileFragment_to_clubManagerProfileSettings"
             app:destination="@id/clubManagerProfileSettings" />
+        <action
+            android:id="@+id/action_clubManagerProfileFragment_to_clubManagerProfileMyActivities"
+            app:destination="@id/clubManagerProfileMyActivities" />
     </fragment>
     <fragment
         android:id="@+id/clubManagerClubFragment"
@@ -219,5 +222,14 @@
         <action
             android:id="@+id/action_clubManagerProfileSettings_to_clubManagerProfileChangePassword"
             app:destination="@id/clubManagerProfileChangePassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerProfileMyActivities"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.profilePages.ClubManagerProfileMyActivities"
+        android:label="fragment_club_manager_profile_my_activities"
+        tools:layout="@layout/fragment_club_manager_profile_my_activities" >
+        <argument
+            android:name="club"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Club" />
     </fragment>
 </navigation>

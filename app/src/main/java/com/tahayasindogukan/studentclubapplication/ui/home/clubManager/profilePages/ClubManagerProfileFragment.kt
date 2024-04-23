@@ -9,11 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.R
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
 import com.tahayasindogukan.studentclubapplication.core.entitiy.ClubManager
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerProfileBinding
+import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.edits.SksAdminEditsPendingFragmentDirections
 import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
 
 
@@ -36,9 +39,14 @@ class ClubManagerProfileFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
 
+        var club: Club? = null
+
         firebaseViewModel.checkManagerOfWhichClub()
 
         firebaseViewModel.club.observe(viewLifecycleOwner) {
+
+            club = it
+
             FirebaseFirestore.getInstance().collection("clubManager").document(it.clubManagerId)
                 .get()
                 .addOnSuccessListener { querySnapshot ->
@@ -63,6 +71,12 @@ class ClubManagerProfileFragment : Fragment() {
             binding.twClubDescription.text = club.clubDescription
             Glide.with(requireContext()).load(club.clubPhoto).into(binding.clubPhoto)
 
+        }
+
+        binding.btnMyClubActivities.setOnClickListener{
+            val action = ClubManagerProfileFragmentDirections
+                .actionClubManagerProfileFragmentToClubManagerProfileMyActivities(club!!)
+            findNavController().navigate(action)
         }
 
         binding.clubManagerProfileBtnEditProfile.setOnClickListener {

@@ -17,8 +17,9 @@ import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.SksAdminRequ
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.approved.SksAdminFormsApprovedFragmentDirections
 
 
-class SksAdminFormsPendingFragment : Fragment(),SksAdminRequestAdapter.SksAdminRequestAdapterClickListener {
-    private lateinit var binding : FragmentSksAdminFormsPendingBinding
+class SksAdminFormsPendingFragment : Fragment(),
+    SksAdminRequestAdapter.SksAdminRequestAdapterClickListener {
+    private lateinit var binding: FragmentSksAdminFormsPendingBinding
     private val viewModel: RequestViewModel by viewModels()
     private lateinit var adapter: SksAdminRequestAdapter
 
@@ -26,7 +27,7 @@ class SksAdminFormsPendingFragment : Fragment(),SksAdminRequestAdapter.SksAdminR
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSksAdminFormsPendingBinding.inflate(layoutInflater,container,false)
+        binding = FragmentSksAdminFormsPendingBinding.inflate(layoutInflater, container, false)
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -37,19 +38,20 @@ class SksAdminFormsPendingFragment : Fragment(),SksAdminRequestAdapter.SksAdminR
         binding.sksAdminFormsPendingPageRecyclerView.layoutManager =
             GridLayoutManager(requireContext(), 2)
 
-        viewModel.getSksFormsApproved()
+        viewModel.getSksFormsPending()
 
-        viewModel.formsApprovedList.observe(viewLifecycleOwner) { formsApproved ->
+        viewModel.sksformsPendingList.observe(viewLifecycleOwner) { formsApproved ->
             val recyclerView = binding.sksAdminFormsPendingPageRecyclerView
-            adapter = SksAdminRequestAdapter(formsApproved,requireContext(),this)
+            adapter = SksAdminRequestAdapter(formsApproved, requireContext(), this)
             recyclerView.adapter = adapter
         }
     }
+
     override fun onClick(
         request: Request
     ) {
         val action = SksAdminFormsPendingFragmentDirections
-            .actionSksAdminFormsPendingFragmentToSksAdminFormsApprovedDetailFragment(request)
+            .actionSksAdminFormsPendingFragmentToSksAdminFormsPendingDetailFragment(request)
         findNavController().navigate(action)
     }
 }

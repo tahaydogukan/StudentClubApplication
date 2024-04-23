@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.databinding.SksAdminCalendarFragmentCardViewBinding
 
-class ClubManagerCalendarAdapter(var activtiyList: List<Activity>, val listener: MyClickListener) :
+class ClubManagerCalendarAdapter(var activtiyList: List<Request>, val listener: MyClickListener) :
     RecyclerView.Adapter<ClubManagerCalendarAdapter.ClubManagerCalendarViewHolder>() {
 
 
@@ -26,7 +27,7 @@ class ClubManagerCalendarAdapter(var activtiyList: List<Activity>, val listener:
         return ClubManagerCalendarViewHolder(binding)
     }
 
-    fun setFilteredList(clubList: List<Activity>) {
+    fun setFilteredList(clubList: List<Request>) {
         activtiyList = clubList
         notifyDataSetChanged()
     }
@@ -42,16 +43,10 @@ class ClubManagerCalendarAdapter(var activtiyList: List<Activity>, val listener:
 
         t.clubPhoto.setImageResource(R.drawable.image_deneme)
         t.requestsCardViewLayout.setOnClickListener {
-        t.activityName.text = document.activityYear.toString()
-        t.activityMonthAndDate.text = "${document.activityMonth}\n${document.activityDay}"
+        t.activityName.text = document.title
+        t.activityMonthAndDate.text = document.startDate
             listener.onClick(
-                document.activityTitle,
-                document.activityContent,
-                document.activityLocation,
-                document.activityManager,
-                document.activityAttachment,
-                document.activityYear, document.activityMonth, document.activityDay,
-                document.activityTags
+                document
             )
         }
 
@@ -60,14 +55,7 @@ class ClubManagerCalendarAdapter(var activtiyList: List<Activity>, val listener:
 
     interface MyClickListener {
         public fun onClick(
-            activityTitle: String,
-            activityContent: String, activityLocation: String,
-            activityManager: String,
-            activityAttachment: String,
-            activityYear: String,
-            activityMonth: String,
-            activityDay: String,
-            activityTags: String
+            request:Request
         )
     }
 
