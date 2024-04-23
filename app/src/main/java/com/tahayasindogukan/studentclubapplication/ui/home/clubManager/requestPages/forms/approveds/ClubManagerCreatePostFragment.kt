@@ -153,6 +153,9 @@ class ClubManagerCreatePostFragment : Fragment() {
 
             uploadPhoto(uri!!)
 
+                navController.navigate(R.id.clubManagerFormsApprovedPage)
+                navController.popBackStack()
+
             }else{
                 binding.createPostsEtAttachment.text = "Please upload a photo"
                 binding.createPostsEtAttachment.setTextColor(Color.RED)

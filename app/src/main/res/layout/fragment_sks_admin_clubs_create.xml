@@ -126,7 +126,7 @@
         android:backgroundTint="#F0F0F0"
         android:ems="10"
         android:fontFamily="@font/poppins"
-        android:inputType="text"
+        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />

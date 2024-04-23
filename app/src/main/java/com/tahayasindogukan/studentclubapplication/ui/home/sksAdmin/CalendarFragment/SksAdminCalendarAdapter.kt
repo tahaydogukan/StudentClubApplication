@@ -1,15 +1,14 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.CalendarFragment
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.R
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.databinding.SksAdminCalendarFragmentCardViewBinding
 
 
-class SksAdminCalendarAdapter(var requestsList: List<Activity>,val listener:MyClickListener) :
+class SksAdminCalendarAdapter(var requestsList: List<Request>, val listener: MyClickListener) :
     RecyclerView.Adapter<SksAdminCalendarAdapter.CalendarViewHolder>() {
 
 
@@ -26,7 +25,7 @@ class SksAdminCalendarAdapter(var requestsList: List<Activity>,val listener:MyCl
         return CalendarViewHolder(binding)
     }
 
-    fun setFilteredList(clubList: List<Activity>) {
+    fun setFilteredList(clubList: List<Request>) {
         this.requestsList = clubList
         notifyDataSetChanged()
     }
@@ -38,22 +37,18 @@ class SksAdminCalendarAdapter(var requestsList: List<Activity>,val listener:MyCl
     //holder sayesinde card tasarımına ulaşıyoruz
     override fun onBindViewHolder(holder: CalendarViewHolder, position: Int) {
         val t = holder.view
-        //val document = requestsList[position]
+        val document = requestsList[position]
 
         t.clubPhoto.setImageResource(R.drawable.image_deneme)
 
+        t.requestsCardViewLayout.setOnClickListener {
+            listener.onClick(document)
+        }
 
     }
     interface MyClickListener {
-        public fun onClick(
-            activityTitle: String,
-            activityContent: String, activityLocation: String,
-            activityManager: String,
-            activityAttachment: String,
-            activityYear: String,
-            activityMonth: String,
-            activityDay: String,
-            activityTags: String
+        fun onClick(
+            request: Request
         )
     }
 

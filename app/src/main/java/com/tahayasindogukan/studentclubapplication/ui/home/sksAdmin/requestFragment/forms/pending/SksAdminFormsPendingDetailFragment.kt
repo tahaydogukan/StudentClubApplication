@@ -6,14 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
+import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsPendingDetailBinding
 
 class SksAdminFormsPendingDetailFragment : Fragment() {
     private lateinit var binding: FragmentSksAdminFormsPendingDetailBinding
     private val args: SksAdminFormsPendingDetailFragmentArgs by navArgs()
+    private lateinit var navController: NavController
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,6 +32,7 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navController = Navigation.findNavController(view)
 
         Glide.with(requireContext()).load(args.request.attachment)
             .into(binding.sksAdminFormsPendingPhoto)
@@ -56,6 +61,8 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
             ref.update(requestUpdates)
                 .addOnSuccessListener {
                     Toast.makeText(context, "Düzenleme başarılı", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.sksAdminRequestFragment)
+                    navController.popBackStack()
                 }
                 .addOnFailureListener {
                     Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()
@@ -74,6 +81,8 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
             ref.update(requestUpdates)
                 .addOnSuccessListener {
                     Toast.makeText(context, "Düzenleme başarılı", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.sksAdminRequestFragment)
+                    navController.popBackStack()
                 }
                 .addOnFailureListener {
                     Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()

@@ -8,16 +8,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:src="@drawable/settings_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
@@ -179,5 +169,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView87" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="______________________________________________________"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

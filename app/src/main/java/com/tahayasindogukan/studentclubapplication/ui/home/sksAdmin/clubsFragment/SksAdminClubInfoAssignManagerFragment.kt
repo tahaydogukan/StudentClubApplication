@@ -1,7 +1,6 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment
 
 import android.R
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,13 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.core.entitiy.ClubManager
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminClubInfoAssignManagerBinding
 import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
@@ -39,17 +36,18 @@ class SksAdminClubInfoAssignManagerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        firebaseViewModel.getClubManagers()
 
         navController = Navigation.findNavController(view)
 
         var selectedClubManager: String? = null
         var selectedClubManagerId: String? = null
-        var clubManagerList2 = ArrayList<ClubManager>()
+        var clubManagerList2 = emptyList<ClubManager>()
 
-        firebaseViewModel.getClubManagers()
         firebaseViewModel.clubManagers.observe(viewLifecycleOwner) { clubManagersList ->
 
-            clubManagerList2 = clubManagersList as ArrayList<ClubManager>
+            clubManagerList2 = clubManagersList
+            Log.e("List", clubManagerList2.toString())
 
             for (i in clubManagersList) {
                 nameList.add(i.name)
@@ -77,21 +75,22 @@ class SksAdminClubInfoAssignManagerFragment : Fragment() {
                 // Eşleşen nesne bulundu
                 val matchingObject = clubManagerList2[matchingIndex]
                 // Eşleşen nesneyle işlem yapın
-                Log.e("ManagerIndex", matchingIndex.toString())
                 selectedClubManagerId = matchingObject.clubManagerId
+                Log.e("ManagerIndex", matchingObject.clubManagerId.toString())
+                firebaseViewModel.assignManager(
+                    args.club.clubId,
+                    selectedClubManagerId.toString(), requireContext()
+                )
+
             } else {
                 // Eşleşen nesne bulunamadı
+                Log.e("ManagerIndex", "başarısız")
+
             }
 
 
         }
 
-        binding.sksAdminClubInfoBtnAssignManagaer.setOnClickListener {
-            selectedClubManagerId?.let { it1 ->
-                firebaseViewModel.assignManager(args.club.clubId,
-                    it1,requireContext())
-            }
-        }
     }
 
 

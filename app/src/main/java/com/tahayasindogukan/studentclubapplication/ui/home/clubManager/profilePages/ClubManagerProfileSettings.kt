@@ -2,10 +2,10 @@ package com.tahayasindogukan.studentclubapplication.ui.home.clubManager.profileP
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -45,6 +45,7 @@ class ClubManagerProfileSettings : Fragment() {
             firebaseViewModel.signOutViewModel { val intent = Intent(requireContext(), LoginMainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
                 startActivity(intent) }
+            navController.popBackStack()
         }
 
     }

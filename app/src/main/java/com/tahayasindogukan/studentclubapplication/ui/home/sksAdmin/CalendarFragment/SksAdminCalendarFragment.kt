@@ -1,6 +1,5 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.CalendarFragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,14 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
+import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminCalendarBinding
-import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerCalendarAdapter
-import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerCalendarInfoActivity
-import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
-import java.util.Locale
 
 
 class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListener {
@@ -29,7 +27,7 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
     private lateinit var navController: NavController
     var activityList = mutableListOf<Activity>()
     private lateinit var searchView: SearchView
-    private val viewModel: FirebaseViewModel by viewModels()
+    private val requestViewModel: RequestViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -48,12 +46,19 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
         rv = binding.clubManagerCalendarFragmentRecyclerView
         //searchView = binding.sksAdminClubsFragmentSearchBar
 
+        requestViewModel.getPostApproved()
+
+        requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
+            adapter = SksAdminCalendarAdapter(it, this)
+            rv.adapter = adapter
+        }
+
+
         rv.setHasFixedSize(true)
         rv.layoutManager = LinearLayoutManager(requireContext())
         searchView = binding.searchBar
 
-        adapter = SksAdminCalendarAdapter(activityList,this)
-        rv.adapter = adapter
+
 
         val calendarView = binding.calendarView
 
@@ -75,13 +80,27 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
 
             calendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
                 // Seçilen tarihi işleyin
-                var secilenTarih = "${dayOfMonth}/${month + 1}/${year}"
+                if (month < 10) {
+                    var secilenTarih = "${dayOfMonth}/0${month + 1}/${year}"
+                    searchView.setQuery(secilenTarih, true)
+
+                } else {
+                    var secilenTarih = "${dayOfMonth}/${month + 1}/${year}"
+                    searchView.setQuery(secilenTarih, true)
+
+                }
 
                 // Filtreleme işlemini gerçekleştirin
                 binding.calendarView.visibility = View.INVISIBLE
                 binding.clubManagerCalendarFragmentRecyclerView.visibility = View.VISIBLE
-                binding.calendarButton.text = "${dayOfMonth}/${month+1}/${year}"
-                searchView.setQuery(secilenTarih, false)
+
+                if (month < 10) {
+                    binding.calendarButton.text = "${dayOfMonth}/0${month + 1}/${year}"
+                } else {
+                    binding.calendarButton.text = "${dayOfMonth}/${month + 1}/${year}"
+
+                }
+
             }
         }
 
@@ -90,53 +109,44 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
 
     fun filterList(query: String?) {
         if (query != null) {
-            val filteredList = ArrayList<Activity>()
+            var filteredList = ArrayList<Request>()
 
-            val activityList = viewModel.activies.value
+            requestViewModel.getSksPostsApprove()
 
-            if (activityList != null) {
-                for (i in activityList) {
-                    var year = i.activityYear
-                    var month = i.activityMonth
-                    var day = i.activityDay
-                    var date = "$day/$month/$year"
-                    if (date.lowercase(Locale.ROOT).contains(query)) {
+            var requesList = emptyList<Request>()
+
+            requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
+                requesList = it
+                Log.e("SksAdminRequestList", requesList.toString())
+
+                for (i in requesList) {
+                    var startDate = i.startDate
+                    if (startDate.contains(query)) {
                         filteredList.add(i)
+                        Log.e("SksAdminRequestList6", i.toString())
+
                     }
                 }
             }
+            Log.e("SksAdminRequestList5", query)
 
             if (filteredList.isEmpty()) {
-                Log.e("SksAdminCalendarFragment", "List is empty")
+                Log.e("SksAdminRequestList3", filteredList.toString())
             } else {
                 adapter.setFilteredList(filteredList)
             }
+
+
         }
     }
 
     override fun onClick(
-        activityTitle: String,
-        activityContent: String,
-        activityLocation: String,
-        activityManager: String,
-        activityAttachment: String,
-        activityYear: String,
-        activityMonth: String,
-        activityDay: String,
-        activityTags: String
+        request: Request
     ) {
         // Sks admin calendar info activitysi yok onu yap
-        val intent = Intent(requireContext(), ClubManagerCalendarInfoActivity::class.java)
+        val action = SksAdminCalendarFragmentDirections
+            .actionSksAdminCalendarFragmentToSksAdminClubInfoDetailFragment(request)
+        findNavController().navigate(action)
 
-        intent.putExtra("activityTitle", activityTitle)
-        intent.putExtra("activityContent", activityContent)
-        intent.putExtra("activityLocation", activityLocation)
-        intent.putExtra("activityManager", activityManager)
-        intent.putExtra("activityAttachment", activityAttachment)
-        intent.putExtra("activityYear", activityYear)
-        intent.putExtra("activityMonth", activityMonth)
-        intent.putExtra("activityDay", activityDay)
-        intent.putExtra("activityTags", activityTags)
-
-        startActivity(intent)    }
+    }
 }

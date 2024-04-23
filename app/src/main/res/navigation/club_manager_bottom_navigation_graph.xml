@@ -23,7 +23,11 @@
         android:id="@+id/clubManagerClubFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerClubFragment"
         android:label="fragment_club_manager_club"
-        tools:layout="@layout/fragment_club_manager_club" />
+        tools:layout="@layout/fragment_club_manager_club">
+        <action
+            android:id="@+id/action_clubManagerClubFragment_to_clubManagerClubActivitiesFragment"
+            app:destination="@id/clubManagerClubActivitiesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/clubManagerHomePageFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerHomePageFragment"
@@ -231,5 +235,50 @@
         <argument
             android:name="club"
             app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Club" />
+        <action
+            android:id="@+id/action_clubManagerProfileMyActivities_to_clubManagerProfileMyActivitiesDetail"
+            app:destination="@id/clubManagerProfileMyActivitiesDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerProfileMyActivitiesDetail"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.profilePages.ClubManagerProfileMyActivitiesDetail"
+        android:label="fragment_club_manager_profile_my_activities_detail"
+        tools:layout="@layout/fragment_club_manager_profile_my_activities_detail">
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+        <action
+            android:id="@+id/action_clubManagerProfileMyActivitiesDetail_to_clubManagerProfileEditRequestFragment"
+            app:destination="@id/clubManagerProfileEditRequestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerProfileEditRequestFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.profilePages.ClubManagerProfileEditRequestFragment"
+        android:label="fragment_club_manager_profile_edit_request"
+        tools:layout="@layout/fragment_club_manager_profile_edit_request">
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerClubActivitiesFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerClubActivitiesFragment"
+        android:label="fragment_club_manager_club_activities"
+        tools:layout="@layout/fragment_club_manager_club_activities">
+        <action
+            android:id="@+id/action_clubManagerClubActivitiesFragment_to_clubManagerClubActivtiesDetailFragment"
+            app:destination="@id/clubManagerClubActivtiesDetailFragment" />
+        <argument
+            android:name="club"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Club" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerClubActivtiesDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerClubActivtiesDetailFragment"
+        android:label="fragment_club_manager_club_activties_detail"
+        tools:layout="@layout/fragment_club_manager_club_activties_detail">
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
     </fragment>
 </navigation>

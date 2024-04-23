@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_sksAdminCalendarFragment_to_sksAdminRequestFragment"
             app:destination="@id/sksAdminRequestFragment" />
+        <action
+            android:id="@+id/action_sksAdminCalendarFragment_to_sksAdminClubInfoDetailFragment"
+            app:destination="@id/sksAdminClubInfoDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/sksAdminProfileFragment"

@@ -160,7 +160,7 @@ class FirebaseViewModel : ViewModel() {
             }
     }
     fun getClubManagers() {
-        val clubCollection = firebaseFirestoreInstance.collection("clubManager")
+        val clubCollection = FirebaseFirestore.getInstance().collection("clubManager")
         clubCollection.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val clubManagersList = mutableListOf<ClubManager>()
@@ -168,6 +168,8 @@ class FirebaseViewModel : ViewModel() {
                     clubManagersList.add(document.toObject(ClubManager::class.java))
                 }
                 clubManagers.postValue(clubManagersList)
+                Log.e("getClubManagers", clubManagersList.toString())
+
             } else {
                 Log.e("ClubViewModel", "Error getting clubManagers: ", task.exception)
             }

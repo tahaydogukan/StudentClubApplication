@@ -1,23 +1,23 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.posts.pending
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.R
-import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsPendingDetailBinding
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminPostsPendingDetailBinding
-import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.pending.SksAdminFormsPendingDetailFragmentArgs
 
 
 class SksAdminPostsPendingDetailFragment : Fragment() {
     private lateinit var binding: FragmentSksAdminPostsPendingDetailBinding
-
+    private lateinit var navController: NavController
     private val args: SksAdminPostsPendingDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -31,6 +31,8 @@ class SksAdminPostsPendingDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        navController = Navigation.findNavController(view)
 
         Glide.with(requireContext()).load(args.request.attachment)
             .into(binding.sksAdminPostsPendingPhoto)
@@ -59,6 +61,8 @@ class SksAdminPostsPendingDetailFragment : Fragment() {
             ref.update(requestUpdates)
                 .addOnSuccessListener {
                     Toast.makeText(context, "Düzenleme başarılı", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.sksAdminPostsPendingFragment)
+                    navController.popBackStack()
                 }
                 .addOnFailureListener {
                     Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()
@@ -77,6 +81,8 @@ class SksAdminPostsPendingDetailFragment : Fragment() {
             ref.update(requestUpdates)
                 .addOnSuccessListener {
                     Toast.makeText(context, "Düzenleme başarılı", Toast.LENGTH_SHORT).show()
+                    navController.navigate(R.id.sksAdminPostsPendingFragment)
+                    navController.popBackStack()
                 }
                 .addOnFailureListener {
                     Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()

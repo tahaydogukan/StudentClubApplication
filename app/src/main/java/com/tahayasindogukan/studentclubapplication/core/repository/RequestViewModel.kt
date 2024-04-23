@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
@@ -124,6 +123,47 @@ class RequestViewModel : ViewModel() {
         if (isForm != null) updates["isForm"] = isForm
         if (isPost != null) updates["isPost"] = isPost
         if (status != null) updates["status"] = status
+        ref.update(updates)
+            .addOnSuccessListener {
+                Toast.makeText(context, "Düzenleme başarılı", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    fun editPost(
+        // Document ID to identify the request to edit (obtained from original creation)
+        documentId: String,
+
+        // New or updated field values
+        newTitle: String? = null,
+        newManager: String? = null,
+        newContent: String? = null,
+        newAttachment: String? = null,
+        newStartDate: String? = null,
+        newEndDate: String? = null,
+        newLocation: String? = null,
+        newWebPlatform: String? = null,
+        newContacts: String? = null,
+        context: Context
+    ) {
+        val ref = FirebaseFirestore.getInstance().collection("request").document(documentId)
+
+        val updates = hashMapOf<String, Any>()
+
+        // Include new or updated fields
+        if (newTitle != null) updates["newTitle"] = newTitle
+        if (newManager != null) updates["newManager"] = newManager
+        if (newContent != null) updates["newContent"] = newContent
+        if (newAttachment != null) updates["newAttachment"] = newAttachment
+        if (newStartDate != null) updates["newStartDate"] = newStartDate
+        if (newEndDate != null) updates["newEndDate"] = newEndDate
+        if (newLocation != null) updates["newLocation"] = newLocation
+        if (newWebPlatform != null) updates["newWebPlatform"] = newWebPlatform
+        if (newContacts != null) updates["newContacts"] = newContacts
+        updates["status"] = "4"
+
         ref.update(updates)
             .addOnSuccessListener {
                 Toast.makeText(context, "Düzenleme başarılı", Toast.LENGTH_SHORT).show()
@@ -261,7 +301,7 @@ class RequestViewModel : ViewModel() {
 
                         val query = ref
                             .whereEqualTo("isForm", true)
-                            .whereEqualTo("status", 2)
+                            .whereEqualTo("status", "2")
                             .whereEqualTo("clubName", this.clubData?.clubName?.lowercase())
                         Log.e("viewModel", this.clubData.toString())
 
@@ -300,7 +340,7 @@ class RequestViewModel : ViewModel() {
 
                         val query = ref
                             .whereEqualTo("isPost", true)
-                            .whereEqualTo("status", 2)
+                            .whereEqualTo("status", "2")
                             .whereEqualTo("clubName", this.clubData?.clubName?.lowercase())
                         Log.e("viewModel", this.clubData.toString())
 
@@ -339,7 +379,7 @@ class RequestViewModel : ViewModel() {
 
                         val query = ref
                             .whereEqualTo("isForm", true)
-                            .whereEqualTo("status", 1)
+                            .whereEqualTo("status", "1")
                             .whereEqualTo("clubName", this.clubData?.clubName?.lowercase())
                         Log.e("viewModel", this.clubData.toString())
 
@@ -378,7 +418,7 @@ class RequestViewModel : ViewModel() {
 
                         val query = ref
                             .whereEqualTo("isPost", true)
-                            .whereEqualTo("status", 1)
+                            .whereEqualTo("status", "1")
                             .whereEqualTo("clubName", this.clubData?.clubName?.lowercase())
                         Log.e("viewModel", this.clubData.toString())
 
@@ -417,7 +457,7 @@ class RequestViewModel : ViewModel() {
 
                         val query = ref
                             .whereEqualTo("isForm", true)
-                            .whereEqualTo("status", 3)
+                            .whereEqualTo("status", "3")
                             .whereEqualTo("clubName", this.clubData?.clubName?.lowercase())
                         Log.e("viewModel", this.clubData.toString())
 
@@ -456,7 +496,7 @@ class RequestViewModel : ViewModel() {
 
                         val query = ref
                             .whereEqualTo("isPost", true)
-                            .whereEqualTo("status", 3)
+                            .whereEqualTo("status", "3")
                             .whereEqualTo("clubName", this.clubData?.clubName?.lowercase())
                         Log.e("viewModel", this.clubData.toString())
 
@@ -484,6 +524,8 @@ class RequestViewModel : ViewModel() {
 
     fun getClubRequests(clubName: String) {
         FirebaseFirestore.getInstance().collection("request")
+            .whereEqualTo("isPost", true)
+            .whereEqualTo("status", "2")
             .whereEqualTo("clubName", clubName.lowercase())
             .get()
             .addOnSuccessListener { querySnapshot ->
@@ -509,7 +551,7 @@ class RequestViewModel : ViewModel() {
 
         val query = ref
             .whereEqualTo("isPost", true)
-            .whereEqualTo("status", 3)
+            .whereEqualTo("status", "3")
 
         query.get().addOnSuccessListener { task ->
             val requestList = mutableListOf<Request>()
@@ -529,7 +571,7 @@ class RequestViewModel : ViewModel() {
         //status 1 = pending 2=approved 3 =rejected 4=deleted
         val query = ref
             .whereEqualTo("isPost", true)
-            .whereEqualTo("status", 2)
+            .whereEqualTo("status", "2")
 
         query.get().addOnSuccessListener { task ->
             val requestList = mutableListOf<Request>()
@@ -549,7 +591,7 @@ class RequestViewModel : ViewModel() {
         //status 1 = pending 2=approved 3 =rejected 4=deleted
         val query = ref
             .whereEqualTo("isPost", true)
-            .whereEqualTo("status", 1)
+            .whereEqualTo("status", "1")
 
         query.get().addOnSuccessListener { task ->
             val requestList = mutableListOf<Request>()
@@ -569,7 +611,7 @@ class RequestViewModel : ViewModel() {
         //status 1 = pending 2=approved 3 =rejected 4=deleted
         val query = ref
             .whereEqualTo("isForm", true)
-            .whereEqualTo("status", 3)
+            .whereEqualTo("status", "3")
 
         query.get().addOnSuccessListener { task ->
             val requestList = mutableListOf<Request>()
@@ -589,7 +631,7 @@ class RequestViewModel : ViewModel() {
         //status 1 = pending 2=approved 3 =rejected 4=deleted
         val query = ref
             .whereEqualTo("isForm", true)
-            .whereEqualTo("status", 2)
+            .whereEqualTo("status", "2")
 
         query.get().addOnSuccessListener { task ->
             val requestList = mutableListOf<Request>()
@@ -609,7 +651,7 @@ class RequestViewModel : ViewModel() {
         //status 1 = pending 2=approved 3 =rejected 4=deleted
         val query = ref
             .whereEqualTo("isForm", true)
-            .whereEqualTo("status", 1)
+            .whereEqualTo("status", "1")
 
         query.get().addOnSuccessListener { task ->
             val requestList = mutableListOf<Request>()
@@ -667,10 +709,12 @@ class RequestViewModel : ViewModel() {
 
     }
 
-    fun getMyClubActivities() {
+    fun getMyClubActivities(clubName: String) {
         FirebaseFirestore.getInstance().collection("request")
             .whereEqualTo("status", "2")
             .whereEqualTo("isPost",true)
+            .whereEqualTo("clubName", clubName.lowercase())
+
             .get()
             .addOnSuccessListener { querySnapshot ->
                 if (querySnapshot.documents.isNotEmpty()) {
@@ -681,6 +725,30 @@ class RequestViewModel : ViewModel() {
                         document.toObject(Request::class.java).let { requestList.add(it) }
                     }
                     myClubActivitiesList.postValue(requestList)
+
+                } else {
+                    Log.e("getMyClubActivities", "Veri alınamadı")
+                }
+            }
+
+
+    }
+
+    fun getSksPostsApprove() {
+        FirebaseFirestore.getInstance().collection("request")
+            .whereEqualTo("status", "2")
+            .whereEqualTo("isPost", true)
+
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+
+                    val requestList = mutableListOf<Request>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Request::class.java).let { requestList.add(it) }
+                    }
+                    postsApprovedList.postValue(requestList)
 
                 } else {
                     Log.e("getMyClubActivities", "Veri alınamadı")

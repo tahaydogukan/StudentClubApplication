@@ -1,17 +1,10 @@
 package com.tahayasindogukan.studentclubapplication.core.repository
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 
 class FirebaseRepository {
 
@@ -42,6 +35,7 @@ class FirebaseRepository {
                     userMap["email"] = email
                     userMap["password"] = password
                     userMap["phone"] = phone
+                    userMap["clubManagerId"] = uid
 
                     onComplete(true, user.uid)
 

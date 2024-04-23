@@ -1,6 +1,5 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.clubManager
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,17 +11,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerClubBinding
+import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.adapter.SksAdminClubSearchAdapter
 import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
 import java.util.Locale
 
-class ClubManagerClubFragment : Fragment(), ClubManagerClubSearchAdapter.MyClickListener {
+class ClubManagerClubFragment : Fragment(),
+    SksAdminClubSearchAdapter.SksAdminClubSearchClickListener {
     private lateinit var binding: FragmentClubManagerClubBinding
     private lateinit var navController: NavController
     private lateinit var searchView: SearchView
-    private lateinit var adapter: ClubManagerClubSearchAdapter
+    private lateinit var adapter: SksAdminClubSearchAdapter
     private val viewModel: FirebaseViewModel by viewModels()
 
     override fun onCreateView(
@@ -53,7 +55,7 @@ class ClubManagerClubFragment : Fragment(), ClubManagerClubSearchAdapter.MyClick
         //view modelden gelen club listesini adaptera veriyoruz
         viewModel.clubs.observe(viewLifecycleOwner) { clubs ->
             val recyclerView = binding.clubManagerClubsFragmentRecyclerview
-            adapter = ClubManagerClubSearchAdapter(clubs,requireContext(),this)
+            adapter = SksAdminClubSearchAdapter(clubs, this, requireContext())
             recyclerView.adapter = adapter
 
         }
@@ -127,18 +129,11 @@ class ClubManagerClubFragment : Fragment(), ClubManagerClubSearchAdapter.MyClick
         }
     }
 
-    override fun onClick(
-        clubName: String,
-        clubManager: String,
-        clubDescription: String,
-        clubPhoto: String
-    ) {
-        val intent= Intent(requireContext(),ClubManagerClubInfoActivity::class.java)
-        intent.putExtra("clubName",clubName)
-        intent.putExtra("clubManager",clubManager)
-        intent.putExtra("clubDescription",clubDescription)
-        intent.putExtra("clubPhoto",clubPhoto)
-        startActivity(intent)
+
+    override fun onClick(club: Club) {
+        val action = ClubManagerClubFragmentDirections
+            .actionClubManagerClubFragmentToClubManagerClubActivitiesFragment(club)
+        findNavController().navigate(action)
     }
 
 }
