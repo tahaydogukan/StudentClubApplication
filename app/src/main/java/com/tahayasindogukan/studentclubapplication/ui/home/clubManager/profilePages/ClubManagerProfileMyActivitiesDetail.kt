@@ -45,13 +45,6 @@ class ClubManagerProfileMyActivitiesDetail : Fragment() {
         binding.clubAdminProfileMyActivitiesContacts.text = args.request.contacts
 
 
-        binding.button.setOnClickListener {
-            val action = ClubManagerProfileMyActivitiesDetailDirections
-                .actionClubManagerProfileMyActivitiesDetailToClubManagerProfileEditRequestFragment(
-                    request
-                )
-            findNavController().navigate(action)
-        }
 
     }
 
