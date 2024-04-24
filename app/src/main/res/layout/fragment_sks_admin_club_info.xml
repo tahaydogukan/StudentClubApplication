@@ -6,16 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.sksAdmin.clubsFragment.SksAdminClubInfoFragment">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/sks_admin_club_info_btn_back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/normal_background"
-        android:drawableRight="@drawable/login_back_btn"
-        android:paddingRight="14dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/login_back_btn"
+    <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="_________________________________________________________"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

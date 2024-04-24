@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.sksAdmin.CalendarFragment.SksAdminCalendarFragment">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancelBtn"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/normal_background"
+        android:drawableLeft="@drawable/cancel_button"
+        android:paddingLeft="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="274dp"
@@ -33,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Activities"
-        android:textSize="17sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,13 +57,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="23dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="70dp"
         android:background="@drawable/normal_background"
         android:drawableLeft="@drawable/home_page_acitvity_bottom_nav_calendar_icon"
         android:gravity="center"
         android:inputType="none"
         android:paddingLeft="12dp"
-        android:text="12 MART 2024"
+        android:text="24/04/2024"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
@@ -71,7 +83,7 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="52dp"
         android:text="______________________________________________________"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

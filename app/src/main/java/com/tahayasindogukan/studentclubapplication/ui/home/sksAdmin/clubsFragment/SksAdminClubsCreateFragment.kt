@@ -124,10 +124,6 @@ class SksAdminClubsCreateFragment : Fragment() {
 
         }
 
-        binding.sksAdminClubsCreateBtnBack.setOnClickListener {
-            navController.navigate(R.id.sksAdminClubsFragment)
-        }
-
 
 
     }

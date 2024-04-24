@@ -7,15 +7,25 @@
     tools:context=".ui.home.sksAdmin.homePageFragment.SksAdminHomePageFragment">
 
     <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="_________________________________________________________"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppins"
         android:text="Home"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,8 +81,8 @@
             android:id="@+id/pending_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins"
             android:text="12"
             android:textSize="24sp"
@@ -83,11 +93,13 @@
             android:id="@+id/approved_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins"
             android:text="13"
             android:textSize="24sp"
-            tools:layout_editor_absoluteX="28dp"
-            tools:layout_editor_absoluteY="221dp" />
+            app:layout_constraintBottom_toBottomOf="@+id/button5"
+            app:layout_constraintStart_toStartOf="@+id/button5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -165,14 +177,4 @@
             app:layout_constraintStart_toStartOf="@+id/button4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="________________________________________________________"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,25 +7,25 @@
     tools:context=".ui.home.sksAdmin.clubsFragment.SksAdminClubsCreateFragment">
 
     <TextView
-        android:id="@+id/textView1111"
+        android:id="@+id/textView58"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
-        android:text="Create A Club"
-        android:textSize="17sp"
-        android:fontFamily="@font/poppins"
-        android:textStyle="bold"
+        android:layout_marginTop="52dp"
+        android:text="_________________________________________________________"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/sks_admin_clubs_create_btn_back"
+    <TextView
+        android:id="@+id/textView1111"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="39dp"
-        android:src="@drawable/login_back_btn"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppins"
+        android:text="Create A Club"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

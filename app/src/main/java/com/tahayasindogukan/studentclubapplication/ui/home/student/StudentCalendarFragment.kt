@@ -19,6 +19,7 @@ import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewMo
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentStudentCalendarBinding
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.CalendarFragment.SksAdminCalendarAdapter
 import java.util.Calendar
+import java.util.Locale
 
 class StudentCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListener {
     private lateinit var binding: FragmentStudentCalendarBinding
@@ -52,19 +53,8 @@ class StudentCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListe
             rv.adapter = adapter
         }
 
-        val calendar = Calendar.getInstance()
-        val calendarYear = calendar.get(Calendar.YEAR)
-        val calendarMonth = calendar.get(Calendar.MONTH) + 1 // Ay sıfır tabanlıdır
-        val calendarDay = calendar.get(Calendar.DAY_OF_MONTH)
-
-        if (calendarMonth < 10) {
-            var calendarDate = "${calendarDay}/0${calendarMonth}/${calendarYear}"
-            binding.calendarButton.text = calendarDate.toString()
-
-        } else {
-            var calendarDate = "${calendarDay}/${calendarMonth}/${calendarYear}"
-            binding.calendarButton.text = calendarDate.toString()
-
+        binding.cancelBtn.setOnClickListener {
+            requestViewModel.getSksPostsApprove()
         }
 
 
@@ -122,31 +112,19 @@ class StudentCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListe
         if (query != null) {
             var filteredList = ArrayList<Request>()
 
-            requestViewModel.getSksPostsApprove()
-
-            var requesList = emptyList<Request>()
-
             requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
-                requesList = it
-                Log.e("SksAdminRequestList", requesList.toString())
-
+                var requesList = it
                 for (i in requesList) {
                     var startDate = i.startDate
-                    if (startDate.contains(query)) {
+                    if (startDate.lowercase(Locale.ROOT).contains(query)) {
                         filteredList.add(i)
                         Log.e("SksAdminRequestList6", i.toString())
 
                     }
                 }
             }
-            Log.e("SksAdminRequestList5", query)
-
-            if (filteredList.isEmpty()) {
-                Log.e("SksAdminRequestList3", filteredList.toString())
-            } else {
-                adapter.setFilteredList(filteredList)
-            }
-
+            Log.e("SksAdminRequestListQuery", query)
+            adapter.setFilteredList(filteredList)
 
         }
     }

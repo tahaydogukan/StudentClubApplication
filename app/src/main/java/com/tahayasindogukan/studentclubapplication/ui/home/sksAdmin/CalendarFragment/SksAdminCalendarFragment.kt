@@ -17,6 +17,7 @@ import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminCalendarBinding
+import java.util.Locale
 
 
 class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListener {
@@ -59,24 +60,32 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
         searchView = binding.searchBar
 
 
+        binding.cancelBtn.setOnClickListener {
+            requestViewModel.getPostApproved()
+        }
+
 
         val calendarView = binding.calendarView
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
 
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
-                return true
-            }
-        })
 
         binding.calendarButton.setOnClickListener {
             binding.calendarView.visibility = View.VISIBLE
             binding.clubManagerCalendarFragmentRecyclerView.visibility = View.INVISIBLE
+
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    filterList(newText)
+                    return true
+                }
+            })
+
 
             calendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
                 // Seçilen tarihi işleyin
@@ -111,31 +120,19 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
         if (query != null) {
             var filteredList = ArrayList<Request>()
 
-            requestViewModel.getSksPostsApprove()
-
-            var requesList = emptyList<Request>()
-
             requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
-                requesList = it
-                Log.e("SksAdminRequestList", requesList.toString())
-
+                var requesList = it
                 for (i in requesList) {
                     var startDate = i.startDate
-                    if (startDate.contains(query)) {
+                    if (startDate.lowercase(Locale.ROOT).contains(query)) {
                         filteredList.add(i)
                         Log.e("SksAdminRequestList6", i.toString())
 
                     }
                 }
             }
-            Log.e("SksAdminRequestList5", query)
-
-            if (filteredList.isEmpty()) {
-                Log.e("SksAdminRequestList3", filteredList.toString())
-            } else {
+            Log.e("SksAdminRequestListQuery", query)
                 adapter.setFilteredList(filteredList)
-            }
-
 
         }
     }

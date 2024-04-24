@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.student.StudentCalendarFragment">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancelBtn"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/normal_background"
+        android:drawableLeft="@drawable/cancel_button"
+        android:paddingLeft="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
@@ -55,8 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="19dp"
-        android:text="1"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="70dp"
         android:background="@drawable/normal_background"
         android:drawableLeft="@drawable/home_page_acitvity_bottom_nav_calendar_icon"
         android:gravity="center"

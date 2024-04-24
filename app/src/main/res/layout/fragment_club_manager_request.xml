@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.clubManager.requestPages.ClubManagerRequestFragment">
 
+    <TextView
+        android:id="@+id/textView528"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="_________________________________________________________"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_forms"
         android:layout_width="0dp"
@@ -43,10 +54,11 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppins"
         android:text="Requests"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -20,10 +20,6 @@ import com.tahayasindogukan.studentclubapplication.core.entitiy.ClubManager
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminClubInfoBinding
-import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.approveds.ClubManagerFormsApprovedDetailPageArgs
-import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.posts.pendings.ClubManagerPostsPendingPageDirections
-import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.posts.pendings.ClubManagerPostsPendingRecyclerViewAdapter
-import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
 
 
 class SksAdminClubInfoFragment : Fragment(),SksAdminClubInfoRecyclerViewAdapter.SksAdminClubInfoClickListener {
@@ -121,10 +117,6 @@ class SksAdminClubInfoFragment : Fragment(),SksAdminClubInfoRecyclerViewAdapter.
             findNavController().navigate(action)
         }
 
-        binding.sksAdminClubInfoBtnBack.setOnClickListener {
-            navController.navigate(R.id.sksAdminClubsFragment)
-            navController.popBackStack()
-        }
 
 
     }

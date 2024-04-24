@@ -6,12 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.clubManager.requestPages.ClubManagerCalendarInfoFragment">
 
+    <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="_________________________________________________________"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/club_manager_calendar_info_detail_photo"
         android:layout_width="350dp"
         android:layout_height="350dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="32dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -177,7 +187,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/poppins"
         android:text="Activities"
-        android:textSize="17sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
