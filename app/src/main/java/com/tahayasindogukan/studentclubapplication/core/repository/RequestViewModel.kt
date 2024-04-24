@@ -202,7 +202,7 @@ class RequestViewModel : ViewModel() {
         contacts: String,
         isForm: Boolean,
         isPost: Boolean,
-        status: Int,
+        status: String,
         clubName: String,
         //status 1 = pending 2=approved 3 =rejected 4=deleted
         context: Context
@@ -670,6 +670,27 @@ class RequestViewModel : ViewModel() {
 
     }
     fun getClubEdits() {
+        FirebaseFirestore.getInstance().collection("club")
+            .whereEqualTo("clubStatus", "2")
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+
+                    val clubList = mutableListOf<Club>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Club::class.java).let { clubList.add(it) }
+                    }
+                    clubEditList.postValue(clubList)
+
+                } else {
+                    Log.e("getClubRequests", "Veri alınamadı")
+                }
+            }
+
+
+    }
+    fun getClubPostEdits() {
         FirebaseFirestore.getInstance().collection("request")
             .whereEqualTo("status", "4")
             .get()
@@ -682,27 +703,6 @@ class RequestViewModel : ViewModel() {
                         document.toObject(Request::class.java).let { requestList.add(it) }
                     }
                     requestEditList.postValue(requestList)
-
-                } else {
-                    Log.e("getClubRequests", "Veri alınamadı")
-                }
-            }
-
-
-    }
-    fun getClubPostEdits() {
-        FirebaseFirestore.getInstance().collection("club")
-            .whereEqualTo("status", "2")
-            .get()
-            .addOnSuccessListener { querySnapshot ->
-                if (querySnapshot.documents.isNotEmpty()) {
-
-                    val clubList = mutableListOf<Club>()
-                    for (document in querySnapshot) {
-                        // Burada her bir belgeyi işleyebilirsiniz
-                        document.toObject(Club::class.java).let { clubList.add(it) }
-                    }
-                    clubEditList.postValue(clubList)
 
                 } else {
                     Log.e("getClubRequests", "Veri alınamadı")

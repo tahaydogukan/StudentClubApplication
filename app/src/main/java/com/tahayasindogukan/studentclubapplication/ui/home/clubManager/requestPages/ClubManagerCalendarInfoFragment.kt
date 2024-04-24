@@ -29,10 +29,8 @@ class ClubManagerCalendarInfoFragment : Fragment() {
 
 
 
-        if (args.request.attachment != null) {
-            Glide.with(this).load(args.request.attachment).centerCrop()
-                .into(binding.clubManagerCalendarInfoDetailPhoto)
-        }
+        Glide.with(requireContext()).load(args.request.attachment).into(binding.clubManagerCalendarInfoDetailPhoto)
+
         binding.clubManagerCalendarInfoDetailStartDate.text = args.request.startDate
         binding.clubManagerCalendarInfoDetailDescription.text = args.request.content
         binding.clubManagerCalendarInfoDetailWebContacts.text = args.request.contacts

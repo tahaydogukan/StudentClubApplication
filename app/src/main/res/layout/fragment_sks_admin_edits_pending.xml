@@ -44,7 +44,7 @@
         tools:listitem="@layout/request_card_view" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sks_admin_edits_profile_recycler_view"
+        android:id="@+id/sks_admin_edits_club_recycler_view"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="8dp"
@@ -64,7 +64,7 @@
         android:text="Profile Edits"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/sks_admin_edits_profile_recycler_view"
+        app:layout_constraintBottom_toTopOf="@+id/sks_admin_edits_club_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminEditsPendingBinding
@@ -36,10 +37,12 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
 
+
+
         binding.sksAdminEditPostBtnApprove.setOnClickListener{
 
             val postUpdates = hashMapOf<String, Any>()
-            postUpdates["status"] = 2
+            postUpdates["status"] = "2"
             postUpdates["title"] = args.request.newTitle
             postUpdates["content"] = args.request.newContent
             postUpdates["manager"] = args.request.newManager
@@ -68,7 +71,7 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
         binding.sksAdminFormsPendingBtnReject.setOnClickListener {
 
             val postUpdates = hashMapOf<String, Any>()
-            postUpdates["status"] = 2
+            postUpdates["status"] = "2"
             postUpdates["newTitle"] =  ""
             postUpdates["newManager"] =  ""
             postUpdates["newContent"] =  ""

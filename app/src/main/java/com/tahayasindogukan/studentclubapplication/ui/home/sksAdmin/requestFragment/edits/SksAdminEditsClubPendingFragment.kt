@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminEditsClubPendingBinding
@@ -34,10 +35,14 @@ class SksAdminEditsClubPendingFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
 
+        binding.sksAdminEditClubName.text = args.club.newClubName
+        binding.sksAdminEditClubDescription.text = args.club.newClubDescription
+        Glide.with(requireContext()).load(args.club.newClubPhoto).into(binding.sksAdminEditClubPhoto)
+
         binding.sksAdminEditClubBtnApprove.setOnClickListener{
 
             val clubUpdates = hashMapOf<String, Any>()
-            clubUpdates["status"] = 1
+            clubUpdates["status"] = "1"
 
             clubUpdates["clubName"] = args.club.newClubName
             clubUpdates["clubDescription"] = args.club.newClubDescription
@@ -62,7 +67,7 @@ class SksAdminEditsClubPendingFragment : Fragment() {
         binding.sksAdminEditClubBtnReject.setOnClickListener {
 
             val clubUpdates = hashMapOf<String, Any>()
-            clubUpdates["status"] = 1
+            clubUpdates["status"] = "1"
 
             clubUpdates["newClubName"] =  ""
             clubUpdates["newClubDescription"] =  ""

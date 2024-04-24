@@ -43,7 +43,7 @@ class SksAdminEditsPendingFragment : Fragment(),
         binding.sksAdminEditsPostsRecyclerView.layoutManager =
             GridLayoutManager(requireContext(), 2)
 
-        binding.sksAdminEditsProfileRecyclerView.layoutManager =
+        binding.sksAdminEditsClubRecyclerView.layoutManager =
             GridLayoutManager(requireContext(), 2)
 
 
@@ -58,7 +58,7 @@ class SksAdminEditsPendingFragment : Fragment(),
         viewModel.getClubEdits()
 
         viewModel.clubEditList.observe(viewLifecycleOwner) { formsApproved ->
-            val recyclerView = binding.sksAdminEditsPostsRecyclerView
+            val recyclerView = binding.sksAdminEditsClubRecyclerView
             clubAdapter = SksAdminClubEditsAdapter(formsApproved, requireContext(), this)
             recyclerView.adapter = clubAdapter
         }

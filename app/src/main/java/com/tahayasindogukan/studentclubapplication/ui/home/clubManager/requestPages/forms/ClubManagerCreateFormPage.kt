@@ -58,7 +58,7 @@ class ClubManagerCreateFormPage : Fragment() {
                 "",
                 true,
                 false,
-                1,
+                "1",
                 clubName?.lowercase().toString(),
                 requireContext()
             )
