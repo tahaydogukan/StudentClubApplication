@@ -1,14 +1,19 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.CalendarFragment
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.tahayasindogukan.studentclubapplication.R
+import com.bumptech.glide.Glide
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.databinding.SksAdminCalendarFragmentCardViewBinding
 
 
-class SksAdminCalendarAdapter(var requestsList: List<Request>, val listener: MyClickListener) :
+class SksAdminCalendarAdapter(
+    var requestsList: List<Request>,
+    val listener: MyClickListener,
+    val context: Context
+) :
     RecyclerView.Adapter<SksAdminCalendarAdapter.CalendarViewHolder>() {
 
 
@@ -39,7 +44,11 @@ class SksAdminCalendarAdapter(var requestsList: List<Request>, val listener: MyC
         val t = holder.view
         val document = requestsList[position]
 
-        t.clubPhoto.setImageResource(R.drawable.image_deneme)
+        Glide.with(context).load(document.attachment).into(t.clubPhoto)
+        t.activityName.text = document.title
+        t.activityYear.text = document.startDate.substring(document.startDate.length - 4)
+        t.activityMonthAndDate.text = document.startDate.substring(0, document.startDate.length - 5)
+
 
         t.requestsCardViewLayout.setOnClickListener {
             listener.onClick(document)

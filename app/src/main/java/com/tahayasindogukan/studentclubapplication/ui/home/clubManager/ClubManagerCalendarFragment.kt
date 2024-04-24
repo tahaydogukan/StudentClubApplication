@@ -1,6 +1,5 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.clubManager
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,14 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerCalendarBinding
-import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
-import java.util.Locale
 
 class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyClickListener {
     private lateinit var binding: FragmentClubManagerCalendarBinding
@@ -26,7 +23,7 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
     private lateinit var rv: RecyclerView
     private lateinit var navController: NavController
     private lateinit var searchView: SearchView
-    private val viewModel: RequestViewModel by viewModels()
+    private val requestViewModel: RequestViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -51,16 +48,17 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
         rv.setHasFixedSize(true)
         rv.layoutManager = LinearLayoutManager(requireContext())
 
+        requestViewModel.getPostApproved()
 
-        viewModel.postsApprovedList.observe(viewLifecycleOwner) { request ->
+        requestViewModel.postsApprovedList.observe(viewLifecycleOwner) { request ->
 
             val recyclerView = binding.clubManagerCalendarFragmentRecyclerView
 
-            adapter = ClubManagerCalendarAdapter(request, this)
+            adapter = ClubManagerCalendarAdapter(request, this, requireContext())
             recyclerView.adapter = adapter
 
         }
-        viewModel.getPostApproved()
+
 
         searchView = binding.searchBar
 
@@ -86,14 +84,26 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
 
             calendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
                 // Seçilen tarihi işleyin
-                var secilenTarih = "${dayOfMonth}/${month + 1}/${year}"
+                if (month < 10) {
+                    var secilenTarih = "${dayOfMonth}/0${month + 1}/${year}"
+                    searchView.setQuery(secilenTarih, true)
+
+                } else {
+                    var secilenTarih = "${dayOfMonth}/${month + 1}/${year}"
+                    searchView.setQuery(secilenTarih, true)
+
+                }
 
                 // Filtreleme işlemini gerçekleştirin
                 binding.calendarView.visibility = View.INVISIBLE
                 binding.clubManagerCalendarFragmentRecyclerView.visibility = View.VISIBLE
-                binding.calendarButton.text = "${dayOfMonth}/${month + 1}/${year}"
-                searchView.setQuery(secilenTarih, false)
 
+                if (month < 10) {
+                    binding.calendarButton.text = "${dayOfMonth}/0${month + 1}/${year}"
+                } else {
+                    binding.calendarButton.text = "${dayOfMonth}/${month + 1}/${year}"
+
+                }
 
             }
         }
@@ -103,29 +113,41 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
 
     fun filterList(query: String?) {
         if (query != null) {
-            val filteredList = ArrayList<Request>()
+            var filteredList = ArrayList<Request>()
 
-            val activityList = viewModel.postsApprovedList.value
+            requestViewModel.getSksPostsApprove()
 
-            if (activityList != null) {
-                for (i in activityList) {
+            var requesList = emptyList<Request>()
+
+            requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
+                requesList = it
+                Log.e("SksAdminRequestList", requesList.toString())
+
+                for (i in requesList) {
                     var startDate = i.startDate
-                    if (startDate.lowercase(Locale.ROOT).contains(query)) {
+                    if (startDate.contains(query)) {
                         filteredList.add(i)
+                        Log.e("SksAdminRequestList6", i.toString())
+
                     }
                 }
             }
+            Log.e("SksAdminRequestList5", query)
 
             if (filteredList.isEmpty()) {
-                Log.e("ClubManagerCalenderAdapter", "List is empty")
+                Log.e("SksAdminRequestList3", filteredList.toString())
             } else {
                 adapter.setFilteredList(filteredList)
             }
+
+
         }
     }
 
 
     override fun onClick(request: Request) {
-
+        val action = ClubManagerCalendarFragmentDirections
+            .actionClubManagerCalendarFragmentToClubManagerCalendarInfoFragment(request)
+        findNavController().navigate(action)
     }
 }

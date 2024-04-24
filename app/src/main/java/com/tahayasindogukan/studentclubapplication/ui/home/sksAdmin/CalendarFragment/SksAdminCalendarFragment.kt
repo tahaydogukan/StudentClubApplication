@@ -49,7 +49,7 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
         requestViewModel.getPostApproved()
 
         requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
-            adapter = SksAdminCalendarAdapter(it, this)
+            adapter = SksAdminCalendarAdapter(it, this, requireContext())
             rv.adapter = adapter
         }
 

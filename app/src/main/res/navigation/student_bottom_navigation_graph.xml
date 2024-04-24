@@ -9,7 +9,11 @@
         android:id="@+id/studentCalendarFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentCalendarFragment"
         android:label="fragment_student_calendar"
-        tools:layout="@layout/fragment_student_calendar" />
+        tools:layout="@layout/fragment_student_calendar">
+        <action
+            android:id="@+id/action_studentCalendarFragment_to_studentCalendarInfoFragment"
+            app:destination="@id/studentCalendarInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/studentClubFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentClubFragment"
@@ -26,23 +30,35 @@
         android:id="@+id/studentClubInfoFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentClubInfoFragment"
         android:label="fragment_student_club_info"
-        tools:layout="@layout/fragment_student_club_info" />
-    <fragment
-        android:id="@+id/studentSearchFragment"
-        android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentSearchFragment"
-        android:label="fragment_student_search"
-        tools:layout="@layout/fragment_student_search">
+        tools:layout="@layout/fragment_student_club_info">
         <action
-            android:id="@+id/action_studentSearchFragment_to_studentClubFragment"
-            app:destination="@id/studentClubFragment" />
+            android:id="@+id/action_studentClubInfoFragment_to_studentClubInfoDetailFragment"
+            app:destination="@id/studentClubInfoDetailFragment" />
+        <argument
+            android:name="club"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Club" />
     </fragment>
     <fragment
         android:id="@+id/studentHomePageFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentHomePageFragment"
         android:label="fragment_student_home_page"
-        tools:layout="@layout/fragment_student_home_page">
-        <action
-            android:id="@+id/action_studentHomePageFragment_to_studentSearchFragment"
-            app:destination="@id/studentSearchFragment" />
+        tools:layout="@layout/fragment_student_home_page" />
+    <fragment
+        android:id="@+id/studentCalendarInfoFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentCalendarInfoFragment"
+        android:label="fragment_student_calendar_info"
+        tools:layout="@layout/fragment_student_calendar_info">
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentClubInfoDetailFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentClubInfoDetailFragment"
+        android:label="fragment_student_club_info_detail"
+        tools:layout="@layout/fragment_student_club_info_detail">
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
     </fragment>
 </navigation>

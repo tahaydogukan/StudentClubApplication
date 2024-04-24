@@ -26,6 +26,8 @@
                 android:id="@+id/clubPhoto"
                 android:layout_width="325dp"
                 android:layout_height="140dp"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
                 android:background="@drawable/circular_background"
                 android:layout_marginTop="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -46,11 +48,11 @@
             <TextView
                 android:id="@+id/activityMonthAndDate"
                 android:layout_width="55dp"
-                android:layout_height="46dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:background="#6ABCD7"
                 android:gravity="center"
-                android:text="March \n 23"
+                android:text="23/04"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/activityYear"
                 app:layout_constraintStart_toStartOf="parent" />

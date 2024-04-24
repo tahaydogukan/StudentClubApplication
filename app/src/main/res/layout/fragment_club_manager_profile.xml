@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
-        android:text="Club Name"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +48,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
-        android:text="Ahmet Kaya"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -72,7 +70,6 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="36dp"
-        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,14 +111,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/login_back_btn"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="32dp" />
-
-    <ImageView
         android:id="@+id/btn_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,23 +122,28 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/club_manager_profile_btn_edit_profile"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/normal_background"
         android:text="Edıt Profıle"
         android:textColor="#525252"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_my_club_activities"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="37dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/normal_background"
+        android:fontFamily="@font/poppins"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:text="My Club's Activities"
+        android:textColor="#525252"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/club_manager_profile_btn_edit_profile" />
 

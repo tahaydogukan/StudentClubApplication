@@ -47,7 +47,7 @@ class ClubManagerProfileMyActivities : Fragment(), ClubManagerCalendarAdapter.My
         requestViewModel.myClubActivitiesList.observe(viewLifecycleOwner) { activities ->
             val recyclerView = binding.clubManagerProfileMyActivitiesRecyclerView
 
-            val adapter = ClubManagerCalendarAdapter(activities, this)
+            val adapter = ClubManagerCalendarAdapter(activities, this, requireContext())
             recyclerView.adapter = adapter
 
         }

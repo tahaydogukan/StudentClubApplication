@@ -37,7 +37,11 @@
         android:id="@+id/clubManagerCalendarFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerCalendarFragment"
         android:label="fragment_club_manager_calendar"
-        tools:layout="@layout/fragment_club_manager_calendar" />
+        tools:layout="@layout/fragment_club_manager_calendar">
+        <action
+            android:id="@+id/action_clubManagerCalendarFragment_to_clubManagerCalendarInfoFragment"
+            app:destination="@id/clubManagerCalendarInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/clubManagerCreatePostFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.approveds.ClubManagerCreatePostFragment"
@@ -277,6 +281,15 @@
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.ClubManagerClubActivtiesDetailFragment"
         android:label="fragment_club_manager_club_activties_detail"
         tools:layout="@layout/fragment_club_manager_club_activties_detail">
+        <argument
+            android:name="request"
+            app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubManagerCalendarInfoFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.ClubManagerCalendarInfoFragment"
+        android:label="fragment_club_manager_calendar_info"
+        tools:layout="@layout/fragment_club_manager_calendar_info">
         <argument
             android:name="request"
             app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Request" />

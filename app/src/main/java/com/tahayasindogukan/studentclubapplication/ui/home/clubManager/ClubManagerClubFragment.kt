@@ -13,6 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerClubBinding
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.adapter.SksAdminClubSearchAdapter
@@ -25,6 +26,8 @@ class ClubManagerClubFragment : Fragment(),
     private lateinit var navController: NavController
     private lateinit var searchView: SearchView
     private lateinit var adapter: SksAdminClubSearchAdapter
+    private lateinit var rv: RecyclerView
+
     private val viewModel: FirebaseViewModel by viewModels()
 
     override fun onCreateView(
@@ -42,21 +45,22 @@ class ClubManagerClubFragment : Fragment(),
         //Search view için adapterı initialize ediyoruz
 
         navController = Navigation.findNavController(view)
+        rv = binding.clubManagerClubsFragmentRecyclerview
+        rv.layoutManager = GridLayoutManager(requireContext(), 2)
 
         //search view initialize ettik
         searchView = binding.clubManagerClubFragmentSearchView
 
-        //Recycler view tasarımını tanımladık burda
-        binding.clubManagerClubsFragmentRecyclerview.layoutManager = GridLayoutManager(requireContext(), 2)
+
 
         // Verilerin çekilip live datayı tetiklemesi için viewModel deki fonksiyonu çalıştırıyoruz
         viewModel.getClubs()
 
         //view modelden gelen club listesini adaptera veriyoruz
         viewModel.clubs.observe(viewLifecycleOwner) { clubs ->
-            val recyclerView = binding.clubManagerClubsFragmentRecyclerview
             adapter = SksAdminClubSearchAdapter(clubs, this, requireContext())
-            recyclerView.adapter = adapter
+            //Recycler view tasarımını tanımladık burda
+            rv.adapter = adapter
 
         }
 

@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.clubManager.profilePages.ClubManagerProfileEditRequestFragment">
+    tools:context=".ui.home.clubManager.requestPages.ClubManagerCalendarInfoFragment">
 
     <ImageView
-        android:id="@+id/club_manager_profile_my_activities_edit_photo"
+        android:id="@+id/club_manager_calendar_info_detail_photo"
         android:layout_width="350dp"
         android:layout_height="350dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="32dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_edit_contacts" />
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_calendar_info_detail_web_contacts" />
 
     <TextView
         android:id="@+id/textView11"
@@ -44,7 +44,7 @@
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_edit_contacts" />
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_calendar_info_detail_web_contacts" />
 
     <TextView
         android:id="@+id/textView51"
@@ -70,7 +70,7 @@
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_edit_web_platform" />
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_calendar_info_detail_web_platform" />
 
     <TextView
         android:id="@+id/textView55"
@@ -85,8 +85,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView62" />
 
-    <EditText
-        android:id="@+id/club_admin_profile_my_activities_edit_start_date"
+    <TextView
+        android:id="@+id/club_manager_calendar_info_detail_start_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -100,10 +100,10 @@
         android:text="12/04/2024"
         android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_edit_contacts" />
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_calendar_info_detail_web_contacts" />
 
-    <EditText
-        android:id="@+id/club_admin_profile_my_activities_edit_end_date"
+    <TextView
+        android:id="@+id/club_manager_calendar_info_detail_end_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -117,10 +117,10 @@
         android:text="12/04/2024"
         android:textSize="11sp"
         app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_edit_contacts" />
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_calendar_info_detail_web_contacts" />
 
-    <EditText
-        android:id="@+id/club_admin_profile_my_activities_edit_location"
+    <TextView
+        android:id="@+id/club_manager_calendar_info_detail_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
@@ -131,8 +131,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
-    <EditText
-        android:id="@+id/club_admin_profile_my_activities_edit_contacts"
+    <TextView
+        android:id="@+id/club_manager_calendar_info_detail_web_contacts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -143,15 +143,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login_back_btn" />
 
     <TextView
         android:id="@+id/textView62"
@@ -164,16 +155,15 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_manager_profile_my_activities_edit_photo" />
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_calendar_info_detail_photo" />
 
-    <EditText
-        android:id="@+id/club_admin_profile_my_activities_edit_description"
+    <TextView
+        android:id="@+id/club_manager_calendar_info_detail_description"
         android:layout_width="190dp"
         android:layout_height="194dp"
         android:layout_marginStart="204dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/poppins"
-        android:inputType="textMultiLine"
         android:text="Indulge in the enchanting world of poetry at our upcoming event, &quot;Poetry Hour: A Celebration of Verses,&quot; hosted by the Literature Club. Join fellow poetry enthusiasts for an evening filled with captivating recitations, insightful discussions, and heartfelt expressions of creativity."
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -193,22 +183,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/club_admin_profile_my_activities_edit_manager"
+    <TextView
+        android:id="@+id/sks_admin_club_info_detail_manager"
         android:layout_width="0dp"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:background="#20220234"
         android:fontFamily="@font/poppins"
         android:gravity="center"
         android:text="TextView"
         android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@+id/club_manager_profile_my_activities_edit_photo"
-        app:layout_constraintEnd_toEndOf="@+id/club_manager_profile_my_activities_edit_photo"
+        app:layout_constraintBottom_toBottomOf="@+id/club_manager_calendar_info_detail_photo"
+        app:layout_constraintEnd_toEndOf="@+id/club_manager_calendar_info_detail_photo"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/club_manager_profile_my_activities_edit_photo" />
+        app:layout_constraintStart_toStartOf="@+id/club_manager_calendar_info_detail_photo" />
 
-    <EditText
-        android:id="@+id/club_admin_profile_my_activities_edit_title"
+    <TextView
+        android:id="@+id/club_manager_calendar_info_detail_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
@@ -217,10 +207,10 @@
         android:text="TextView"
         android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/club_manager_profile_my_activities_edit_photo"
-        app:layout_constraintEnd_toEndOf="@+id/club_manager_profile_my_activities_edit_photo"
+        app:layout_constraintBottom_toBottomOf="@+id/club_manager_calendar_info_detail_photo"
+        app:layout_constraintEnd_toEndOf="@+id/club_manager_calendar_info_detail_photo"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/club_manager_profile_my_activities_edit_photo" />
+        app:layout_constraintStart_toStartOf="@+id/club_manager_calendar_info_detail_photo" />
 
     <TextView
         android:id="@+id/textView67"
@@ -231,7 +221,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_manager_profile_my_activities_edit_photo" />
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_calendar_info_detail_photo" />
 
     <TextView
         android:id="@+id/textView82"
@@ -244,10 +234,10 @@
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_edit_location" />
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_calendar_info_detail_location" />
 
-    <EditText
-        android:id="@+id/club_admin_profile_my_activities_edit_web_platform"
+    <TextView
+        android:id="@+id/club_manager_calendar_info_detail_web_platform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -256,17 +246,4 @@
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView82" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/normal_background"
-        android:fontFamily="@font/poppins"
-        android:text="UPDATE"
-        android:textColor="#D50000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

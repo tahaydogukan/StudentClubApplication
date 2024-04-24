@@ -9,6 +9,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class RequestViewModel : ViewModel() {
     val formsPendingList = MutableLiveData<List<Request>>()
@@ -739,6 +742,42 @@ class RequestViewModel : ViewModel() {
             .whereEqualTo("status", "2")
             .whereEqualTo("isPost", true)
 
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+
+                    val requestList = mutableListOf<Request>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Request::class.java).let { requestList.add(it) }
+                    }
+                    postsApprovedList.postValue(requestList)
+
+                } else {
+                    Log.e("getMyClubActivities", "Veri alınamadı")
+                }
+            }
+
+
+    }
+
+    fun getWeeklyActivities() {
+
+        val today = Calendar.getInstance()
+
+        // Başlangıç tarihini bugüne ayarlayın
+        val startDate = today
+
+        // Bitiş tarihini 1 hafta sonrasına ayarlayın
+        val endDate = today.clone() as Calendar
+        endDate.add(Calendar.DAY_OF_MONTH, 7)
+
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+
+        FirebaseFirestore.getInstance().collection("request")
+            .whereGreaterThanOrEqualTo("startDate", dateFormat.format(startDate.time))
+            .whereLessThanOrEqualTo("startDate", dateFormat.format(endDate.time))
             .get()
             .addOnSuccessListener { querySnapshot ->
                 if (querySnapshot.documents.isNotEmpty()) {
