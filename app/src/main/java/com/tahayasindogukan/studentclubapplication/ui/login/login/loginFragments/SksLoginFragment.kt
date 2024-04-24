@@ -57,7 +57,7 @@ class SksLoginFragment : Fragment() {
         }
 
         val Sksmail = "tahayasin.dogukan@st.uskudar.edu.tr"
-        val Skspassword = "1597536Yasin"
+        val Skspassword = "123456"
 
         binding.sksFragmentBtnLogin.setOnClickListener {
             var mail = binding.sksFragmentEtEmail.text.toString()
