@@ -46,7 +46,7 @@ class ClubManagerClubActivtiesDetailFragment : Fragment() {
             } else {
                 clubAdminProfileMyActivitiesWebPlatform.text = args.request.webPlatform
             }
-
+            binding.clubAdminProfileMyActivitiesManager.text = args.request.manager
             clubAdminProfileMyActivitiesContacts.text = args.request.contacts
             clubAdminProfileMyActivitiesStartDate.text = args.request.startDate
             clubAdminProfileMyActivitiesEndDate.text = args.request.endDate

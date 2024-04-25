@@ -37,7 +37,14 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
 
+        binding.sksAdminEditPostTitle.text = args.request.title
+        binding.sksAdminEditPostContent.text = args.request.content
+        binding.sksAdminEditPostEventGoals.text = args.request.eventGoals
+        binding.sksAdminEditPostAgenda.text = args.request.agenda
+        binding.sksAdminEditPostStartDate.text = args.request.startDate
+        binding.sksAdminEditPostEndDate.text = args.request.endDate
 
+        //bu sayfada veriler görünmüyor yazmayı untumuşum
 
         binding.sksAdminEditPostBtnApprove.setOnClickListener{
 
