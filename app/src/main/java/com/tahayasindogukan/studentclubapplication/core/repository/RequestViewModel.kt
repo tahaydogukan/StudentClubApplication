@@ -91,7 +91,7 @@ class RequestViewModel : ViewModel() {
         contacts: String? = null,
         isForm: Boolean? = true,
         isPost: Boolean? = null,
-        status: Int? = null,
+        status: String? = null,
         context: Context
     ) {
         val ref = FirebaseFirestore.getInstance().collection("request").document(documentId)

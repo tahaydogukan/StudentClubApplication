@@ -147,7 +147,7 @@ class ClubManagerCreatePostFragment : Fragment() {
                     binding.createPostsEtContacts.text.toString(),
                     false,
                     true,
-                    1,
+                    "1",
                     requireContext()
                     )
 
