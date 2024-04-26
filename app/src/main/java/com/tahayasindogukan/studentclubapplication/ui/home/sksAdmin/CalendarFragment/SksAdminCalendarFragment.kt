@@ -13,7 +13,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminCalendarBinding
@@ -26,7 +25,6 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
     private lateinit var adapter: SksAdminCalendarAdapter
     private lateinit var rv: RecyclerView
     private lateinit var navController: NavController
-    var activityList = mutableListOf<Activity>()
     private lateinit var searchView: SearchView
     private val requestViewModel: RequestViewModel by viewModels()
 
@@ -44,34 +42,34 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         binding.calendarView.visibility = View.INVISIBLE
-        rv = binding.clubManagerCalendarFragmentRecyclerView
+        rv = binding.sksAdminCalendarFragmentRecyclerView
         //searchView = binding.sksAdminClubsFragmentSearchBar
-
-        requestViewModel.getPostApproved()
 
         requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
             adapter = SksAdminCalendarAdapter(it, this, requireContext())
             rv.adapter = adapter
         }
 
-
         rv.setHasFixedSize(true)
         rv.layoutManager = LinearLayoutManager(requireContext())
-        searchView = binding.searchBar
+
+
+        requestViewModel.getSksPostsApprove()
+
 
 
         binding.cancelBtn.setOnClickListener {
             requestViewModel.getPostApproved()
         }
 
+        searchView = binding.searchBar
 
         val calendarView = binding.calendarView
 
 
-
         binding.calendarButton.setOnClickListener {
             binding.calendarView.visibility = View.VISIBLE
-            binding.clubManagerCalendarFragmentRecyclerView.visibility = View.INVISIBLE
+            binding.sksAdminCalendarFragmentRecyclerView.visibility = View.INVISIBLE
 
 
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -101,7 +99,7 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
 
                 // Filtreleme işlemini gerçekleştirin
                 binding.calendarView.visibility = View.INVISIBLE
-                binding.clubManagerCalendarFragmentRecyclerView.visibility = View.VISIBLE
+                binding.sksAdminCalendarFragmentRecyclerView.visibility = View.VISIBLE
 
                 if (month < 10) {
                     binding.calendarButton.text = "${dayOfMonth}/0${month + 1}/${year}"

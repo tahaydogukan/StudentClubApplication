@@ -41,10 +41,13 @@ class SksAdminPostsPendingDetailFragment : Fragment() {
 
             sksAdminPostsPendingTitle.setText(args.request.title)
             sksAdminPostsPendingContent.setText(args.request.content)
-            sksAdminPostsPendingEventGoals.setText(args.request.eventGoals)
-            sksAdminPostsPendingAgenda.setText(args.request.agenda)
+            sksAdminEditPostManager.text = args.request.manager
             sksAdminPostsPendingStartDate.setText(args.request.startDate)
             sksAdminPostsPendingEndDate.setText(args.request.endDate)
+            sksAdminPostsPendingLocation.text = args.request.location
+            sksAdminPostsPendingWebPlatform.text = args.request.webPlatform
+            sksAdminPostsPendingContacts.text = args.request.contacts
+
         }
 
         binding.sksAdminPostsPendingBtnApprove.setOnClickListener {

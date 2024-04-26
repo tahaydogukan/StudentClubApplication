@@ -1,11 +1,11 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.edits
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
@@ -13,7 +13,6 @@ import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminEditsClubPendingBinding
-import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminEditsPostsPendingBinding
 
 class SksAdminEditsClubPendingFragment : Fragment() {
     private lateinit var binding : FragmentSksAdminEditsClubPendingBinding
@@ -43,7 +42,6 @@ class SksAdminEditsClubPendingFragment : Fragment() {
 
             val clubUpdates = hashMapOf<String, Any>()
             clubUpdates["status"] = "1"
-
             clubUpdates["clubName"] = args.club.newClubName
             clubUpdates["clubDescription"] = args.club.newClubDescription
             clubUpdates["clubPhoto"] = args.club.newClubPhoto

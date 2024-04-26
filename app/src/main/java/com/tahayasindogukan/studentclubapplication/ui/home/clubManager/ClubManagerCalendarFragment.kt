@@ -40,25 +40,18 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
+
         binding.calendarView.visibility = View.INVISIBLE
-        rv = binding.clubManagerCalendarFragmentRecyclerView
-
-        // Verilerin çekilip live datayı tetiklemesi için viewModel deki fonksiyonu çalıştırıyoruz
-
-
-        rv.setHasFixedSize(true)
-        rv.layoutManager = LinearLayoutManager(requireContext())
-
-        requestViewModel.getPostApproved()
 
         requestViewModel.postsApprovedList.observe(viewLifecycleOwner) { request ->
-
-            val recyclerView = binding.clubManagerCalendarFragmentRecyclerView
-
             adapter = ClubManagerCalendarAdapter(request, this, requireContext())
-            recyclerView.adapter = adapter
+
+            rv = binding.clubManagerCalendarFragmentRecyclerView
+            rv.layoutManager = LinearLayoutManager(requireContext())
+            rv.adapter = adapter
 
         }
+        requestViewModel.getSksPostsApprove()
 
         binding.cancelBtn.setOnClickListener {
             requestViewModel.getPostApproved()

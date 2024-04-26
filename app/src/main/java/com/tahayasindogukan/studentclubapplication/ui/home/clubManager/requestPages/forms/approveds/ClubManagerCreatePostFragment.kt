@@ -67,10 +67,6 @@ class ClubManagerCreatePostFragment : Fragment() {
             }
         }
 
-        var DateYear: String? = null
-        var DateMonth: String? = null
-        var DateDay: String? = null
-
 
         //start date functions
         binding.startDateCalendarView.visibility = View.GONE
@@ -83,11 +79,6 @@ class ClubManagerCreatePostFragment : Fragment() {
 
         //Takvimden seçilen tarihi bir değişkene ve text view e atar
         binding.startDateCalendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
-
-            // Seçilen tarihi işleyin
-            DateYear = year.toString()
-            DateMonth = month.toString()
-            DateDay = dayOfMonth.toString()
 
             // Filtreleme işlemini gerçekleştirin
             binding.startDateCalendarView.visibility = View.INVISIBLE
@@ -103,11 +94,8 @@ class ClubManagerCreatePostFragment : Fragment() {
         }
         //Takvimden seçilen tarihi bir değişkene ve text view e atar
         binding.endDateCalendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
-            // Seçilen tarihi işleyin
-            DateYear = year.toString()
-            DateMonth = month.toString()
-            DateDay = dayOfMonth.toString()
-            // Filtreleme işlemini gerçekleştirin
+
+        // Filtreleme işlemini gerçekleştirin
             binding.endDateCalendarView.visibility = View.INVISIBLE
 
             binding.createPostsEtEtEndDate.text = "${dayOfMonth}/${month + 1}/${year}"
