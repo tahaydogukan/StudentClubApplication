@@ -13,6 +13,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminCalendarBinding
@@ -45,8 +46,8 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
         rv = binding.sksAdminCalendarFragmentRecyclerView
         //searchView = binding.sksAdminClubsFragmentSearchBar
 
-        requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
-            adapter = SksAdminCalendarAdapter(it, this, requireContext())
+        requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {request ->
+            adapter = SksAdminCalendarAdapter(request, this, requireContext())
             rv.adapter = adapter
         }
 
@@ -56,10 +57,8 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
 
         requestViewModel.getSksPostsApprove()
 
-
-
         binding.cancelBtn.setOnClickListener {
-            requestViewModel.getPostApproved()
+            requestViewModel.getSksPostsApprove()
         }
 
         searchView = binding.searchBar

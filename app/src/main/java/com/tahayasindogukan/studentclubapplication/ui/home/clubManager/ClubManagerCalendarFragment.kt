@@ -40,25 +40,24 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-
         binding.calendarView.visibility = View.INVISIBLE
+        rv = binding.clubManagerCalendarFragmentRecyclerView
 
         requestViewModel.postsApprovedList.observe(viewLifecycleOwner) { request ->
             adapter = ClubManagerCalendarAdapter(request, this, requireContext())
-
-            rv = binding.clubManagerCalendarFragmentRecyclerView
-            rv.layoutManager = LinearLayoutManager(requireContext())
             rv.adapter = adapter
 
         }
+        rv.setHasFixedSize(true)
+        rv.layoutManager = LinearLayoutManager(requireContext())
+
         requestViewModel.getSksPostsApprove()
 
         binding.cancelBtn.setOnClickListener {
-            requestViewModel.getPostApproved()
+            requestViewModel.getSksPostsApprove()
         }
 
         searchView = binding.searchBar
-
 
         val calendarView = binding.calendarView
 

@@ -97,8 +97,8 @@ class SksAdminClubsFragment : Fragment(),SksAdminClubSearchAdapter.SksAdminClubS
             }
 
             if (filteredList.isEmpty()) {
-                Toast.makeText(requireContext(), "No data found", Toast.LENGTH_SHORT).show()
-            } else {
+                //
+             } else {
                 adapter.setFilteredList(filteredList)
             }
         }

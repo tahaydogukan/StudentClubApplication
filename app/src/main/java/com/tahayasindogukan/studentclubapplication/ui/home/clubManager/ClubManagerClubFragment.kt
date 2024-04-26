@@ -27,6 +27,7 @@ class ClubManagerClubFragment : Fragment(),
     private lateinit var searchView: SearchView
     private lateinit var adapter: SksAdminClubSearchAdapter
     private lateinit var rv: RecyclerView
+    private var clubListForFilter= ArrayList<Club>()
 
     private val viewModel: FirebaseViewModel by viewModels()
 
@@ -45,25 +46,14 @@ class ClubManagerClubFragment : Fragment(),
         //Search view için adapterı initialize ediyoruz
 
         navController = Navigation.findNavController(view)
+
         rv = binding.clubManagerClubsFragmentRecyclerview
+        searchView = binding.clubManagerClubFragmentSearchView
+
+        rv.setHasFixedSize(true)
         rv.layoutManager = GridLayoutManager(requireContext(), 2)
 
         //search view initialize ettik
-        searchView = binding.clubManagerClubFragmentSearchView
-
-
-
-        // Verilerin çekilip live datayı tetiklemesi için viewModel deki fonksiyonu çalıştırıyoruz
-        viewModel.getClubs()
-
-        //view modelden gelen club listesini adaptera veriyoruz
-        viewModel.clubs.observe(viewLifecycleOwner) { clubs ->
-            adapter = SksAdminClubSearchAdapter(clubs, this, requireContext())
-            //Recycler view tasarımını tanımladık burda
-            rv.adapter = adapter
-
-        }
-
 
 
         binding.apply {
@@ -85,48 +75,40 @@ class ClubManagerClubFragment : Fragment(),
                 return false
             }
             override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText=="Academic"){
-                    filterList(newText, 2)
-                }else if (newText=="Sports"){
-                    filterList(newText, 2)
-                }else if (newText=="Health"){
-                    filterList(newText, 2)
-                }else{
-                    filterList(newText, 1)
-                }
-
+                filterList(newText,clubListForFilter)
                 return true
             }
         })
 
+
+        // Verilerin çekilip live datayı tetiklemesi için viewModel deki fonksiyonu çalıştırıyoruz
+        viewModel.getClubs()
+
+        //view modelden gelen club listesini adaptera veriyoruz
+        viewModel.clubs.observe(viewLifecycleOwner) { clubs ->
+            clubListForFilter = clubs as ArrayList<Club>
+
+            adapter = SksAdminClubSearchAdapter(clubs, this, requireContext())
+            //Recycler view tasarımını tanımladık burda
+            rv.adapter = adapter
+
+        }
+
+
     }
 
     // Search viewdeki querye göre filtreleme yapan fonksiyon
-    private fun filterList(query: String?,queryParamter:Int) {
+    private fun filterList(query: String?,clubList:List<Club>) {
         if (query != null) {
             val filteredList = ArrayList<Club>()
-            val clubList = viewModel.clubs.value
-
-            if(queryParamter==2){
-                for (i in clubList!!) {
-                    if (i.clubCategory.lowercase().contains(query)) {
-                        filteredList.add(i)
-                        Log.e("veri 2",i.toString())
-
-                    }
-                }
-            }
-            else if (queryParamter==1) {
-                for (i in clubList!!) {
-                    if (i.clubName.lowercase(Locale.ROOT).contains(query)) {
-                        filteredList.add(i)
-                        Log.e("veri 1",i.toString())
-                    }
+            for (i in clubList) {
+                if (i.clubName.lowercase(Locale.ROOT).contains(query)) {
+                    filteredList.add(i)
                 }
             }
 
             if (filteredList.isEmpty()) {
-                Toast.makeText(requireContext(), "No data found", Toast.LENGTH_SHORT).show()
+                //
             } else {
                 adapter.setFilteredList(filteredList)
             }
