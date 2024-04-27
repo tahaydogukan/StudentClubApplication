@@ -73,7 +73,6 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/circular_background"
         android:clipToOutline="true"
-        android:drawableLeft="@drawable/request_approved_icon"
         android:gravity="center"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"

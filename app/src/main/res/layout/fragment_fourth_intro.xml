@@ -4,25 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/intro_fragments_background_image"
-    tools:context=".ui.intro.ThirdIntroFragment">
+    tools:context=".ui.intro.FourthIntroFragment">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToOutline="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/intro_third"
+        android:src="@drawable/intro_fourt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_third_next"
+        android:id="@+id/btn_fourth_next"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginEnd="32dp"
@@ -36,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_third_skip"
+        android:id="@+id/btn_fourth_skip"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
@@ -48,6 +44,4 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

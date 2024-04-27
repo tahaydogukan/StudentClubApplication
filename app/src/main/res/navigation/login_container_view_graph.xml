@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_containerView_graph"
-    app:startDestination="@id/loginMainPageFragment">
+    app:startDestination="@id/secondIntroFragment">
 
     <fragment
         android:id="@+id/loginMainPageFragment"
@@ -67,4 +67,19 @@
             android:id="@+id/action_clubManagerRegisterFragment_to_clubManagerFragment"
             app:destination="@id/clubManagerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/secondIntroFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.intro.SecondIntroFragment"
+        android:label="fragment_second_intro"
+        tools:layout="@layout/fragment_second_intro" />
+    <fragment
+        android:id="@+id/thirdIntroFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.intro.ThirdIntroFragment"
+        android:label="fragment_third_intro"
+        tools:layout="@layout/fragment_third_intro" />
+    <fragment
+        android:id="@+id/fourthIntroFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.intro.FourthIntroFragment"
+        android:label="fragment_fourth_intro"
+        tools:layout="@layout/fragment_fourth_intro" />
 </navigation>
