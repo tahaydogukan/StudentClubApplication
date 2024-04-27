@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.home.clubManager.requestPages.ClubManagerCalendarInfoFragment">
 
     <TextView
@@ -131,13 +132,15 @@
 
     <TextView
         android:id="@+id/club_manager_calendar_info_detail_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="149dp"
+        android:layout_height="30dp"
         android:layout_marginStart="33dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
         android:fontFamily="@font/poppins"
         android:text="Okul"
         android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/club_manager_calendar_info_detail_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
@@ -197,14 +200,14 @@
         android:id="@+id/sks_admin_club_info_detail_manager"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:background="#20220234"
+        android:background="#7C000000"
         android:fontFamily="@font/poppins"
         android:gravity="center"
-        android:text="TextView"
+        android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/club_manager_calendar_info_detail_photo"
         app:layout_constraintEnd_toEndOf="@+id/club_manager_calendar_info_detail_photo"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/club_manager_calendar_info_detail_photo" />
 
     <TextView
@@ -214,8 +217,8 @@
         android:layout_marginBottom="72dp"
         android:fontFamily="@font/poppins"
         android:gravity="center"
-        android:text="TextView"
         android:textSize="17sp"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/club_manager_calendar_info_detail_photo"
         app:layout_constraintEnd_toEndOf="@+id/club_manager_calendar_info_detail_photo"

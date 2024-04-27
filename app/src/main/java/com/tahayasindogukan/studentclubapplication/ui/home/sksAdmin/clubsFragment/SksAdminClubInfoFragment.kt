@@ -49,6 +49,11 @@ class SksAdminClubInfoFragment : Fragment(),SksAdminClubInfoRecyclerViewAdapter.
 
         binding.sksAdminClubInfoRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+
+
+
+
+
         requestViewModel.clubRequests.observe(viewLifecycleOwner){
 
             val recyclerView = binding.sksAdminClubInfoRecyclerView

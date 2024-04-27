@@ -52,17 +52,25 @@ class FirebaseViewModel : ViewModel() {
 
     }
 
-    fun deleteClub(clubId:String){
+    fun searchClubByCategory(clubCategory: String) {
 
         val ref =FirebaseFirestore.getInstance()
-        val collectionRef = ref.collection("club").document(clubId)
-        collectionRef.delete()
-            .addOnSuccessListener {
-                Log.d("Club Delete", "Belge silindi!")
+        val collectionRef = ref.collection("club")
+            .whereEqualTo("clubCategory", clubCategory)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
 
-            }
-            .addOnFailureListener { e ->
-                Log.w("Club Delete", "Belge silme hatası: ${e.message}")
+                    val club = mutableListOf<Club>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Club::class.java).let { club.add(it) }
+                    }
+                    clubs.postValue(club)
+
+                } else {
+                    Log.e("getMyClubActivities", "Veri alınamadı")
+                }
             }
     }
     fun updatePassword(newPassword: String, completion: (isSuccessful: Boolean) -> Unit) {

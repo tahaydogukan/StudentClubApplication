@@ -1,11 +1,9 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.clubManager
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -28,6 +26,7 @@ class ClubManagerClubFragment : Fragment(),
     private lateinit var adapter: SksAdminClubSearchAdapter
     private lateinit var rv: RecyclerView
     private var clubListForFilter= ArrayList<Club>()
+    private var clubList2 = emptyList<Club>()
 
     private val viewModel: FirebaseViewModel by viewModels()
 
@@ -56,18 +55,47 @@ class ClubManagerClubFragment : Fragment(),
         //search view initialize ettik
 
 
+        binding.btnClearFilter.setOnClickListener {
+            viewModel.getClubs()
+        }
+
+        var category: String? = null
+
         binding.apply {
-            btnCategoryAcademic.setOnClickListener {
-                clubManagerClubFragmentSearchView.setQuery(btnCategoryAcademic.text,true)
+
+            btnAcademic.setOnClickListener {
+                category = "academic"
+                viewModel.searchClubByCategory(category!!)
             }
-            btnCategoryHealths.setOnClickListener {
-                clubManagerClubFragmentSearchView.setQuery(btnCategoryHealths.text,true)
+
+            btnSports.setOnClickListener {
+                category = "sports"
+                viewModel.searchClubByCategory(category!!)
             }
-            btnCategorySports.setOnClickListener {
-                clubManagerClubFragmentSearchView.setQuery(btnCategorySports.text,true)
+
+            btnHealth.setOnClickListener {
+                category = "health"
+                viewModel.searchClubByCategory(category!!)
+            }
+
+            btnArt.setOnClickListener {
+                category = "art"
+                viewModel.searchClubByCategory(category!!)
+            }
+
+            btnTechnology.setOnClickListener {
+                category = "technology"
+                viewModel.searchClubByCategory(category!!)
+            }
+
+            btnSocialActivisim.setOnClickListener {
+                category = "social activisim"
+                viewModel.searchClubByCategory(category!!)
             }
 
         }
+
+
         //Search view query işlemleri
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
@@ -86,6 +114,7 @@ class ClubManagerClubFragment : Fragment(),
 
         //view modelden gelen club listesini adaptera veriyoruz
         viewModel.clubs.observe(viewLifecycleOwner) { clubs ->
+            clubList2 = clubs
             clubListForFilter = clubs as ArrayList<Club>
 
             adapter = SksAdminClubSearchAdapter(clubs, this, requireContext())

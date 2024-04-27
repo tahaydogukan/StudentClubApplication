@@ -4,7 +4,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.home.clubManager.ClubManagerClubFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_social_activisim"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/normal_background"
+        android:backgroundTint="#F0F0F0"
+        android:fontFamily="@font/poppins"
+
+        android:text="Social Activisim"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_health" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_technology"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+
+        android:background="@drawable/normal_background"
+        android:backgroundTint="#F0F0F0"
+        android:fontFamily="@font/poppins"
+        android:text="Technology"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sports" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_art"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/normal_background"
+        android:backgroundTint="#F0F0F0"
+        android:fontFamily="@font/poppins"
+        android:text="Art"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_academic" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_health"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/normal_background"
+        android:backgroundTint="#F0F0F0"
+        android:fontFamily="@font/poppins"
+        android:text="Health"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_club_fragment_search_view" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sports"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+
+        android:layout_marginTop="12dp"
+        android:background="@drawable/normal_background"
+        android:backgroundTint="#F0F0F0"
+        android:fontFamily="@font/poppins"
+        android:text="Sports"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_club_fragment_search_view" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_academic"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/normal_background"
+        android:backgroundTint="#F0F0F0"
+        android:fontFamily="@font/poppins"
+        android:text="Academic"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/club_manager_club_fragment_search_view" />
+
+    <ImageView
+        android:id="@+id/btn_clear_filter"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/cancel_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView58"
@@ -20,9 +120,8 @@
         android:id="@+id/club_manager_clubs_fragment_recyclerview"
         android:layout_width="0dp"
         android:layout_height="600dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -43,10 +142,10 @@
     <androidx.appcompat.widget.SearchView
         android:id="@+id/club_manager_club_fragment_search_view"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="24dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="64dp"
         android:background="@drawable/normal_background"
         android:backgroundTint="#EBEBEB"
         app:iconifiedByDefault="false"
@@ -56,48 +155,4 @@
         app:queryBackground="@android:color/transparent"
         app:queryHint="Search" />
 
-    <TextView
-        android:id="@+id/btn_category_academic"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/unselected_button"
-        android:backgroundTint="#EBEBEB"
-        android:fontFamily="@font/poppins"
-        android:gravity="center"
-        android:text="Academic"
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_manager_club_fragment_search_view" />
-
-    <TextView
-        android:id="@+id/btn_category_sports"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/unselected_button"
-        android:backgroundTint="#EBEBEB"
-        android:fontFamily="@font/poppins"
-        android:gravity="center"
-        android:text="Sports"
-        android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_manager_club_fragment_search_view" />
-
-    <TextView
-        android:id="@+id/btn_category_healths"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/unselected_button"
-        android:backgroundTint="#EBEBEB"
-        android:fontFamily="@font/poppins"
-        android:gravity="center"
-        android:text="Health"
-        android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_manager_club_fragment_search_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

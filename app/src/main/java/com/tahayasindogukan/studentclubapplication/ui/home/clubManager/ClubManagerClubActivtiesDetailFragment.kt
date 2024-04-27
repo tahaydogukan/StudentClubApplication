@@ -6,19 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerProfileMyActivitiesDetailBinding
-import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.clubsFragment.SksAdminClubInfoDetailFragmentArgs
+import com.bumptech.glide.Glide
+import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerClubActivtiesDetailBinding
 
 
 class ClubManagerClubActivtiesDetailFragment : Fragment() {
-    private lateinit var binding: FragmentClubManagerProfileMyActivitiesDetailBinding
-    private val args: SksAdminClubInfoDetailFragmentArgs by navArgs()
+    private lateinit var binding: FragmentClubManagerClubActivtiesDetailBinding
+    private val args: ClubManagerClubActivtiesDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentClubManagerProfileMyActivitiesDetailBinding.inflate(
+        binding = FragmentClubManagerClubActivtiesDetailBinding.inflate(
             layoutInflater,
             container,
             false
@@ -32,25 +32,17 @@ class ClubManagerClubActivtiesDetailFragment : Fragment() {
 
 
         binding.apply {
-            clubAdminProfileMyActivitiesTitle.text = args.request.title
-            clubAdminProfileMyActivitiesManager.text = args.request.manager
 
-            if (args.request.location.length <= 2) {
-                binding.clubAdminProfileMyActivitiesLocation.visibility = View.INVISIBLE
-            } else {
-                clubAdminProfileMyActivitiesLocation.text = args.request.location
-            }
-
-            if (args.request.webPlatform.length <= 2) {
-                binding.clubAdminProfileMyActivitiesWebPlatform.visibility = View.INVISIBLE
-            } else {
-                clubAdminProfileMyActivitiesWebPlatform.text = args.request.webPlatform
-            }
-            binding.clubAdminProfileMyActivitiesManager.text = args.request.manager
-            clubAdminProfileMyActivitiesContacts.text = args.request.contacts
-            clubAdminProfileMyActivitiesStartDate.text = args.request.startDate
-            clubAdminProfileMyActivitiesEndDate.text = args.request.endDate
-            clubAdminProfileMyActivitiesDescription.text = args.request.content
+            Glide.with(requireContext()).load(args.request.attachment)
+                .into(binding.clubManagerClubActivitiesDetailPhoto)
+            clubManagerClubActivitiesDetailTitle.text = args.request.title
+            clubManagerClubActivitiesDetailManager.text = args.request.manager
+            clubManagerClubActivitiesDetailContacts.text = args.request.location
+            clubManagerClubActivitiesDetailWebPlatform.text = args.request.webPlatform
+            clubManagerClubActivitiesDetailContacts.text = args.request.contacts
+            clubManagerClubActivitiesDetailStartDate.text = args.request.startDate
+            clubManagerClubActivitiesDetailEndDate.text = args.request.endDate
+            clubManagerClubActivitiesDetailDescription.text = args.request.content
 
 
         }
