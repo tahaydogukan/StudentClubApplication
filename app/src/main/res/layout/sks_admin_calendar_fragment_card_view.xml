@@ -36,14 +36,18 @@
 
             <TextView
                 android:id="@+id/activityName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="120dp"
-                android:layout_marginBottom="20dp"
-                android:text="Activity Name"
+                android:layout_width="309dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.48"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clubPhoto"
+                app:layout_constraintVertical_bias="0.94" />
 
             <TextView
                 android:id="@+id/activityMonthAndDate"

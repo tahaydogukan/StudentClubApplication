@@ -57,9 +57,9 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
             postUpdates["content"] = args.request.newContent
             postUpdates["manager"] = args.request.newManager
             postUpdates["attachment"] = args.request.newAttachment
-            postUpdates["startDate"] = args.request.newLocation
-            postUpdates["endDate"] = args.request.newStartDate
-            postUpdates["location"] = args.request.newEndDate
+            postUpdates["startDate"] = args.request.newStartDate
+            postUpdates["endDate"] = args.request.newEndDate
+            postUpdates["location"] = args.request.newLocation
             postUpdates["webPlatform"] = args.request.newWebPlatform
             postUpdates["contacts"] = args.request.newContacts
 
