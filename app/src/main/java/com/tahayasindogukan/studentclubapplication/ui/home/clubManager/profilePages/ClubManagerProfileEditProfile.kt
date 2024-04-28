@@ -19,6 +19,7 @@ import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerProfileEditProfileBinding
 import com.tahayasindogukan.studentclubapplication.ui.login.login.loginFragments.FirebaseViewModel
+import java.util.UUID
 
 
 class ClubManagerProfileEditProfile : Fragment() {
@@ -97,7 +98,10 @@ class ClubManagerProfileEditProfile : Fragment() {
 
     private fun uploadPhoto(selectedImageFile: Uri) {
         // Firebase Storage referansı
-        val storageRef = FirebaseStorage.getInstance().getReference("ClubImage")
+        val rastgeleAd = UUID.randomUUID().toString() // Rastgele bir UUID oluşturun
+
+        val storageRef = FirebaseStorage.getInstance().getReference("clubImage/${rastgeleAd}")
+
 
         // Upload Task oluşturma
         val uploadTask = storageRef.putFile(selectedImageFile)

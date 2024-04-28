@@ -69,7 +69,7 @@ class ClubManagerClubFragment : Fragment(),
             }
 
             btnSports.setOnClickListener {
-                category = "sports"
+                category = "sport"
                 viewModel.searchClubByCategory(category!!)
             }
 
@@ -89,7 +89,7 @@ class ClubManagerClubFragment : Fragment(),
             }
 
             btnSocialActivisim.setOnClickListener {
-                category = "social activisim"
+                category = "social activism"
                 viewModel.searchClubByCategory(category!!)
             }
 

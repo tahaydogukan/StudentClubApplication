@@ -35,17 +35,17 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
 
-        Glide.with(requireContext()).load(args.request.attachment)
+        Glide.with(requireContext()).load(args.request.newAttachment)
             .into(binding.sksAdminEditPostPhoto)
 
-        binding.sksAdminEditPostTitle.text = args.request.title
-        binding.sksAdminEditPostContent.text = args.request.content
-        binding.sksAdminEditPostManager.text = args.request.manager
-        binding.sksAdminEditPostLocation.text = args.request.location
-        binding.sksAdminEditPostWebPlatform.text = args.request.webPlatform
-        binding.sksAdminEditPostContacts.text = args.request.contacts
-        binding.sksAdminEditPostStartDate.text = args.request.startDate
-        binding.sksAdminEditPostEndDate.text = args.request.endDate
+        binding.sksAdminEditPostTitle.text = args.request.newTitle
+        binding.sksAdminEditPostContent.text = args.request.newContent
+        binding.sksAdminEditPostManager.text = args.request.newManager
+        binding.sksAdminEditPostLocation.text = args.request.newLocation
+        binding.sksAdminEditPostWebPlatform.text = args.request.newWebPlatform
+        binding.sksAdminEditPostContacts.text = args.request.newContacts
+        binding.sksAdminEditPostStartDate.text = args.request.newStartDate
+        binding.sksAdminEditPostEndDate.text = args.request.newEndDate
 
         //bu sayfada veriler görünmüyor yazmayı untumuşum
 
