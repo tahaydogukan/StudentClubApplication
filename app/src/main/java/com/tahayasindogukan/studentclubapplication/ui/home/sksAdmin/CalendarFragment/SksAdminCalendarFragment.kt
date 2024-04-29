@@ -44,7 +44,6 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
         navController = Navigation.findNavController(view)
         binding.calendarView.visibility = View.INVISIBLE
         rv = binding.sksAdminCalendarFragmentRecyclerView
-        //searchView = binding.sksAdminClubsFragmentSearchBar
 
         requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {request ->
             adapter = SksAdminCalendarAdapter(request, this, requireContext())

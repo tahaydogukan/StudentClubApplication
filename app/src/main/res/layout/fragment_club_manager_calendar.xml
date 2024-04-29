@@ -19,8 +19,8 @@
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="274dp"
-        android:layout_height="294dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="130dp"
         android:background="@drawable/normal_background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,13 +30,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/club_manager_calendar_fragment_recycler_view"
         android:layout_width="0dp"
-        android:layout_height="600dp"
+        android:layout_height="0dp"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarButton" />
 
     <TextView
         android:id="@+id/textView23"
@@ -53,16 +54,15 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/calendarButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="19dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="80dp"
         android:background="@drawable/normal_background"
         android:drawableLeft="@drawable/home_page_acitvity_bottom_nav_calendar_icon"
         android:gravity="center"
         android:inputType="none"
         android:paddingLeft="12dp"
-        android:text="12 MART 2024"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
@@ -80,13 +80,13 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cancelBtn"
-        android:layout_width="50dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="12dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/normal_background"
         android:drawableLeft="@drawable/cancel_button"
-        android:paddingLeft="14dp"
+        android:paddingLeft="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 </androidx.constraintlayout.widget.ConstraintLayout>

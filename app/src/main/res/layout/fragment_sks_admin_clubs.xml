@@ -126,15 +126,15 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sks_admin_clubs_fragment_btn_create_club"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="312dp"
-        android:layout_marginTop="704dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/login_main_transition_btn_background"
         android:text="+"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/sks_admin_clubs_fragment_rv"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView30"
