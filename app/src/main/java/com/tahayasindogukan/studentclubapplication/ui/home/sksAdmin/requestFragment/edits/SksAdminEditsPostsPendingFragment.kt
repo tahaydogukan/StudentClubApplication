@@ -98,7 +98,7 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
             postUpdates["newManager"] =  ""
             postUpdates["newContent"] =  ""
             postUpdates["newAttachment"] =  ""
-            postUpdates["newStartDate"] =  ""
+            postUpdates["newStartDate"] = ""
             postUpdates["newEndDate"] =  ""
             postUpdates["newLocation"] =  ""
             postUpdates["newWebPlatform"] =  ""
