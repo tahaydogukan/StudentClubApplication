@@ -88,38 +88,6 @@ class ClubManagerCreatePostFragment : Fragment() {
         }
 
 
-        //start date functions
-        binding.startDateCalendarView.visibility = View.GONE
-
-        binding.createPostsEtStartDate.setOnClickListener {
-            binding.startDateCalendarView.visibility = View.VISIBLE
-        }
-
-        binding.endDateCalendarView.firstDayOfWeek = 1
-
-        //Takvimden seçilen tarihi bir değişkene ve text view e atar
-        binding.startDateCalendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
-
-            // Filtreleme işlemini gerçekleştirin
-            binding.startDateCalendarView.visibility = View.INVISIBLE
-
-            binding.createPostsEtStartDate.text = "${dayOfMonth}/${month + 1}/${year}"
-        }
-
-        //End date functions
-        binding.endDateCalendarView.visibility = View.GONE
-
-        binding.createPostsEtEtEndDate.setOnClickListener {
-            binding.endDateCalendarView.visibility = View.VISIBLE
-        }
-        //Takvimden seçilen tarihi bir değişkene ve text view e atar
-        binding.endDateCalendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
-
-            // Filtreleme işlemini gerçekleştirin
-            binding.endDateCalendarView.visibility = View.INVISIBLE
-
-            binding.createPostsEtEtEndDate.text = "${dayOfMonth}/${month + 1}/${year}"
-        }
 
 
 
