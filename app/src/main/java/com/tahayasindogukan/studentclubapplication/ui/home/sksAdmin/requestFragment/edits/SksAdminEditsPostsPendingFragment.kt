@@ -1,5 +1,7 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.edits
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminEditsPostsPendingBinding
 import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 
@@ -21,6 +25,8 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
     private lateinit var binding : FragmentSksAdminEditsPostsPendingBinding
     private val args: SksAdminEditsPostsPendingFragmentArgs by navArgs()
     private lateinit var navController: NavController
+    private lateinit var selectedStartDate: Date
+    private lateinit var selectedEndDate: Date
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,9 +60,8 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
         binding.sksAdminEditPostStartDate.text = formattedStartDateTime
         binding.sksAdminEditPostEndDate.text = formattedEndDateTime
 
-        //bu sayfada veriler görünmüyor yazmayı untumuşum
-
         binding.sksAdminEditPostBtnApprove.setOnClickListener{
+
 
             val postUpdates = hashMapOf<String, Any>()
             postUpdates["status"] = "2"
@@ -115,4 +120,5 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
 
 
     }
+
 }

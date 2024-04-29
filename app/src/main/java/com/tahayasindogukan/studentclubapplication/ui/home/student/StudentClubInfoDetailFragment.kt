@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentStudentClubInfoDetailBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -33,12 +34,17 @@ class StudentClubInfoDetailFragment : Fragment() {
 
             if (args.request.location.length <= 2) {
                 binding.sksAdminClubInfoDetailLocation.visibility = View.INVISIBLE
+                binding.textView51.visibility = View.INVISIBLE
+
             } else {
                 sksAdminClubInfoDetailLocation.text = args.request.location
+
             }
 
             if (args.request.webPlatform.length <= 2) {
                 binding.sksAdminClubInfoDetailWebPlatform.visibility = View.INVISIBLE
+                binding.textView82.visibility = View.INVISIBLE
+
             } else {
                 sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
             }
@@ -47,6 +53,7 @@ class StudentClubInfoDetailFragment : Fragment() {
             val formattedStartDateTime = sdf.format(args.request.startDate)
             val formattedEndDateTime = sdf.format(args.request.endDate)
 
+            Glide.with(requireContext()).load(args.request.attachment).into(binding.sksAdminClubInfoDetailPhoto)
 
             sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
             sksAdminClubInfoDetailWebContacts.text = args.request.contacts
