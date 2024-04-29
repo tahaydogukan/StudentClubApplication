@@ -74,6 +74,8 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
                 .addOnFailureListener {
                     Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()
                 }
+            navController.navigate(R.id.sksAdminRequestFragment)
+            navController.popBackStack()
         }
         binding.sksAdminFormsPendingBtnReject.setOnClickListener {
 
@@ -94,6 +96,8 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
                 .addOnFailureListener {
                     Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()
                 }
+            navController.navigate(R.id.sksAdminRequestFragment)
+            navController.popBackStack()
         }
 
     }

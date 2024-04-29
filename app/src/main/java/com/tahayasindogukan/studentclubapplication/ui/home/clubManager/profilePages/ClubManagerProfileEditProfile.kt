@@ -82,6 +82,7 @@ class ClubManagerProfileEditProfile : Fragment() {
                 Toast.makeText(requireContext(),"Update request is sent",Toast.LENGTH_SHORT).show()
 
                 navController.navigate(R.id.clubManagerProfileFragment)
+                navController.popBackStack()
 
 
             }
