@@ -60,6 +60,8 @@ class SksAdminEditsClubPendingFragment : Fragment() {
                 .addOnFailureListener {
                     Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()
                 }
+            navController.navigate(R.id.sksAdminEditsPendingFragment)
+            navController.popBackStack()
         }
 
         binding.sksAdminEditClubBtnReject.setOnClickListener {
@@ -83,6 +85,8 @@ class SksAdminEditsClubPendingFragment : Fragment() {
                 .addOnFailureListener {
                     Toast.makeText(context, "Düzenleme başarısız", Toast.LENGTH_SHORT).show()
                 }
+            navController.navigate(R.id.sksAdminEditsPendingFragment)
+            navController.popBackStack()
         }
 
 
