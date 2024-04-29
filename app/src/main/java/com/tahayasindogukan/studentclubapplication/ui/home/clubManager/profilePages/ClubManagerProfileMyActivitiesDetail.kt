@@ -10,6 +10,8 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerProfileMyActivitiesDetailBinding
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.approved.SksAdminFormsApprovedDetailFragmentArgs
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class ClubManagerProfileMyActivitiesDetail : Fragment() {
     private lateinit var binding: FragmentClubManagerProfileMyActivitiesDetailBinding
@@ -33,6 +35,11 @@ class ClubManagerProfileMyActivitiesDetail : Fragment() {
 
         var request = args.request
 
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = sdf.format(args.request.startDate)
+        val formattedEndDateTime = sdf.format(args.request.endDate)
+
+
         Glide.with(requireContext()).load(args.request.attachment)
             .into(binding.clubManagerProfileMyActivitiesPhoto)
         binding.clubAdminProfileMyActivitiesTitle.text = args.request.title
@@ -40,8 +47,8 @@ class ClubManagerProfileMyActivitiesDetail : Fragment() {
         binding.clubAdminProfileMyActivitiesManager.text = args.request.manager
         binding.clubAdminProfileMyActivitiesLocation.text = args.request.location
         binding.clubAdminProfileMyActivitiesWebPlatform.text = args.request.webPlatform
-        binding.clubAdminProfileMyActivitiesStartDate.text = args.request.startDate
-        binding.clubAdminProfileMyActivitiesEndDate.text = args.request.endDate
+        binding.clubAdminProfileMyActivitiesStartDate.text = formattedStartDateTime
+        binding.clubAdminProfileMyActivitiesEndDate.text = formattedEndDateTime
         binding.clubAdminProfileMyActivitiesContacts.text = args.request.contacts
 
 

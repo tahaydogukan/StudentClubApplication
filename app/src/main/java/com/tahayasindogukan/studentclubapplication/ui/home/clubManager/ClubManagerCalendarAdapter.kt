@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.databinding.SksAdminCalendarFragmentCardViewBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class ClubManagerCalendarAdapter(
     var activtiyList: List<Request>,
@@ -45,10 +47,17 @@ class ClubManagerCalendarAdapter(
         val t = holder.view
         val document = activtiyList[position]
 
+
+        val startDate = document.startDate
+        val dateFormatDayAndMonth = SimpleDateFormat("dd/MM", Locale.getDefault())
+        val dateFormatYear = SimpleDateFormat("yyyy", Locale.getDefault())
+        val startDateDayAndMonth = dateFormatDayAndMonth.format(startDate)
+        val startDateYear = dateFormatYear.format(startDate)
+
         Glide.with(context).load(document.attachment).into(t.clubPhoto)
         t.activityName.text = document.title
-        t.activityYear.text = document.startDate.substring(document.startDate.length - 4)
-        t.activityMonthAndDate.text = document.startDate.substring(0, document.startDate.length - 5)
+        t.activityYear.text = startDateYear
+        t.activityMonthAndDate.text = startDateDayAndMonth
 
         t.requestsCardViewLayout.setOnClickListener {
             listener.onClick(

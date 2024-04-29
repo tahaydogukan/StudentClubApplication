@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerCalendarBinding
+import java.text.SimpleDateFormat
 import java.util.Locale
 
 class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyClickListener {
@@ -116,8 +117,10 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
             requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
                 var requesList = it
                 for (i in requesList) {
-                    var startDate = i.startDate
-                    if (startDate.lowercase(Locale.ROOT).contains(query)) {
+                    val startDate = i.startDate
+                    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                    val startDateString = dateFormat.format(startDate)
+                    if (startDateString.lowercase(Locale.ROOT).contains(query)) {
                         filteredList.add(i)
                         Log.e("SksAdminRequestList6", i.toString())
 

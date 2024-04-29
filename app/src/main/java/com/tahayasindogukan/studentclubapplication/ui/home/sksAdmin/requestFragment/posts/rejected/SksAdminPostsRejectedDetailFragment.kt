@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminPostsRejectedDetailBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 class SksAdminPostsRejectedDetailFragment : Fragment() {
@@ -30,12 +32,17 @@ class SksAdminPostsRejectedDetailFragment : Fragment() {
         Glide.with(requireContext()).load(args.request.attachment)
             .into(binding.sksAdminPostsRejectedPhoto)
 
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = dateFormat.format(args.request.startDate)
+        val formattedEndDateTime = dateFormat.format(args.request.endDate)
+
+
         binding.apply {
 
             sksAdminPostsRejectedTitle.setText(args.request.title)
             sksAdminPostsRejectedContent.setText(args.request.content)
-            sksAdminPostsRejectedStartDate.setText(args.request.startDate)
-            sksAdminPostsRejectedEndDate.setText(args.request.endDate)
+            sksAdminPostsRejectedStartDate.text = formattedEndDateTime
+            sksAdminPostsRejectedEndDate.text = formattedStartDateTime
             sksAdminPostsRejectedLocation.text = args.request.location
             sksAdminPostsRejectedContacts.text = args.request.contacts
             sksAdminPostsRejectedWebPlatform.text = args.request.webPlatform

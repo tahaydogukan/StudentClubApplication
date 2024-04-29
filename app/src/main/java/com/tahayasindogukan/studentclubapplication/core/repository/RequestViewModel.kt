@@ -11,6 +11,7 @@ import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 class RequestViewModel : ViewModel() {
@@ -69,16 +70,16 @@ class RequestViewModel : ViewModel() {
         content: String? = null,
         eventGoals: String? = null,
         agenda: String? = null,
-        startDate: String? = null,
-        endDate: String? = null,
+        startDate: Date? = null,
+        endDate: Date? = null,
         manager: String? = null,
 
         // New or updated field values
         newTitle: String? = null,
         newManager: String? = null,
         newContent: String? = null,
-        newAttachment: String? = null,
-        newStartDate: String? = null,
+        newAttachment: Date? = null,
+        newStartDate: Date? = null,
         newEndDate: String? = null,
         newLocation: String? = null,
         newWebPlatform: String? = null,
@@ -182,16 +183,16 @@ class RequestViewModel : ViewModel() {
         content: String,
         eventGoals: String,
         agenda: String,
-        startDate: String,
-        endDate: String,
+        startDate: Date,
+        endDate: Date,
         manager: String,
         //yeni form değişkenleri
         newTitle: String,
         newManager: String,
         newContent: String,
         newAttachment: String,
-        newStartDate: String,
-        newEndDate: String,
+        newStartDate: Date,
+        newEndDate: Date,
         newLocation: String,
         newWebPlatform: String,
         newContacts: String,

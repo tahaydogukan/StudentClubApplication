@@ -1,5 +1,7 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.clubManager.profilePages
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +23,10 @@ import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerProfileEditRequestBinding
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.approved.SksAdminFormsApprovedDetailFragmentArgs
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 import java.util.UUID
 
 class ClubManagerProfileEditRequestFragment : Fragment() {
@@ -30,6 +36,8 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
     private lateinit var navController: NavController
     private var uri: Uri? = null
     var requestData: Request? = null
+    private lateinit var selectedStartDate: Date
+    private lateinit var selectedEndDate: Date
 
 
     override fun onCreateView(
@@ -60,15 +68,9 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
         }
 
 
-
-
-
-
-
-
-
-
-
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = sdf.format(args.request.startDate)
+        val formattedEndDateTime = sdf.format(args.request.endDate)
 
 
 
@@ -81,20 +83,28 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
         binding.clubAdminProfileMyActivitiesEditManager.setText(args.request.manager)
         binding.clubAdminProfileMyActivitiesEditLocation.setText(args.request.location)
         binding.clubAdminProfileMyActivitiesEditWebPlatform.setText(args.request.webPlatform)
-        binding.clubAdminProfileMyActivitiesEditStartDate.setText(args.request.startDate)
-        binding.clubAdminProfileMyActivitiesEditEndDate.setText(args.request.endDate)
+        binding.clubAdminProfileMyActivitiesEditStartDate.setText(formattedStartDateTime)
+        binding.clubAdminProfileMyActivitiesEditEndDate.setText(formattedEndDateTime)
         binding.clubAdminProfileMyActivitiesEditContacts.setText(args.request.contacts)
 
 
         binding.button2.setOnClickListener {
+
+            val dateTextStart = binding.clubAdminProfileMyActivitiesEditStartDate.text.toString()
+            val dateTextEnd = binding.clubAdminProfileMyActivitiesEditEndDate.text.toString()
+
+            val startDate = convertToDate(dateTextStart)
+            val endDate = convertToDate(dateTextEnd)
+
+
             requestViewModel.editPost(
                 args.request.documentId,
                 binding.clubAdminProfileMyActivitiesEditTitle.text.toString(),
                 binding.clubAdminProfileMyActivitiesEditManager.text.toString(),
                 binding.clubAdminProfileMyActivitiesEditDescription.text.toString(),
                 "",
-                binding.clubAdminProfileMyActivitiesEditStartDate.text.toString(),
-                binding.clubAdminProfileMyActivitiesEditEndDate.text.toString(),
+                startDate?.toString(),
+                endDate?.toString(),
                 binding.clubAdminProfileMyActivitiesEditLocation.text.toString(),
                 binding.clubAdminProfileMyActivitiesEditWebPlatform.text.toString(),
                 binding.clubAdminProfileMyActivitiesEditContacts.text.toString(),
@@ -160,6 +170,87 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
         }
 
 
+    }
+
+    private fun convertToDate(dateString: String): Date? {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        return try {
+            dateFormat.parse(dateString)
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    private fun showDateTimePickerDialogStartDate() {
+        val calendar = Calendar.getInstance()
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, monthOfYear)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                val timePickerDialog = TimePickerDialog(
+                    requireContext(),
+                    TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                        calendar.set(Calendar.MINUTE, minute)
+
+                        selectedStartDate = calendar.time
+
+                        // Seçilen tarihi ve saati göster
+                        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                        val formattedDateTime = sdf.format(selectedStartDate)
+                        binding.clubAdminProfileMyActivitiesEditStartDate.setText(formattedDateTime)
+                    },
+                    calendar.get(Calendar.HOUR_OF_DAY),
+                    calendar.get(Calendar.MINUTE),
+                    true
+                )
+                timePickerDialog.show()
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.datePicker.minDate = System.currentTimeMillis() - 1000
+        datePickerDialog.show()
+    }
+
+    private fun showDateTimePickerDialogEndDate() {
+        val calendar = Calendar.getInstance()
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, monthOfYear)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                val timePickerDialog = TimePickerDialog(
+                    requireContext(),
+                    TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                        calendar.set(Calendar.MINUTE, minute)
+
+                        selectedEndDate = calendar.time
+
+                        // Seçilen tarihi ve saati göster
+                        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                        val formattedDateTime = sdf.format(selectedEndDate)
+                        binding.clubAdminProfileMyActivitiesEditEndDate.setText(formattedDateTime)
+                    },
+                    calendar.get(Calendar.HOUR_OF_DAY),
+                    calendar.get(Calendar.MINUTE),
+                    true
+                )
+                timePickerDialog.show()
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.datePicker.minDate = System.currentTimeMillis() - 1000
+        datePickerDialog.show()
     }
 
 

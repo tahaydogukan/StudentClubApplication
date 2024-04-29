@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerClubActivtiesDetailBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 class ClubManagerClubActivtiesDetailFragment : Fragment() {
@@ -30,6 +32,9 @@ class ClubManagerClubActivtiesDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = sdf.format(args.request.startDate)
+        val formattedEndDateTime = sdf.format(args.request.endDate)
 
         binding.apply {
 
@@ -40,8 +45,8 @@ class ClubManagerClubActivtiesDetailFragment : Fragment() {
             clubManagerClubActivitiesDetailContacts.text = args.request.location
             clubManagerClubActivitiesDetailWebPlatform.text = args.request.webPlatform
             clubManagerClubActivitiesDetailContacts.text = args.request.contacts
-            clubManagerClubActivitiesDetailStartDate.text = args.request.startDate
-            clubManagerClubActivitiesDetailEndDate.text = args.request.endDate
+            clubManagerClubActivitiesDetailStartDate.text = formattedStartDateTime
+            clubManagerClubActivitiesDetailEndDate.text = formattedEndDateTime
             clubManagerClubActivitiesDetailDescription.text = args.request.content
 
 

@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminPostsPendingDetailBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 class SksAdminPostsPendingDetailFragment : Fragment() {
@@ -37,13 +39,17 @@ class SksAdminPostsPendingDetailFragment : Fragment() {
         Glide.with(requireContext()).load(args.request.attachment)
             .into(binding.sksAdminPostsPendingPhoto)
 
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = sdf.format(args.request.startDate)
+        val formattedEndDateTime = sdf.format(args.request.endDate)
+
         binding.apply {
 
             sksAdminPostsPendingTitle.setText(args.request.title)
             sksAdminPostsPendingContent.setText(args.request.content)
             sksAdminEditPostManager.text = args.request.manager
-            sksAdminPostsPendingStartDate.setText(args.request.startDate)
-            sksAdminPostsPendingEndDate.setText(args.request.endDate)
+            sksAdminPostsPendingStartDate.text = formattedStartDateTime
+            sksAdminPostsPendingEndDate.text = formattedEndDateTime
             sksAdminPostsPendingLocation.text = args.request.location
             sksAdminPostsPendingWebPlatform.text = args.request.webPlatform
             sksAdminPostsPendingContacts.text = args.request.contacts

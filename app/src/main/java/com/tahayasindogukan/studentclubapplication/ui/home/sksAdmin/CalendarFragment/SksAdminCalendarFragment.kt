@@ -13,10 +13,10 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Activity
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminCalendarBinding
+import java.text.SimpleDateFormat
 import java.util.Locale
 
 
@@ -78,7 +78,7 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    filterList(newText)
+                    //filterList(newText)
                     return true
                 }
             })
@@ -120,8 +120,10 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
             requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
                 var requesList = it
                 for (i in requesList) {
-                    var startDate = i.startDate
-                    if (startDate.lowercase(Locale.ROOT).contains(query)) {
+                    val startDate = i.startDate
+                    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                    val startDateString = dateFormat.format(startDate)
+                    if (startDateString.lowercase(Locale.ROOT).contains(query)) {
                         filteredList.add(i)
                         Log.e("SksAdminRequestList6", i.toString())
 

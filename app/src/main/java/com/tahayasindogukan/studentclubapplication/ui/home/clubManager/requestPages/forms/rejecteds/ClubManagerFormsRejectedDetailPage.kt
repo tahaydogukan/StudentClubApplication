@@ -6,12 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.tahayasindogukan.studentclubapplication.R
-import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerFormsApprovedDetailPageBinding
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerFormsRejectedDetaillPageBinding
-import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerFormsRejectedPageBinding
-import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.approveds.ClubManagerFormsApprovedDetailPage
-import com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.pendings.ClubManagerFormsPendingDetailPageArgs
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 class ClubManagerFormsRejectedDetailPage : Fragment() {
@@ -31,13 +28,17 @@ class ClubManagerFormsRejectedDetailPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = sdf.format(args.request.startDate)
+        val formattedEndDateTime = sdf.format(args.request.endDate)
+
         binding.apply {
             fragmentClubManagerFormsRejeectedDetailPageEtTitle.setText(args.request.title)
             fragmentClubManagerFormsRejeectedDetailPageTwContent.setText(args.request.content)
             fragmentClubManagerFormsRejeectedDetailPageEtEventGoals.setText(args.request.eventGoals)
             fragmentClubManagerFormsRejeectedDetailPageEtAgenda.setText(args.request.agenda)
-            fragmentClubManagerFormsRejeectedDetailPageEtStartDate.setText(args.request.startDate)
-            fragmentClubManagerFormsRejeectedDetailPageEtEndDate.setText(args.request.endDate)
+            fragmentClubManagerFormsRejeectedDetailPageEtStartDate.setText(formattedStartDateTime)
+            fragmentClubManagerFormsRejeectedDetailPageEtEndDate.text = formattedEndDateTime
         }
 
     }

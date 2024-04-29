@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentStudentCalendarInfoBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class StudentCalendarInfoFragment : Fragment() {
     private lateinit var binding: FragmentStudentCalendarInfoBinding
@@ -41,10 +43,15 @@ class StudentCalendarInfoFragment : Fragment() {
                 sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
             }
 
+
+            val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+            val formattedStartDateTime = sdf.format(args.request.startDate)
+            val formattedEndDateTime = sdf.format(args.request.endDate)
+
             sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
             sksAdminClubInfoDetailWebContacts.text = args.request.contacts
-            sksAdminClubInfoDetailStartDate.text = args.request.startDate
-            sksAdminClubInfoDetailEndDate.text = args.request.endDate
+            sksAdminClubInfoDetailStartDate.text = formattedStartDateTime
+            sksAdminClubInfoDetailEndDate.text = formattedEndDateTime
             sksAdminClubInfoDetailDecsription.text = args.request.content
 
 

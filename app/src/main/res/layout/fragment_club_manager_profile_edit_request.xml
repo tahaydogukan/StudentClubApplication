@@ -202,7 +202,6 @@
         android:id="@+id/club_admin_profile_my_activities_edit_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
         android:fontFamily="@font/poppins"
         android:gravity="center"
         android:textColor="@color/white"
@@ -210,8 +209,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/club_manager_profile_my_activities_edit_photo"
         app:layout_constraintEnd_toEndOf="@+id/club_manager_profile_my_activities_edit_photo"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/club_manager_profile_my_activities_edit_photo" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/club_manager_profile_my_activities_edit_photo"
+        app:layout_constraintTop_toTopOf="@+id/club_manager_profile_my_activities_edit_photo"
+        app:layout_constraintVertical_bias="0.764" />
 
     <TextView
         android:id="@+id/textView67"

@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminEditsPostsPendingBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 class SksAdminEditsPostsPendingFragment : Fragment() {
@@ -38,14 +40,19 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
         Glide.with(requireContext()).load(args.request.newAttachment)
             .into(binding.sksAdminEditPostPhoto)
 
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = sdf.format(args.request.startDate)
+        val formattedEndDateTime = sdf.format(args.request.endDate)
+
+
         binding.sksAdminEditPostTitle.text = args.request.newTitle
         binding.sksAdminEditPostContent.text = args.request.newContent
         binding.sksAdminEditPostManager.text = args.request.newManager
         binding.sksAdminEditPostLocation.text = args.request.newLocation
         binding.sksAdminEditPostWebPlatform.text = args.request.newWebPlatform
         binding.sksAdminEditPostContacts.text = args.request.newContacts
-        binding.sksAdminEditPostStartDate.text = args.request.newStartDate
-        binding.sksAdminEditPostEndDate.text = args.request.newEndDate
+        binding.sksAdminEditPostStartDate.text = formattedStartDateTime
+        binding.sksAdminEditPostEndDate.text = formattedEndDateTime
 
         //bu sayfada veriler görünmüyor yazmayı untumuşum
 

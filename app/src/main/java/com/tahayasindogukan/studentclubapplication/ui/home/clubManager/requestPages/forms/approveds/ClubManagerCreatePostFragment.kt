@@ -1,5 +1,7 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.approveds
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.graphics.Color
 import android.net.Uri
 import android.os.Build
@@ -21,13 +23,19 @@ import com.google.firebase.storage.FirebaseStorage
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerCreatePostBinding
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class ClubManagerCreatePostFragment : Fragment() {
     private lateinit var binding: FragmentClubManagerCreatePostBinding
     private lateinit var navController: NavController
-    // args ile diğer fragmentdan gelen verilere erişebiliriz
-    private val args : ClubManagerCreatePostFragmentArgs by navArgs()
 
+    // args ile diğer fragmentdan gelen verilere erişebiliriz
+    private val args: ClubManagerCreatePostFragmentArgs by navArgs()
+    private lateinit var selectedStartDate: Date
+    private lateinit var selectedEndDate: Date
     private val viewModel: RequestViewModel by viewModels()
     private var uri: Uri? = null
 
@@ -46,12 +54,24 @@ class ClubManagerCreatePostFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
 
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = sdf.format(args.request.startDate)
+        val formattedEndDateTime = sdf.format(args.request.endDate)
+
+
+        binding.createPostsEtStartDate.setOnClickListener {
+            showDateTimePickerDialogStartDate()
+        }
+        binding.createPostsEtEtEndDate.setOnClickListener {
+            showDateTimePickerDialogEndDate()
+        }
+
         binding.apply {
             createPostsEtTitle.setText(args.request.title)
             createPostsEtManager.setText(args.request.manager)
             createPostsEtContent.setText(args.request.content)
-            createPostsEtStartDate.setText(args.request.startDate)
-            createPostsEtEtEndDate.setText(args.request.endDate)
+            createPostsEtStartDate.text = formattedStartDateTime
+            createPostsEtEtEndDate.text = formattedEndDateTime
             createPostsEtLocation.setText(args.request.location)
             createPostsEtEtWebPlatform.setText(args.request.webPlatform)
             createPostsEtContacts.setText(args.request.contacts)
@@ -95,7 +115,7 @@ class ClubManagerCreatePostFragment : Fragment() {
         //Takvimden seçilen tarihi bir değişkene ve text view e atar
         binding.endDateCalendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
 
-        // Filtreleme işlemini gerçekleştirin
+            // Filtreleme işlemini gerçekleştirin
             binding.endDateCalendarView.visibility = View.INVISIBLE
 
             binding.createPostsEtEtEndDate.text = "${dayOfMonth}/${month + 1}/${year}"
@@ -109,16 +129,20 @@ class ClubManagerCreatePostFragment : Fragment() {
 
 
         binding.createPostsBtnCreatePost.setOnClickListener {
+            val dateTextStart = binding.createPostsEtStartDate.text.toString()
+            val dateTextEnd = binding.createPostsEtEtEndDate.text.toString()
 
-            if (uri != null){
+            val startDate = convertToDate(dateTextStart)
+            val endDate = convertToDate(dateTextEnd)
+            if (uri != null) {
                 viewModel.editRequest(
                     args.request.documentId,
                     binding.createPostsEtTitle.text.toString(),
                     binding.createPostsEtContent.text.toString(),
                     null,
                     null,
-                    binding.createPostsEtStartDate.text.toString(),
-                    binding.createPostsEtEtEndDate.text.toString(),
+                    startDate!!,
+                    endDate!!,
                     binding.createPostsEtManager.text.toString(),
                     null,
                     null,
@@ -137,20 +161,18 @@ class ClubManagerCreatePostFragment : Fragment() {
                     true,
                     "1",
                     requireContext()
-                    )
+                )
 
-            uploadPhoto(uri!!)
+                uploadPhoto(uri!!)
 
                 navController.navigate(R.id.clubManagerFormsApprovedPage)
                 navController.popBackStack()
 
-            }else{
+            } else {
                 binding.createPostsEtAttachment.text = "Please upload a photo"
                 binding.createPostsEtAttachment.setTextColor(Color.RED)
             }
         }
-
-
 
 
     }
@@ -175,27 +197,27 @@ class ClubManagerCreatePostFragment : Fragment() {
 
             storageRef.downloadUrl.addOnSuccessListener {
 
-                    // Collectiondaki tek bir dökümanı güncellemek için gerekli map
-                    val uploadImageUri = mapOf(
-                        "attachment" to it.toString()
-                    )
+                // Collectiondaki tek bir dökümanı güncellemek için gerekli map
+                val uploadImageUri = mapOf(
+                    "attachment" to it.toString()
+                )
 
-                    // Yükleme tamamlandıktan sonra fotoğrafın URL'sini alma
-                    // Fotoğraf URL'sini Firestore'a kaydetme
-                    firestoreRef.update(uploadImageUri)
-                        .addOnSuccessListener {
-                            Log.d("Uri", "Request sent succesfully")
-                            navController.navigate(R.id.clubManagerRequestFragment)
-                            navController.popBackStack()
+                // Yükleme tamamlandıktan sonra fotoğrafın URL'sini alma
+                // Fotoğraf URL'sini Firestore'a kaydetme
+                firestoreRef.update(uploadImageUri)
+                    .addOnSuccessListener {
+                        Log.d("Uri", "Request sent succesfully")
+                        navController.navigate(R.id.clubManagerRequestFragment)
+                        navController.popBackStack()
 
 
-                        }
-                        .addOnFailureListener { e ->
-                            Log.w("Uri", "Request could not send ", e)
-                        }
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("Uri", "Request could not send ", e)
+                    }
 
-                    Toast.makeText(requireContext(), "Request sent succesfully", Toast.LENGTH_SHORT)
-                        .show()
+                Toast.makeText(requireContext(), "Request sent succesfully", Toast.LENGTH_SHORT)
+                    .show()
 
 
             }
@@ -203,5 +225,86 @@ class ClubManagerCreatePostFragment : Fragment() {
         }
 
 
+    }
+
+    private fun showDateTimePickerDialogStartDate() {
+        val calendar = Calendar.getInstance()
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, monthOfYear)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                val timePickerDialog = TimePickerDialog(
+                    requireContext(),
+                    TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                        calendar.set(Calendar.MINUTE, minute)
+
+                        selectedStartDate = calendar.time
+
+                        // Seçilen tarihi ve saati göster
+                        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                        val formattedDateTime = sdf.format(selectedStartDate)
+                        binding.createPostsEtStartDate.text = formattedDateTime
+                    },
+                    calendar.get(Calendar.HOUR_OF_DAY),
+                    calendar.get(Calendar.MINUTE),
+                    true
+                )
+                timePickerDialog.show()
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.datePicker.minDate = System.currentTimeMillis() - 1000
+        datePickerDialog.show()
+    }
+
+    private fun showDateTimePickerDialogEndDate() {
+        val calendar = Calendar.getInstance()
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, monthOfYear)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                val timePickerDialog = TimePickerDialog(
+                    requireContext(),
+                    TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                        calendar.set(Calendar.MINUTE, minute)
+
+                        selectedEndDate = calendar.time
+
+                        // Seçilen tarihi ve saati göster
+                        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                        val formattedDateTime = sdf.format(selectedEndDate)
+                        binding.createPostsEtEtEndDate.text = formattedDateTime
+                    },
+                    calendar.get(Calendar.HOUR_OF_DAY),
+                    calendar.get(Calendar.MINUTE),
+                    true
+                )
+                timePickerDialog.show()
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.datePicker.minDate = System.currentTimeMillis() - 1000
+
+    }
+
+    private fun convertToDate(dateString: String): Date? {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        return try {
+            dateFormat.parse(dateString)
+        } catch (e: Exception) {
+            null
+        }
     }
 }

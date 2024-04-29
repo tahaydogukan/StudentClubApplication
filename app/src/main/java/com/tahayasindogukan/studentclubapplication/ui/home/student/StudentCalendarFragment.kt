@@ -18,7 +18,7 @@ import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentStudentCalendarBinding
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.CalendarFragment.SksAdminCalendarAdapter
-import java.util.Calendar
+import java.text.SimpleDateFormat
 import java.util.Locale
 
 class StudentCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListener {
@@ -114,9 +114,12 @@ class StudentCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListe
 
             requestViewModel.postsApprovedList.observe(viewLifecycleOwner) {
                 var requesList = it
+
                 for (i in requesList) {
-                    var startDate = i.startDate
-                    if (startDate.lowercase(Locale.ROOT).contains(query)) {
+                    val startDate = i.startDate
+                    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                    val startDateString = dateFormat.format(startDate)
+                    if (startDateString.lowercase(Locale.ROOT).contains(query)) {
                         filteredList.add(i)
                         Log.e("SksAdminRequestList6", i.toString())
 

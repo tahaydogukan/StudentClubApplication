@@ -1,6 +1,7 @@
 package com.tahayasindogukan.studentclubapplication.core.entitiy
 
 import java.io.Serializable
+import java.util.Date
 
 data class Request(
     val documentId:String="",
@@ -8,16 +9,16 @@ data class Request(
     val content: String="",
     val eventGoals: String="",
     val agenda: String="",
-    val startDate: String="",
-    val endDate: String="",
+    val startDate: Date = Date(),
+    val endDate: Date = Date(),
     val manager:String="",
 
     val newTitle: String="",
     val newManager:String="",
     val newContent:String="",
     val newAttachment: String="",
-    val newStartDate: String="",
-    val newEndDate: String="",
+    val newStartDate: Date = Date(),
+    val newEndDate: Date = Date(),
     val newLocation: String="",
     val newWebPlatform: String="",
     val newContacts: String="",

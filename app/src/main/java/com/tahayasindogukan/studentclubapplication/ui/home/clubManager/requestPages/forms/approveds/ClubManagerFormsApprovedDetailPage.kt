@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerFormsApprovedDetailPageBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class ClubManagerFormsApprovedDetailPage : Fragment() {
     private lateinit var binding: FragmentClubManagerFormsApprovedDetailPageBinding
@@ -35,12 +35,17 @@ class ClubManagerFormsApprovedDetailPage : Fragment() {
 
         var requestApproved = args.request
 
+
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = sdf.format(args.request.startDate)
+        val formattedEndDateTime = sdf.format(args.request.endDate)
+
         binding.etTitle.setText(args.request.title)
         binding.etContent.setText(args.request.content)
         binding.etEventGoals.setText(args.request.eventGoals)
         binding.etAgenda.setText(args.request.agenda)
-        binding.etStartDate.setText(args.request.startDate)
-        binding.etEndDate.setText(args.request.endDate)
+        binding.etStartDate.text = formattedStartDateTime
+        binding.etEndDate.text = formattedEndDateTime
 
 
         binding.btnCreatePostRequest.setOnClickListener {

@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsPendingDetailBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class SksAdminFormsPendingDetailFragment : Fragment() {
     private lateinit var binding: FragmentSksAdminFormsPendingDetailBinding
@@ -37,14 +39,19 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
         Glide.with(requireContext()).load(args.request.attachment)
             .into(binding.sksAdminFormsPendingPhoto)
 
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = dateFormat.format(args.request.startDate)
+        val formattedEndDateTime = dateFormat.format(args.request.endDate)
+
+
         binding.apply {
 
             sksAdminFormsPendingTitle.setText(args.request.title)
             sksAdminFormsPendingContent.setText(args.request.content)
             sksAdminFormsPendingEventGoals.setText(args.request.eventGoals)
             sksAdminFormsPendingAgenda.setText(args.request.agenda)
-            sksAdminFormsPendingStartDate.setText(args.request.startDate)
-            sksAdminFormsPendingEndDate.setText(args.request.endDate)
+            sksAdminFormsPendingStartDate.text = formattedStartDateTime
+            sksAdminFormsPendingEndDate.text = formattedEndDateTime
         }
 
         binding.sksAdminFormsPendingBtnApprove.setOnClickListener {

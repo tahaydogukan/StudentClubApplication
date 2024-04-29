@@ -1,16 +1,15 @@
 package com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.rejected
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.tahayasindogukan.studentclubapplication.R
-import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsApprovedDetailBinding
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsRejectedDetailBinding
-import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.approved.SksAdminFormsApprovedDetailFragmentArgs
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class SksAdminFormsRejectedDetailFragment : Fragment() {
 
@@ -34,13 +33,17 @@ class SksAdminFormsRejectedDetailFragment : Fragment() {
 
         Glide.with(requireContext()).load(args.request.attachment).into(binding.sksAdminFormsRejectedPhoto)
 
+        val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val formattedStartDateTime = sdf.format(args.request.startDate)
+        val formattedEndDateTime = sdf.format(args.request.endDate)
+
         binding.apply {
             sksAdminFormsRejectedTitle.setText(args.request.title)
             sksAdminFormsRejectedContent.setText(args.request.content)
             sksAdminFormsRejectedEventGoals.setText(args.request.eventGoals)
             sksAdminFormsRejectedAgenda.setText(args.request.agenda)
-            sksAdminFormsRejectedStartDate.setText(args.request.startDate)
-            sksAdminFormsRejectedEndDate.setText(args.request.endDate)
+            sksAdminFormsRejectedStartDate.text = formattedStartDateTime
+            sksAdminFormsRejectedEndDate.text = formattedEndDateTime
         }
 
     }

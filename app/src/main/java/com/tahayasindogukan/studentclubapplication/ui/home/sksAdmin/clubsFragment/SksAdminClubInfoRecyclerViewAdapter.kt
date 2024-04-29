@@ -40,8 +40,8 @@ class SksAdminClubInfoRecyclerViewAdapter(
         val document = requestList[position]
 
         t.sksAdminClubInfoCardViewIwRequestPhoto.setImageResource(R.drawable.image_deneme)
-        t.sksAdminClubInfoCardViewTwStartDate.text = document.startDate
-        t.sksAdminClubInfoCardViewTwEndDate.text = document.endDate
+        //t.sksAdminClubInfoCardViewTwStartDate.text = document.startDate
+        //t.sksAdminClubInfoCardViewTwEndDate.text = document.endDate
         t.sksAdminClubInfoCardViewTwTitle.text = document.title
 
         Glide.with(context).load(document.attachment).into(t.sksAdminClubInfoCardViewIwRequestPhoto)
