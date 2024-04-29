@@ -71,17 +71,7 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
             binding.sksAdminCalendarFragmentRecyclerView.visibility = View.INVISIBLE
 
 
-            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    return false
 
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    //filterList(newText)
-                    return true
-                }
-            })
 
 
             calendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
@@ -108,6 +98,17 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
                 }
 
             }
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    //filterList(newText)
+                    return true
+                }
+            })
         }
 
 

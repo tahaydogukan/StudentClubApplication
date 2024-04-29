@@ -44,7 +44,6 @@ class StudentCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListe
         navController = Navigation.findNavController(view)
         binding.calendarView.visibility = View.INVISIBLE
         rv = binding.studentCalendarFragmentRecyclerView
-        //searchView = binding.sksAdminClubsFragmentSearchBar
 
         requestViewModel.getSksPostsApprove()
 
@@ -65,17 +64,6 @@ class StudentCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListe
 
         val calendarView = binding.calendarView
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
-                return true
-            }
-        })
 
         binding.calendarButton.setOnClickListener {
             binding.calendarView.visibility = View.VISIBLE
@@ -105,6 +93,20 @@ class StudentCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickListe
                 }
 
             }
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    filterList(newText)
+                    return true
+                }
+            })
+
+
         }
     }
 

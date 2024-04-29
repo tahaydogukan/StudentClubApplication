@@ -68,18 +68,6 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
             binding.calendarView.visibility = View.VISIBLE
             binding.clubManagerCalendarFragmentRecyclerView.visibility = View.INVISIBLE
 
-            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    return false
-
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    filterList(newText)
-                    return true
-                }
-
-            })
 
             calendarView.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
                 // Seçilen tarihi işleyin
@@ -105,6 +93,17 @@ class ClubManagerCalendarFragment : Fragment(), ClubManagerCalendarAdapter.MyCli
                 }
 
             }
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    //filterList(newText)
+                    return true
+                }
+            })
         }
 
 
