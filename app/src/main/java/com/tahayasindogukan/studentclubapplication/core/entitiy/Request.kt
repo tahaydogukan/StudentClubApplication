@@ -29,7 +29,7 @@ data class Request(
     val contacts: String="",
     val isForm:Boolean=true,
     val isPost:Boolean=false,
-    val status: String = "1",
+    val status: String = "",
     val clubName:String="",
 ) : Serializable {
 }

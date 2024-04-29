@@ -46,7 +46,7 @@ class StudentHomePageFragment : Fragment(), ClubManagerCalendarAdapter.MyClickLi
         searchView = binding.searchBar
 
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        /*searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
 
@@ -57,7 +57,7 @@ class StudentHomePageFragment : Fragment(), ClubManagerCalendarAdapter.MyClickLi
                 return true
             }
 
-        })
+        })*/
 
         requestViewModel.getWeeklyActivities()
 

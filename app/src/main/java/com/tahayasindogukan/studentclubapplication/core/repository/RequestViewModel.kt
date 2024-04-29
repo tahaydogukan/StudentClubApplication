@@ -763,39 +763,32 @@ class RequestViewModel : ViewModel() {
     }
 
     fun getWeeklyActivities() {
-
         val today = Calendar.getInstance()
 
         // Başlangıç tarihini bugüne ayarlayın
-        val startDate = today
-
+        val startDate = today.time
         // Bitiş tarihini 1 hafta sonrasına ayarlayın
         val endDate = today.clone() as Calendar
         endDate.add(Calendar.DAY_OF_MONTH, 7)
 
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-
-
         FirebaseFirestore.getInstance().collection("request")
-            .whereGreaterThanOrEqualTo("startDate", dateFormat.format(startDate.time))
-            .whereLessThanOrEqualTo("startDate", dateFormat.format(endDate.time))
+            .whereGreaterThanOrEqualTo("startDate", startDate)
+            .whereLessThanOrEqualTo("startDate", endDate.time)
             .get()
             .addOnSuccessListener { querySnapshot ->
-                if (querySnapshot.documents.isNotEmpty()) {
-
+                if (!querySnapshot.isEmpty) {
                     val requestList = mutableListOf<Request>()
                     for (document in querySnapshot) {
-                        // Burada her bir belgeyi işleyebilirsiniz
+                        // Belgeyi Request nesnesine dönüştür ve listeye ekle
                         document.toObject(Request::class.java).let { requestList.add(it) }
                     }
+                    // postApprovedList'e değeri atayın
                     postsApprovedList.postValue(requestList)
-
+                    Log.e("getMyClubActivities", postsApprovedList.toString())
                 } else {
                     Log.e("getMyClubActivities", "Veri alınamadı")
                 }
             }
-
-
     }
 
 }

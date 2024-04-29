@@ -237,22 +237,7 @@ class FirebaseViewModel : ViewModel() {
         }
     }
 
-    fun sendRequestViewModel(
-        name: String,
-        surname: String,
-        visibility: Int,
-        onComplete: (Boolean, String?) -> Unit
-    ) {
-        firebaseRepository.sendRequest(name, surname, 1) { success, message ->
-            if (success) {
-                onComplete(success, message)
-            }
-        }
-    }
-    fun getAllRequests(): LiveData<List<DocumentSnapshot>> {
-        getAllRequstsFromFirebase()
-        return _requests
-    }
+
     fun signUpViewModel(
         email: String,
         password: String,
@@ -298,25 +283,7 @@ class FirebaseViewModel : ViewModel() {
         }
     }
 
-    fun getAllRequstsFromFirebase() {
-        val firestoreRef = FirebaseFirestore.getInstance()
-        val requestRef = firestoreRef.collection("request")
 
-        val query = requestRef.whereEqualTo("visibility", 0)
-            .orderBy("visibility", Query.Direction.DESCENDING).limit(10)
-
-        query.addSnapshotListener { querySnapshot, error ->
-            if (error != null) {
-                // Hata işleme
-            } else {
-                val documents = mutableListOf<DocumentSnapshot>()
-                for (document in querySnapshot?.documents!!) {
-                    documents.add(document)
-                }
-                _requests.value = documents
-            }
-        }
-    }
 
     fun currentUserViewModel(): FirebaseUser? {
         return firebaseRepository.getCurrentUserRepository()

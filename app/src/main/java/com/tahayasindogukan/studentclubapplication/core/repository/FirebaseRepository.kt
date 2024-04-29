@@ -53,16 +53,6 @@ class FirebaseRepository {
             }
     }
 
-    fun sendRequest(
-        name: String,
-        surname: String,
-        visibility: Int,
-        onComplete: (Boolean, String?) -> Unit
-    ) {
-        //val request = Request(name, surname, 1)
-        //firestore.collection("request").document().set(request)
-
-    }
 
     fun signInRepository(email: String, password: String, onComplete: (Boolean, String?) -> Unit) {
         auth.signInWithEmailAndPassword(email, password)
