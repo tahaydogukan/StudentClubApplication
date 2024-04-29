@@ -68,6 +68,13 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
         }
 
 
+        binding.clubAdminProfileMyActivitiesEditStartDate.setOnClickListener {
+            showDateTimePickerDialogStartDate()
+        }
+        binding.clubAdminProfileMyActivitiesEditEndDate.setOnClickListener {
+            showDateTimePickerDialogEndDate()
+        }
+
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
         val formattedStartDateTime = sdf.format(args.request.startDate)
         val formattedEndDateTime = sdf.format(args.request.endDate)
