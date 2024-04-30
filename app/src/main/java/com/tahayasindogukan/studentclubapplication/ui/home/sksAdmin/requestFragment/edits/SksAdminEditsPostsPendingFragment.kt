@@ -47,8 +47,8 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
             .into(binding.sksAdminEditPostPhoto)
 
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
-        val formattedStartDateTime = sdf.format(args.request.startDate)
-        val formattedEndDateTime = sdf.format(args.request.endDate)
+        val formattedStartDateTime = sdf.format(args.request.newStartDate)
+        val formattedEndDateTime = sdf.format(args.request.newEndDate)
 
 
         binding.sksAdminEditPostTitle.text = args.request.newTitle

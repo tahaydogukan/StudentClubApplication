@@ -78,7 +78,11 @@ class ClubManagerProfileEditProfile : Fragment() {
                     null,
                     requireContext()
                     )
-                uploadPhoto(uri!!)
+
+                if (uri!= null){
+                    uploadPhoto(uri!!)
+
+                }
                 Toast.makeText(requireContext(),"Update request is sent",Toast.LENGTH_SHORT).show()
 
                 navController.navigate(R.id.clubManagerProfileFragment)
