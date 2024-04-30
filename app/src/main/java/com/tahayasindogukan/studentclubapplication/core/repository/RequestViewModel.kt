@@ -672,7 +672,7 @@ class RequestViewModel : ViewModel() {
     }
     fun getClubEdits() {
         FirebaseFirestore.getInstance().collection("club")
-            .whereEqualTo("clubStatus", "2")
+            .whereEqualTo("clubStatus", "1")
             .get()
             .addOnSuccessListener { querySnapshot ->
                 if (querySnapshot.documents.isNotEmpty()) {
