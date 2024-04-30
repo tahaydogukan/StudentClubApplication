@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
@@ -58,23 +59,34 @@ class ClubManagerCreateFormPage : Fragment() {
 
         binding.btnSendFormRequest.setOnClickListener {
 
-            val dateTextEnd = binding.etEndDate.text.toString()
-            val dateTextStart = binding.etStartDate.text.toString()
+            val editText1 = binding.etTitle
+            val editText2 = binding.etContent
+            val editText3 = binding.etEventGoals
+            val editText4 = binding.etAgenda
+            val editText5 = binding.etStartDate
+            val editText6= binding.etEndDate
 
+            val editTextList = listOf(editText1, editText2, editText3, editText4, editText5,editText6)
+            val emptyEditTextList = mutableListOf<EditText>()
 
-
-            if (dateTextStart =="" && dateTextEnd =="") {
-                binding.etStartDate.error = "Please Select a Date"
-                binding.etEndDate.error = "Please Select a Date"
+            // Boş olan edit text'leri bul
+            for (editText in editTextList) {
+                if (editText.text.isBlank()) {
+                    emptyEditTextList.add(editText)
+                }
             }
-            else if (dateTextEnd==""){
-                binding.etEndDate.error ="Please Select a Date"
-            }
-            else if (dateTextStart==""){
-                binding.etStartDate.error ="Please Select a Date"
 
+            // Eğer boş edit text varsa, hata mesajını göster
+            if (emptyEditTextList.isNotEmpty()) {
+                val errorMessage = "Lütfen tüm alanları doldurun"
+                for (emptyEditText in emptyEditTextList) {
+                    emptyEditText.error = errorMessage
+                }
+            } else {
+                // Boş edit text yoksa, istediğiniz işlemi gerçekleştir
+                val dateTextEnd = binding.etEndDate.text.toString()
+                val dateTextStart = binding.etStartDate.text.toString()
 
-            }else{
                 val startDate = convertToDate(dateTextStart)
                 val endDate = convertToDate(dateTextEnd)
 
@@ -110,7 +122,6 @@ class ClubManagerCreateFormPage : Fragment() {
                 navController.navigate(R.id.clubManagerFormsMainPage)
                 navController.popBackStack()
             }
-
 
 
 
