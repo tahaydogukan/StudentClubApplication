@@ -41,12 +41,23 @@ class ClubManagerClubActivtiesDetailFragment : Fragment() {
 
         binding.apply {
 
+            if(args.request.webPlatform.length < 2){
+                binding.clubManagerClubActivitiesDetailWebPlatform.text = "Not Available"
+            }else{
+                clubManagerClubActivitiesDetailWebPlatform.text = args.request.webPlatform
+
+            }
+            if(args.request.location.length < 2){
+                binding.clubManagerClubActivitiesDetailLocation.text = "Not Available"
+            }else{
+                clubManagerClubActivitiesDetailLocation.text = args.request.location
+
+            }
+
             Glide.with(requireContext()).load(args.request.attachment)
                 .into(binding.clubManagerClubActivitiesDetailPhoto)
             clubManagerClubActivitiesDetailTitle.text = args.request.title
             clubManagerClubActivitiesDetailManager.text = args.request.manager
-            clubManagerClubActivitiesDetailContacts.text = args.request.location
-            clubManagerClubActivitiesDetailWebPlatform.text = args.request.webPlatform
             clubManagerClubActivitiesDetailContacts.text = args.request.contacts
             clubManagerClubActivitiesDetailStartDate.text = formattedStartDateTime
             clubManagerClubActivitiesDetailEndDate.text = formattedEndDateTime

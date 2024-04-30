@@ -119,7 +119,11 @@ class ClubManagerCreateFormPage : Fragment() {
                     clubName?.lowercase().toString(),
                     requireContext()
                 )
+
+                // navController ile geçiş yaparken direk fragment adını yazarsan geri gelmiyor geçiş yapınca otomatik olarak
+                // ama action lı kullanınca geri geliyor o yüzden pop back stack kullanıyoruz !!! Doğru değilmiş
                 navController.navigate(R.id.action_clubManagerCreateFormPage_to_clubManagerFormsMainPage)
+                navController.popBackStack()
             }
 
 

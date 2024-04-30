@@ -104,7 +104,7 @@ class SksAdminCalendarFragment : Fragment(), SksAdminCalendarAdapter.MyClickList
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    //filterList(newText)
+                    filterList(newText)
                     return true
                 }
             })
