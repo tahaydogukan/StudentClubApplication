@@ -67,7 +67,11 @@
         android:id="@+id/clubManagerCreateFormPage"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.ClubManagerCreateFormPage"
         android:label="fragment_club_manager_create_form_page"
-        tools:layout="@layout/fragment_club_manager_create_form_page" />
+        tools:layout="@layout/fragment_club_manager_create_form_page" >
+        <action
+            android:id="@+id/action_clubManagerCreateFormPage_to_clubManagerFormsMainPage"
+            app:destination="@id/clubManagerFormsMainPage" />
+    </fragment>
     <fragment
         android:id="@+id/clubManagerFormsMainPage"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.clubManager.requestPages.forms.ClubManagerFormsMainPage"

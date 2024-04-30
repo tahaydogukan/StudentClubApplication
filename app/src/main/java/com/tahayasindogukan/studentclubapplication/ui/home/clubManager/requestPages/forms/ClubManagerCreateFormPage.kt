@@ -119,8 +119,7 @@ class ClubManagerCreateFormPage : Fragment() {
                     clubName?.lowercase().toString(),
                     requireContext()
                 )
-                navController.navigate(R.id.clubManagerFormsMainPage)
-                navController.popBackStack()
+                navController.navigate(R.id.action_clubManagerCreateFormPage_to_clubManagerFormsMainPage)
             }
 
 
