@@ -106,13 +106,14 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
             val startDate = convertToDate(dateTextStart)
             val endDate = convertToDate(dateTextEnd)
 
+            val attachment = args.request.attachment
 
             requestViewModel.editPost(
                 args.request.documentId,
                 binding.clubAdminProfileMyActivitiesEditTitle.text.toString(),
                 binding.clubAdminProfileMyActivitiesEditManager.text.toString(),
                 binding.clubAdminProfileMyActivitiesEditDescription.text.toString(),
-                "",
+                attachment,
                 startDate,
                 endDate,
                 binding.clubAdminProfileMyActivitiesEditLocation.text.toString(),
@@ -123,8 +124,6 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
             if (uri != null){
                 uploadPhoto(uri!!)
             }
-
-
 
             navController.navigate(R.id.clubManagerProfileFragment)
             navController.popBackStack()
@@ -188,7 +187,6 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
 
     private fun convertToDate(dateString: String): Date? {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        dateFormat.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
 
         return try {
             dateFormat.parse(dateString)
@@ -216,7 +214,6 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
 
                         // Seçilen tarihi ve saati göster
                         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
-                        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
 
                         val formattedDateTime = sdf.format(selectedStartDate)
                         binding.clubAdminProfileMyActivitiesEditStartDate.setText(formattedDateTime)
@@ -254,7 +251,6 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
 
                         // Seçilen tarihi ve saati göster
                         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
-                        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
 
                         val formattedDateTime = sdf.format(selectedEndDate)
                         binding.clubAdminProfileMyActivitiesEditEndDate.setText(formattedDateTime)
