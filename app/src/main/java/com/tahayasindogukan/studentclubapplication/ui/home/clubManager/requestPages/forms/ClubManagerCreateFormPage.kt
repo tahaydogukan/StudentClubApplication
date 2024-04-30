@@ -24,8 +24,8 @@ class ClubManagerCreateFormPage : Fragment() {
     private lateinit var binding: FragmentClubManagerCreateFormPageBinding
     private val viewModel: RequestViewModel by viewModels()
     private var clubName:String?=null
-    private lateinit var selectedStartDate: Date
-    private lateinit var selectedEndDate: Date
+    private  var selectedStartDate: Date?=null
+    private  var selectedEndDate: Date?=null
     private lateinit var navController: NavController
 
     override fun onCreateView(
@@ -58,44 +58,62 @@ class ClubManagerCreateFormPage : Fragment() {
 
         binding.btnSendFormRequest.setOnClickListener {
 
-            val dateTextStart = binding.etStartDate.text.toString()
             val dateTextEnd = binding.etEndDate.text.toString()
-
-            val startDate = convertToDate(dateTextStart)
-            val endDate = convertToDate(dateTextEnd)
+            val dateTextStart = binding.etStartDate.text.toString()
 
 
-            clubName = viewModel.clubData?.clubName
-            Log.e("createForm",clubName.toString())
-            viewModel.sendFormRequst(
-                binding.etTitle.text.toString(),
-                binding.etContent.text.toString(),
-                binding.etEventGoals.text.toString(),
-                binding.etAgenda.text.toString(),
-                selectedStartDate,
-                selectedEndDate,
-                "",
-                "",
-                "",
-                "",
-                "",
-                startDate!!,
-                endDate!!,
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                true,
-                false,
-                "1",
-                clubName?.lowercase().toString(),
-                requireContext()
-            )
-            navController.navigate(R.id.clubManagerFormsMainPage)
-            navController.popBackStack()
+
+            if (dateTextStart =="" && dateTextEnd =="") {
+                binding.etStartDate.error = "Please Select a Date"
+                binding.etEndDate.error = "Please Select a Date"
+            }
+            else if (dateTextEnd==""){
+                binding.etEndDate.error ="Please Select a Date"
+            }
+            else if (dateTextStart==""){
+                binding.etStartDate.error ="Please Select a Date"
+
+
+            }else{
+                val startDate = convertToDate(dateTextStart)
+                val endDate = convertToDate(dateTextEnd)
+
+                clubName = viewModel.clubData?.clubName
+                Log.e("createForm",clubName.toString())
+                viewModel.sendFormRequst(
+                    binding.etTitle.text.toString(),
+                    binding.etContent.text.toString(),
+                    binding.etEventGoals.text.toString(),
+                    binding.etAgenda.text.toString(),
+                    selectedStartDate!!,
+                    selectedEndDate!!,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    startDate!!,
+                    endDate!!,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    true,
+                    false,
+                    "1",
+                    clubName?.lowercase().toString(),
+                    requireContext()
+                )
+                navController.navigate(R.id.clubManagerFormsMainPage)
+                navController.popBackStack()
+            }
+
+
+
+
         }
     }
 
