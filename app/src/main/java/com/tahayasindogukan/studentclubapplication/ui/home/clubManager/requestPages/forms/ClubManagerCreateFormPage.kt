@@ -31,7 +31,7 @@ class ClubManagerCreateFormPage : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentClubManagerCreateFormPageBinding.inflate(layoutInflater, container, false)
         // Inflate the layout for this fragment
         return binding.root
@@ -149,7 +149,7 @@ class ClubManagerCreateFormPage : Fragment() {
                         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
                         sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
 
-                        val formattedDateTime = sdf.format(selectedStartDate)
+                        val formattedDateTime = sdf.format(selectedStartDate!!)
                         binding.etStartDate.setText(formattedDateTime)
                     },
                     calendar.get(Calendar.HOUR_OF_DAY),
@@ -187,7 +187,7 @@ class ClubManagerCreateFormPage : Fragment() {
                         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
                         sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
 
-                        val formattedDateTime = sdf.format(selectedEndDate)
+                        val formattedDateTime = sdf.format(selectedEndDate!!)
                         binding.etEndDate.setText(formattedDateTime)
                     },
                     calendar.get(Calendar.HOUR_OF_DAY),
