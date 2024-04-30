@@ -186,7 +186,7 @@ class ClubManagerProfileEditRequestFragment : Fragment() {
     }
 
     private fun convertToDate(dateString: String): Date? {
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
 
         return try {
             dateFormat.parse(dateString)

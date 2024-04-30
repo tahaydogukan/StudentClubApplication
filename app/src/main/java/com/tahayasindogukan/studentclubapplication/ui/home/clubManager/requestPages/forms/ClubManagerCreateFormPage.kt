@@ -9,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.core.repository.RequestViewModel
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerCreateFormPageBinding
 import java.text.SimpleDateFormat
@@ -23,6 +26,7 @@ class ClubManagerCreateFormPage : Fragment() {
     private var clubName:String?=null
     private lateinit var selectedStartDate: Date
     private lateinit var selectedEndDate: Date
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -38,6 +42,8 @@ class ClubManagerCreateFormPage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        navController = Navigation.findNavController(view)
 
         binding.etStartDate.setOnClickListener {
             showDateTimePickerDialogStartDate()
@@ -88,6 +94,8 @@ class ClubManagerCreateFormPage : Fragment() {
                 clubName?.lowercase().toString(),
                 requireContext()
             )
+            navController.navigate(R.id.clubManagerFormsMainPage)
+            navController.popBackStack()
         }
     }
 
