@@ -78,7 +78,7 @@ class ClubManagerCreateFormPage : Fragment() {
 
             // Eğer boş edit text varsa, hata mesajını göster
             if (emptyEditTextList.isNotEmpty()) {
-                val errorMessage = "Lütfen tüm alanları doldurun"
+                val errorMessage = "Please Fill All the Blanks"
                 for (emptyEditText in emptyEditTextList) {
                     emptyEditText.error = errorMessage
                 }
