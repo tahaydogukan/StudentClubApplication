@@ -19,14 +19,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+         />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="18dp"
         android:fontFamily="@font/poppins"
         android:text="Start Date"
         android:textSize="16dp"
@@ -38,23 +37,20 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/poppins"
         android:text="End Date"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/club_admin_profile_my_activities_start_date"
-        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_contacts" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_start_date" />
 
     <TextView
         android:id="@+id/textView51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="14dp"
         android:fontFamily="@font/poppins"
         android:text="Location"
         android:textSize="16dp"
@@ -67,7 +63,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
         android:fontFamily="@font/poppins"
         android:text="Contacts"
         android:textSize="16dp"
@@ -79,7 +74,6 @@
         android:id="@+id/textView55"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="124dp"
         android:fontFamily="@font/poppins"
         android:text="Description"
@@ -90,47 +84,45 @@
 
     <TextView
         android:id="@+id/club_admin_profile_my_activities_start_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/normal_background"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="#BDDCEA"
         android:fontFamily="@font/poppins"
         android:paddingLeft="4dp"
         android:paddingTop="2dp"
         android:paddingRight="4dp"
-        android:text="12/04/2024"
-        android:textSize="11sp"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_contacts" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/club_admin_profile_my_activities_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/club_admin_profile_my_activities_end_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/normal_background"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="#BDDCEA"
         android:fontFamily="@font/poppins"
         android:paddingLeft="4dp"
         android:paddingTop="2dp"
         android:paddingRight="4dp"
-        android:text="12/04/2024"
-        android:textSize="11sp"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_contacts" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/club_admin_profile_my_activities_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
         android:id="@+id/club_admin_profile_my_activities_location"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppins"
-        android:text="Okul"
         android:textSize="11sp"
         app:layout_constraintEnd_toStartOf="@+id/club_admin_profile_my_activities_description"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,13 +130,13 @@
 
     <TextView
         android:id="@+id/club_admin_profile_my_activities_contacts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppins"
-        android:text="+90 555 325 23 23"
         android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/club_admin_profile_my_activities_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
@@ -163,9 +155,10 @@
 
     <TextView
         android:id="@+id/club_admin_profile_my_activities_description"
-        android:layout_width="190dp"
-        android:layout_height="194dp"
+        android:layout_width="189dp"
+        android:layout_height="241dp"
         android:layout_marginStart="204dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/poppins"
         android:text="Indulge in the enchanting world of poetry at our upcoming event, &quot;Poetry Hour: A Celebration of Verses,&quot; hosted by the Literature Club. Join fellow poetry enthusiasts for an evening filled with captivating recitations, insightful discussions, and heartfelt expressions of creativity."
@@ -192,29 +185,32 @@
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:background="#7C000000"
-        android:textColor="@color/white"
         android:fontFamily="@font/poppins"
         android:gravity="center"
+        android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/club_manager_profile_my_activities_photo"
         app:layout_constraintEnd_toEndOf="@+id/club_manager_profile_my_activities_photo"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/club_manager_profile_my_activities_photo" />
+        app:layout_constraintStart_toStartOf="@+id/club_manager_profile_my_activities_photo"
+        app:layout_constraintTop_toTopOf="@+id/club_manager_profile_my_activities_photo"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/club_admin_profile_my_activities_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
         android:fontFamily="@font/poppins"
-        android:textColor="@color/white"
         android:gravity="center"
+        android:textColor="@color/white"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/club_manager_profile_my_activities_photo"
         app:layout_constraintEnd_toEndOf="@+id/club_manager_profile_my_activities_photo"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/club_manager_profile_my_activities_photo" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/club_manager_profile_my_activities_photo"
+        app:layout_constraintTop_toTopOf="@+id/club_manager_profile_my_activities_photo"
+        app:layout_constraintVertical_bias="0.798" />
 
     <TextView
         android:id="@+id/textView67"
@@ -232,7 +228,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins"
         android:text="Web Platform"
         android:textSize="16dp"
@@ -242,25 +237,27 @@
 
     <TextView
         android:id="@+id/club_admin_profile_my_activities_web_platform"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="Zoom"
-        android:textSize="11sp"
+        android:layout_marginEnd="8dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/club_admin_profile_my_activities_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView82" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="28dp"
-        android:background="@drawable/normal_background"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/gradient_background"
+        android:drawableLeft="@drawable/icon_notifications"
         android:fontFamily="@font/poppins"
+        android:paddingStart="4dp"
         android:text="Edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
