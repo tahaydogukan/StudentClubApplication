@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerClubActivtiesDetailBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
+import java.util.TimeZone
 
 
 class ClubManagerClubActivtiesDetailFragment : Fragment() {
@@ -33,6 +34,8 @@ class ClubManagerClubActivtiesDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         val formattedStartDateTime = sdf.format(args.request.startDate)
         val formattedEndDateTime = sdf.format(args.request.endDate)
 

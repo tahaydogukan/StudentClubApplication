@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminPostsRejectedDetailBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
+import java.util.TimeZone
 
 
 class SksAdminPostsRejectedDetailFragment : Fragment() {
@@ -33,6 +34,8 @@ class SksAdminPostsRejectedDetailFragment : Fragment() {
             .into(binding.sksAdminPostsRejectedPhoto)
 
         val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        dateFormat.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         val formattedStartDateTime = dateFormat.format(args.request.startDate)
         val formattedEndDateTime = dateFormat.format(args.request.endDate)
 

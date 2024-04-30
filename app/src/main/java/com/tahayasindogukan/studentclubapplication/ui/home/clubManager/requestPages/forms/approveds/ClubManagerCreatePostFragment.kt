@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
 class ClubManagerCreatePostFragment : Fragment() {
     private lateinit var binding: FragmentClubManagerCreatePostBinding
@@ -55,6 +56,8 @@ class ClubManagerCreatePostFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         val formattedStartDateTime = sdf.format(args.request.startDate)
         val formattedEndDateTime = sdf.format(args.request.endDate)
 
@@ -130,8 +133,9 @@ class ClubManagerCreatePostFragment : Fragment() {
                     "1",
                     requireContext()
                 )
-
-                uploadPhoto(uri!!)
+                if (uri!=null){
+                    uploadPhoto(uri!!)
+                }
 
                 navController.navigate(R.id.clubManagerFormsApprovedPage)
                 navController.popBackStack()
@@ -214,6 +218,8 @@ class ClubManagerCreatePostFragment : Fragment() {
 
                         // Seçilen tarihi ve saati göster
                         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
                         val formattedDateTime = sdf.format(selectedStartDate)
                         binding.createPostsEtStartDate.text = formattedDateTime
                     },
@@ -250,6 +256,8 @@ class ClubManagerCreatePostFragment : Fragment() {
 
                         // Seçilen tarihi ve saati göster
                         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
                         val formattedDateTime = sdf.format(selectedEndDate)
                         binding.createPostsEtEtEndDate.text = formattedDateTime
                     },
@@ -269,6 +277,8 @@ class ClubManagerCreatePostFragment : Fragment() {
 
     private fun convertToDate(dateString: String): Date? {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        dateFormat.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         return try {
             dateFormat.parse(dateString)
         } catch (e: Exception) {

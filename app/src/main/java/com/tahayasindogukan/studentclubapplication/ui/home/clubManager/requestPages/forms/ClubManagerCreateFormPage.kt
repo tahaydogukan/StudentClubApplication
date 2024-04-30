@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
 class ClubManagerCreateFormPage : Fragment() {
     private lateinit var binding: FragmentClubManagerCreateFormPageBinding
@@ -109,6 +110,8 @@ class ClubManagerCreateFormPage : Fragment() {
 
                         // Seçilen tarihi ve saati göster
                         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
                         val formattedDateTime = sdf.format(selectedStartDate)
                         binding.etStartDate.setText(formattedDateTime)
                     },
@@ -145,6 +148,8 @@ class ClubManagerCreateFormPage : Fragment() {
 
                         // Seçilen tarihi ve saati göster
                         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
                         val formattedDateTime = sdf.format(selectedEndDate)
                         binding.etEndDate.setText(formattedDateTime)
                     },
@@ -164,6 +169,8 @@ class ClubManagerCreateFormPage : Fragment() {
 
     private fun convertToDate(dateString: String): Date? {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        dateFormat.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         return try {
             dateFormat.parse(dateString)
         } catch (e: Exception) {

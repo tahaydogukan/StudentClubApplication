@@ -12,6 +12,7 @@ import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManag
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.forms.approved.SksAdminFormsApprovedDetailFragmentArgs
 import java.text.SimpleDateFormat
 import java.util.Locale
+import java.util.TimeZone
 
 class ClubManagerProfileMyActivitiesDetail : Fragment() {
     private lateinit var binding: FragmentClubManagerProfileMyActivitiesDetailBinding
@@ -36,6 +37,8 @@ class ClubManagerProfileMyActivitiesDetail : Fragment() {
         var request = args.request
 
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         val formattedStartDateTime = sdf.format(args.request.startDate)
         val formattedEndDateTime = sdf.format(args.request.endDate)
 

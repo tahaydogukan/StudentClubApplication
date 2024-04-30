@@ -38,6 +38,7 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="120dp"
         android:fontFamily="@font/poppins"
@@ -45,6 +46,7 @@
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/club_admin_profile_my_activities_start_date"
         app:layout_constraintTop_toBottomOf="@+id/club_admin_profile_my_activities_contacts" />
 
     <TextView

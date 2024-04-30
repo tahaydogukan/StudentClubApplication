@@ -15,6 +15,7 @@ import com.tahayasindogukan.studentclubapplication.R
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsPendingDetailBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
+import java.util.TimeZone
 
 class SksAdminFormsPendingDetailFragment : Fragment() {
     private lateinit var binding: FragmentSksAdminFormsPendingDetailBinding
@@ -40,6 +41,8 @@ class SksAdminFormsPendingDetailFragment : Fragment() {
             .into(binding.sksAdminFormsPendingPhoto)
 
         val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        dateFormat.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         val formattedStartDateTime = dateFormat.format(args.request.startDate)
         val formattedEndDateTime = dateFormat.format(args.request.endDate)
 

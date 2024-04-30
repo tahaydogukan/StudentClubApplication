@@ -43,7 +43,7 @@ class SksAdminProfileFragment : Fragment() {
                 val intent = Intent(requireContext(), LoginMainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
                 startActivity(intent)
-
+                navController.popBackStack()
             }
 
 

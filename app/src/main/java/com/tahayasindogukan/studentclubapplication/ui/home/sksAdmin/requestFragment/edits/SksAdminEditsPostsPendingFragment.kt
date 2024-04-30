@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
 
 class SksAdminEditsPostsPendingFragment : Fragment() {
@@ -47,6 +48,7 @@ class SksAdminEditsPostsPendingFragment : Fragment() {
             .into(binding.sksAdminEditPostPhoto)
 
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
         val formattedStartDateTime = sdf.format(args.request.newStartDate)
         val formattedEndDateTime = sdf.format(args.request.newEndDate)
 

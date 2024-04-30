@@ -9,6 +9,7 @@ import androidx.navigation.fragment.navArgs
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentClubManagerFormsPendingDetailPageBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
+import java.util.TimeZone
 
 class ClubManagerFormsPendingDetailPage : Fragment() {
     private val args : ClubManagerFormsPendingDetailPageArgs by navArgs()
@@ -29,6 +30,8 @@ class ClubManagerFormsPendingDetailPage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         val formattedStartDateTime = sdf.format(args.request.startDate)
         val formattedEndDateTime = sdf.format(args.request.endDate)
 

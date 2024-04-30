@@ -11,6 +11,7 @@ import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminP
 import com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.requestFragment.posts.pending.SksAdminPostsPendingDetailFragmentArgs
 import java.text.SimpleDateFormat
 import java.util.Locale
+import java.util.TimeZone
 
 class SksAdminPostsApprovedDetailFragment : Fragment() {
     private lateinit var binding: FragmentSksAdminPostsApprovedDetailBinding
@@ -33,6 +34,8 @@ class SksAdminPostsApprovedDetailFragment : Fragment() {
             .into(binding.sksAdminPostsApprovedPhoto)
 
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         val formattedStartDateTime = sdf.format(args.request.startDate)
         val formattedEndDateTime = sdf.format(args.request.endDate)
 

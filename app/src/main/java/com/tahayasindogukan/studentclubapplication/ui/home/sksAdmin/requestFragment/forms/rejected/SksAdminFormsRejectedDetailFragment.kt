@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.tahayasindogukan.studentclubapplication.databinding.FragmentSksAdminFormsRejectedDetailBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
+import java.util.TimeZone
 
 class SksAdminFormsRejectedDetailFragment : Fragment() {
 
@@ -34,6 +35,8 @@ class SksAdminFormsRejectedDetailFragment : Fragment() {
         Glide.with(requireContext()).load(args.request.attachment).into(binding.sksAdminFormsRejectedPhoto)
 
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        sdf.timeZone = TimeZone.getTimeZone("Europe/Istanbul")
+
         val formattedStartDateTime = sdf.format(args.request.startDate)
         val formattedEndDateTime = sdf.format(args.request.endDate)
 
