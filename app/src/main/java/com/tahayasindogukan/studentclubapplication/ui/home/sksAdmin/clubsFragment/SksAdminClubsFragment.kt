@@ -92,7 +92,7 @@ class SksAdminClubsFragment : Fragment(),SksAdminClubSearchAdapter.SksAdminClubS
             }
 
             btnSports.setOnClickListener {
-                category = "sports"
+                category = "sport"
                 firebaseViewModel.searchClubByCategory(category!!)
             }
 
@@ -112,7 +112,7 @@ class SksAdminClubsFragment : Fragment(),SksAdminClubSearchAdapter.SksAdminClubS
             }
 
             btnSocialActivisim.setOnClickListener {
-                category = "social activisim"
+                category = "social activism"
                 firebaseViewModel.searchClubByCategory(category!!)
             }
 
