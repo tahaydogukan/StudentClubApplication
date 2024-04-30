@@ -42,13 +42,13 @@ class SksAdminClubInfoDetailFragment : Fragment() {
             sksAdminClubInfoDetailManager.text = args.request.manager
 
             if (args.request.location.length <= 2){
-                binding.sksAdminClubInfoDetailLocation.visibility = View.INVISIBLE
+                binding.sksAdminClubInfoDetailLocation.text = "Not Available"
             }else{
                 sksAdminClubInfoDetailLocation.text = args.request.location
             }
 
             if (args.request.webPlatform.length <= 2){
-                binding.sksAdminClubInfoDetailWebPlatform.visibility = View.INVISIBLE
+                binding.sksAdminClubInfoDetailWebPlatform.text = "Not Available"
             }else{
                 sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
             }

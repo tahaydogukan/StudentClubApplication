@@ -141,6 +141,7 @@
         android:autofillHints=""
         android:background="@drawable/normal_background"
         android:clickable="false"
+        android:gravity="start"
         android:ems="10"
         android:fontFamily="@font/poppins"
         android:textSize="12sp"

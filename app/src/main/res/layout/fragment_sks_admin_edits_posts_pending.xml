@@ -77,6 +77,7 @@
                 android:autofillHints=""
                 android:background="@drawable/normal_background"
                 android:ems="10"
+                android:gravity="start"
                 android:fontFamily="@font/poppins"
                 android:paddingStart="8dp"
                 android:paddingTop="6dp"
