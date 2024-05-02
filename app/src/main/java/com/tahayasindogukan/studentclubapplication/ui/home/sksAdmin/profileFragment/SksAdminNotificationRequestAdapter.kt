@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Club
+import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
 import com.tahayasindogukan.studentclubapplication.databinding.SksAdminNotificationCardViewBinding
 
-
-class SksAdminProfileNotificationsAdapter(
-    var clubList: List<Club>,
+class SksAdminNotificationRequestAdapter(
+    var requestList: List<Request>,
     private val context: Context,
     val listener: SksAdminEditsClubAdapterClickListener
 ) :
-    RecyclerView.Adapter<SksAdminProfileNotificationsAdapter.SksAdminNotificationsAdapterViewHolder>() {
+    RecyclerView.Adapter<SksAdminNotificationRequestAdapter.SksAdminNotificationsAdapterViewHolder>() {
 
 
     inner class SksAdminNotificationsAdapterViewHolder(
@@ -35,13 +35,13 @@ class SksAdminProfileNotificationsAdapter(
     }
 
     override fun getItemCount(): Int {
-        return clubList.size
+        return requestList.size
     }
 
     //holder sayesinde card tasarımına ulaşıyoruz
     override fun onBindViewHolder(holder: SksAdminNotificationsAdapterViewHolder, position: Int) {
         val t = holder.view
-        val document = clubList[position]
+        val document = requestList[position]
 
 
 
@@ -54,7 +54,7 @@ class SksAdminProfileNotificationsAdapter(
 
     interface SksAdminEditsClubAdapterClickListener {
         fun onClick(
-            club: Club
+            request: Request
         )
     }
 }

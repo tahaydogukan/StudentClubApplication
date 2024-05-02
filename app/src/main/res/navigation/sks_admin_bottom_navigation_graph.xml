@@ -226,4 +226,13 @@
             android:name="club"
             app:argType="com.tahayasindogukan.studentclubapplication.core.entitiy.Club" />
     </fragment>
+    <fragment
+        android:id="@+id/sksAdminProfileNotificationsFragment"
+        android:name="com.tahayasindogukan.studentclubapplication.ui.home.sksAdmin.profileFragment.SksAdminProfileNotificationsFragment"
+        android:label="fragment_sks_admin_profile_notifications"
+        tools:layout="@layout/fragment_sks_admin_profile_notifications" >
+        <action
+            android:id="@+id/action_sksAdminProfileNotificationsFragment_to_sksAdminEditsClubPendingFragment"
+            app:destination="@id/sksAdminEditsClubPendingFragment" />
+    </fragment>
 </navigation>

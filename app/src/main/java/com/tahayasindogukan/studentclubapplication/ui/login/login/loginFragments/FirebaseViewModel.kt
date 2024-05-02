@@ -216,20 +216,6 @@ class FirebaseViewModel : ViewModel() {
                 }
         }
     }
-    fun getActivties() {
-        val activityCollection = firebaseFirestoreInstance.collection("activities")
-        activityCollection.get().addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                val activityList = mutableListOf<Activity>()
-                for (document in task.result!!) {
-                    activityList.add(document.toObject(Activity::class.java))
-                }
-                activies.postValue(activityList)
-            } else {
-                Log.e("ClubViewModel", "Error getting activities: ", task.exception)
-            }
-        }
-    }
 
     fun signInViewModel(email: String, password: String, onComplete: (Boolean, String?) -> Unit) {
         firebaseRepository.signInRepository(email, password) { success, message ->

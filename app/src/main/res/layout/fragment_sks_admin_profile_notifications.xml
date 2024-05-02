@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sks_admin_edits_posts_notification_recycler_view"
+        android:id="@+id/sks_admin_request_notification_recycler_view"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="8dp"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppins"
-        android:text="Profile Edit Notifications"
+        android:text="Profile Notifications"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/sks_admin_edits_club_notification_recycler_view"
@@ -74,9 +74,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppins"
-        android:text="Post Edit Notifications"
+        android:text="Request Notifications"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

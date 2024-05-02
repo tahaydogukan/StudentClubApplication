@@ -41,7 +41,7 @@ class SksAdminEditsClubPendingFragment : Fragment() {
         binding.sksAdminEditClubBtnApprove.setOnClickListener{
 
             val clubUpdates = hashMapOf<String, Any>()
-            clubUpdates["status"] = "1"
+            clubUpdates["clubStatus"] = "1"
             clubUpdates["clubName"] = args.club.newClubName
             clubUpdates["clubDescription"] = args.club.newClubDescription
             clubUpdates["clubPhoto"] = args.club.newClubPhoto
@@ -67,7 +67,7 @@ class SksAdminEditsClubPendingFragment : Fragment() {
         binding.sksAdminEditClubBtnReject.setOnClickListener {
 
             val clubUpdates = hashMapOf<String, Any>()
-            clubUpdates["status"] = "1"
+            clubUpdates["clubStatus"] = "1"
 
             clubUpdates["newClubName"] =  ""
             clubUpdates["newClubDescription"] =  ""

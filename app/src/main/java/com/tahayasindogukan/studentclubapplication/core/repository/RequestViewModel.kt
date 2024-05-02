@@ -672,7 +672,7 @@ class RequestViewModel : ViewModel() {
     }
     fun getClubEdits() {
         FirebaseFirestore.getInstance().collection("club")
-            .whereEqualTo("clubStatus", "1")
+            .whereEqualTo("clubStatus", "2")
             .get()
             .addOnSuccessListener { querySnapshot ->
                 if (querySnapshot.documents.isNotEmpty()) {
@@ -790,5 +790,48 @@ class RequestViewModel : ViewModel() {
                 }
             }
     }
+    fun getRequestNotifications() {
+        FirebaseFirestore.getInstance().collection("request")
+            .whereEqualTo("status", "1")
+            .whereEqualTo("status", "4")
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
 
+                    val requestList = mutableListOf<Request>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Request::class.java).let { requestList.add(it) }
+                    }
+                    postsApprovedList.postValue(requestList)
+
+                } else {
+                    Log.e("getRequestNotifications", "Veri alınamadı")
+                }
+            }
+
+
+    }
+    fun getClubNotifications() {
+        FirebaseFirestore.getInstance().collection("club")
+            .whereEqualTo("clubStatus", "2")
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+
+                    val clubList = mutableListOf<Club>()
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Club::class.java).let { clubList.add(it) }
+                    }
+                    clubEditList.postValue(clubList)
+                    Log.e("getClubNotifications", clubList.toString())
+
+                } else {
+                    Log.e("getClubNotifications", "Veri alınamadı")
+                }
+            }
+
+
+    }
 }

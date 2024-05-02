@@ -48,6 +48,10 @@ class SksAdminProfileFragment : Fragment() {
 
 
         }
+
+        binding.btnNotification.setOnClickListener {
+            navController.navigate(R.id.sksAdminProfileNotificationsFragment)
+        }
     }
 
 }
