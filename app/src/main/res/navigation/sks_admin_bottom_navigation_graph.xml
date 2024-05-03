@@ -234,5 +234,11 @@
         <action
             android:id="@+id/action_sksAdminProfileNotificationsFragment_to_sksAdminEditsClubPendingFragment"
             app:destination="@id/sksAdminEditsClubPendingFragment" />
+        <action
+            android:id="@+id/action_sksAdminProfileNotificationsFragment_to_sksAdminEditsPostsPendingFragment"
+            app:destination="@id/sksAdminEditsPostsPendingFragment" />
+        <action
+            android:id="@+id/action_sksAdminProfileNotificationsFragment_to_sksAdminRequestFragment"
+            app:destination="@id/sksAdminRequestFragment" />
     </fragment>
 </navigation>

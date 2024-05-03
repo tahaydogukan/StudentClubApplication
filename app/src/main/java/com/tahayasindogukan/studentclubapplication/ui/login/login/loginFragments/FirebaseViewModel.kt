@@ -40,6 +40,7 @@ class FirebaseViewModel : ViewModel() {
 
         val clubManagerIdHashMap = hashMapOf<String, Any>()
 
+
         if (clubManagerId != null) clubManagerIdHashMap["clubManagerId"] = clubManagerId
 
         firebaseClubRef.update(clubManagerIdHashMap)

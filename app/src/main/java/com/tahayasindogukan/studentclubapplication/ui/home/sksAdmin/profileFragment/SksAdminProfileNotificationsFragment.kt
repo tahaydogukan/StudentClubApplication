@@ -67,7 +67,16 @@ class SksAdminProfileNotificationsFragment : Fragment()
     }
 
     override fun onClick(request: Request) {
-        TODO("Not yet implemented")
+
+        if (request.status == "4"){
+            val action = SksAdminProfileNotificationsFragmentDirections
+                .actionSksAdminProfileNotificationsFragmentToSksAdminEditsPostsPendingFragment(request)
+            findNavController().navigate(action)
+        }else{
+            val action = SksAdminProfileNotificationsFragmentDirections
+                .actionSksAdminProfileNotificationsFragmentToSksAdminRequestFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onClick(club: Club) {

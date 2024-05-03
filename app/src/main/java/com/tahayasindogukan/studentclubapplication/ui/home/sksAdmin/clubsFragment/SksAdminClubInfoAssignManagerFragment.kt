@@ -50,8 +50,11 @@ class SksAdminClubInfoAssignManagerFragment : Fragment() {
             Log.e("List", clubManagerList2.toString())
 
             for (i in clubManagersList) {
+
                 nameList.add(i.name)
-            }
+
+                }
+
             val arrayAdapter = ArrayAdapter(requireContext(), R.layout.simple_list_item_1, nameList)
             binding.sksAdminClubsInfoAssignManagerAutoCompleteTextview.setAdapter(arrayAdapter)
 
