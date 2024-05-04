@@ -86,7 +86,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins"
-            android:text="12"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/button3"
             app:layout_constraintStart_toStartOf="@+id/button3" />
@@ -98,7 +97,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins"
-            android:text="13"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/button5"
             app:layout_constraintStart_toStartOf="@+id/button5" />
@@ -161,7 +159,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins"
-            android:text="14"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/button6"
             app:layout_constraintStart_toStartOf="@+id/button6" />
@@ -173,7 +170,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins"
-            android:text="15"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/button4"
             app:layout_constraintStart_toStartOf="@+id/button4" />
