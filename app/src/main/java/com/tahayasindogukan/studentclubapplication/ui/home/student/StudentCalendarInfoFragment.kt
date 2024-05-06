@@ -32,14 +32,18 @@ class StudentCalendarInfoFragment : Fragment() {
             sksAdminClubInfoDetailTitle.text = args.request.title
             sksAdminClubInfoDetailManager.text = args.request.manager
 
+
             if (args.request.location == "") {
-                binding.sksAdminClubInfoDetailLocation.visibility = View.INVISIBLE
+                binding.sksAdminClubInfoDetailLocation.text = "Not Available"
+
             } else {
                 sksAdminClubInfoDetailLocation.text = args.request.location
+
             }
 
-            if (args.request.webPlatform == "") {
-                binding.sksAdminClubInfoDetailWebPlatform.visibility = View.INVISIBLE
+            if (args.request.webPlatform=="") {
+                binding.sksAdminClubInfoDetailWebPlatform.text = "Not Available"
+
             } else {
                 sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
             }

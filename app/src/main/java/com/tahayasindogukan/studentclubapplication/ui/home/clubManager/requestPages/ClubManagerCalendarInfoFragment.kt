@@ -38,10 +38,24 @@ class ClubManagerCalendarInfoFragment : Fragment() {
 
         Glide.with(requireContext()).load(args.request.attachment).into(binding.clubManagerCalendarInfoDetailPhoto)
 
+        if (args.request.location == "") {
+            binding.clubManagerCalendarInfoDetailLocation.text = "Not Available"
+
+        } else {
+            binding.clubManagerCalendarInfoDetailLocation.text = args.request.location
+
+        }
+
+        if (args.request.webPlatform=="") {
+            binding.clubManagerCalendarInfoDetailWebPlatform.text = "Not Available"
+
+        } else {
+            binding.clubManagerCalendarInfoDetailWebPlatform.text = args.request.webPlatform
+        }
         binding.clubManagerCalendarInfoDetailStartDate.text = formattedStartDateTime
         binding.clubManagerCalendarInfoDetailDescription.text = args.request.content
         binding.clubManagerCalendarInfoDetailWebContacts.text = args.request.contacts
-        binding.clubManagerCalendarInfoDetailWebPlatform.text = args.request.webPlatform
+
         binding.clubManagerCalendarInfoDetailTitle.text = args.request.title
         binding.sksAdminClubInfoDetailManager.text = args.request.manager
         binding.clubManagerCalendarInfoDetailEndDate.text = formattedEndDateTime
