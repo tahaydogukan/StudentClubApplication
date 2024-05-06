@@ -42,7 +42,11 @@
         android:id="@+id/studentHomePageFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentHomePageFragment"
         android:label="fragment_student_home_page"
-        tools:layout="@layout/fragment_student_home_page" />
+        tools:layout="@layout/fragment_student_home_page" >
+        <action
+            android:id="@+id/action_studentHomePageFragment_to_studentClubInfoDetailFragment"
+            app:destination="@id/studentClubInfoDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/studentCalendarInfoFragment"
         android:name="com.tahayasindogukan.studentclubapplication.ui.home.student.StudentCalendarInfoFragment"

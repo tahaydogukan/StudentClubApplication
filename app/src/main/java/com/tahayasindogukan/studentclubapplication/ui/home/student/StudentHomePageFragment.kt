@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tahayasindogukan.studentclubapplication.core.entitiy.Request
@@ -43,7 +44,6 @@ class StudentHomePageFragment : Fragment(), ClubManagerCalendarAdapter.MyClickLi
 
         rv.setHasFixedSize(true)
         rv.layoutManager = LinearLayoutManager(requireContext())
-        searchView = binding.searchBar
 
 
         /*searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -67,7 +67,6 @@ class StudentHomePageFragment : Fragment(), ClubManagerCalendarAdapter.MyClickLi
             adapter = ClubManagerCalendarAdapter(request, this, requireContext())
             rv.adapter = adapter
 
-            searchView = binding.searchBar
         }
 
 
@@ -98,7 +97,10 @@ class StudentHomePageFragment : Fragment(), ClubManagerCalendarAdapter.MyClickLi
 
 
     override fun onClick(request: Request) {
-
+        // Sks admin calendar info activitysi yok onu yap
+        val action = StudentHomePageFragmentDirections
+            .actionStudentHomePageFragmentToStudentClubInfoDetailFragment(request)
+        findNavController().navigate(action)
     }
 
 }

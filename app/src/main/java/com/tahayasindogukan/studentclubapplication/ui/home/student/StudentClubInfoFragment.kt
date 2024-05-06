@@ -89,12 +89,6 @@ class StudentClubInfoFragment : Fragment(),
 
 
 
-        binding.sksAdminClubInfoBtnBack.setOnClickListener {
-            navController.navigate(R.id.sksAdminClubsFragment)
-            navController.popBackStack()
-        }
-
-
     }
 
     override fun onClick(request: Request) {

@@ -32,13 +32,13 @@ class StudentCalendarInfoFragment : Fragment() {
             sksAdminClubInfoDetailTitle.text = args.request.title
             sksAdminClubInfoDetailManager.text = args.request.manager
 
-            if (args.request.location.length <= 2) {
+            if (args.request.location == "") {
                 binding.sksAdminClubInfoDetailLocation.visibility = View.INVISIBLE
             } else {
                 sksAdminClubInfoDetailLocation.text = args.request.location
             }
 
-            if (args.request.webPlatform.length <= 2) {
+            if (args.request.webPlatform == "") {
                 binding.sksAdminClubInfoDetailWebPlatform.visibility = View.INVISIBLE
             } else {
                 sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
@@ -51,7 +51,6 @@ class StudentCalendarInfoFragment : Fragment() {
 
             Glide.with(requireContext()).load(args.request.attachment).into(binding.sksAdminClubInfoDetailPhoto)
 
-            sksAdminClubInfoDetailWebPlatform.text = args.request.webPlatform
             sksAdminClubInfoDetailWebContacts.text = args.request.contacts
             sksAdminClubInfoDetailStartDate.text = formattedStartDateTime
             sksAdminClubInfoDetailEndDate.text = formattedEndDateTime

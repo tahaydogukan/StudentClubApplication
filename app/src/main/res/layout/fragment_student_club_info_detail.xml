@@ -126,7 +126,7 @@
 
     <TextView
         android:id="@+id/sks_admin_club_info_detail_location"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="16dp"
@@ -194,11 +194,11 @@
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:background="#20220234"
-        android:textStyle="bold"
         android:fontFamily="@font/poppins"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="13sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/sks_admin_club_info_detail_photo"
         app:layout_constraintEnd_toEndOf="@+id/sks_admin_club_info_detail_photo"
         app:layout_constraintHorizontal_bias="0.0"
@@ -210,8 +210,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         android:gravity="center"
-        android:textSize="17sp"
         android:textColor="@color/white"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/sks_admin_club_info_detail_photo"
         app:layout_constraintEnd_toEndOf="@+id/sks_admin_club_info_detail_photo"
@@ -246,8 +246,8 @@
 
     <TextView
         android:id="@+id/sks_admin_club_info_detail_web_platform"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
