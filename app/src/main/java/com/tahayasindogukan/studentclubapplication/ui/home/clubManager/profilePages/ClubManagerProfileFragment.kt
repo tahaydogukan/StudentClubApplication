@@ -41,6 +41,9 @@ class ClubManagerProfileFragment : Fragment() {
 
         var club: Club? = null
 
+
+
+
         firebaseViewModel.checkManagerOfWhichClub()
 
         firebaseViewModel.club.observe(viewLifecycleOwner) {
@@ -60,6 +63,14 @@ class ClubManagerProfileFragment : Fragment() {
                         Log.e("clubManager", "İşlem başarısız")
                     }
                 }
+        }
+
+        binding.btnNotification.setOnClickListener {
+            val action = club?.let { it1 ->
+                ClubManagerProfileFragmentDirections
+                    .actionClubManagerProfileFragmentToClubManagerProfileNotificationFragment(it1)
+            }
+            action?.let { it1 -> findNavController().navigate(it1) }
         }
 
         binding.btnSettings.setOnClickListener {

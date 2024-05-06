@@ -29,7 +29,7 @@
                 android:drawableLeft="@drawable/icon_notifications"
                 android:fontFamily="@font/poppins"
                 android:gravity="center"
-                android:text="A request for edits has been received"
+                android:text="A request notification has been received"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

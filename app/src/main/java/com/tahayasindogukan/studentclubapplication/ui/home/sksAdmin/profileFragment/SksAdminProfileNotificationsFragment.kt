@@ -80,7 +80,6 @@ class SksAdminProfileNotificationsFragment : Fragment()
     }
 
     override fun onClick(club: Club) {
-// Sks admin calendar info activitysi yok onu yap
         val action = SksAdminProfileNotificationsFragmentDirections
             .actionSksAdminProfileNotificationsFragmentToSksAdminEditsClubPendingFragment(club)
         findNavController().navigate(action)    }

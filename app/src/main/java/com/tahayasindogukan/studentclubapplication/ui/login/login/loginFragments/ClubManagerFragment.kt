@@ -41,11 +41,6 @@ class ClubManagerFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
 
-        val currentUser = FirebaseAuth.getInstance().currentUser
-
-        if (currentUser != null) {
-            startActivity(Intent(requireContext(), ClubManagerHomePageActivity::class.java))
-        }
 
 
 

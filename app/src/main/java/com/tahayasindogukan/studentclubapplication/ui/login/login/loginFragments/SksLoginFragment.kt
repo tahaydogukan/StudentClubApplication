@@ -42,11 +42,6 @@ class SksLoginFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
 
-        val currentUser = FirebaseAuth.getInstance().currentUser
-
-        if (currentUser != null) {
-            startActivity(Intent(requireContext(), SksAdminHomePageActivity::class.java))
-        }
 
 
         //function of back button

@@ -827,6 +827,49 @@ class RequestViewModel : ViewModel() {
             }
 
     }
+    fun getRequestNotificationsForClubManager(clubName: String) {
+
+        val requestList = mutableListOf<Request>()
+
+
+        FirebaseFirestore.getInstance().collection("request")
+            .whereEqualTo("status", "2")
+            .whereEqualTo("clubName", clubName.lowercase())
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Request::class.java).let { requestList.add(it) }
+                    }
+                    postsApprovedList.postValue(requestList)
+                    Log.e("getClubNotifications", requestList.toString())
+
+                } else {
+                    Log.e("getClubNotifications", "Veri alınamadı")
+                }
+            }
+
+
+        FirebaseFirestore.getInstance().collection("request")
+            .whereEqualTo("clubName", clubName.lowercase())
+            .whereEqualTo("status", "4")
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+
+                    for (document in querySnapshot) {
+                        // Burada her bir belgeyi işleyebilirsiniz
+                        document.toObject(Request::class.java).let { requestList.add(it) }
+                    }
+                    postsApprovedList.postValue(requestList)
+
+                } else {
+                    Log.e("getRequestNotifications", "Veri alınamadı")
+                }
+            }
+
+    }
     fun getClubNotifications() {
         FirebaseFirestore.getInstance().collection("club")
             .whereEqualTo("clubStatus", "2")
